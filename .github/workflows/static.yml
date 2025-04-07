@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Business Card</title>
+    <style>
+        :root {
+            --bg-color: #f5f5f5;
+            --card-color: #ffffff;
+            --text-color: #333333;
+            --accent-color: #3d5afe;
+            --secondary-color: #f1f1f1;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.5;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .card {
+            background: var(--card-color);
+            max-width: 500px;
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+        
+        .header {
+            padding: 40px 30px 20px;
+            text-align: center;
+        }
+        
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 20px;
+            display: block;
+            border: 3px solid var(--accent-color);
+        }
+        
+        .name {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .title {
+            font-size: 16px;
+            font-weight: 400;
+            opacity: 0.8;
+            margin-bottom: 15px;
+        }
+        
+        .language-switcher {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .lang-btn {
+            background: none;
+            border: none;
+            font-size: 14px;
+            cursor: pointer;
+            opacity: 0.5;
+            transition: opacity 0.3s;
+        }
+        
+        .lang-btn.active {
+            opacity: 1;
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+        
+        .divider {
+            height: 1px;
+            background: var(--secondary-color);
+            margin: 15px 0;
+        }
+        
+        .content {
+            padding: 0 30px 30px;
+        }
+        
+        .section {
+            margin-bottom: 25px;
+        }
+        
+        .section-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        
+        .icon {
+            width: 20px;
+            margin-right: 10px;
+            opacity: 0.7;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        
+        .social-link {
+            color: var(--text-color);
+            font-size: 20px;
+            transition: transform 0.3s, color 0.3s;
+        }
+        
+        .social-link:hover {
+            color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 14px;
+            transition: background 0.3s;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+        
+        .btn:hover {
+            background-color: #304ffe;
+        }
+        
+        @media (max-width: 600px) {
+            .card {
+                border-radius: 0;
+                box-shadow: none;
+            }
+            
+            body {
+                padding: 0;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="card">
+        <div class="header">
+            <div class="language-switcher">
+                <button class="lang-btn active" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="de">DE</button>
+            </div>
+            <img src="/api/placeholder/240/240" alt="Profile Photo" class="profile-img">
+            <h1 class="name">Your Name</h1>
+            <p class="title" data-en="Your Job Title" data-de="Ihr Berufsbezeichnung">Your Job Title</p>
+        </div>
+        
+        <div class="content">
+            <div class="section">
+                <p data-en="Professional with expertise in [your field]. With [X] years of experience, specializing in [your specialties]." 
+                   data-de="Profi mit Expertise in [Ihr Bereich]. Mit [X] Jahren Erfahrung, spezialisiert auf [Ihre Spezialitäten].">
+                   Professional with expertise in [your field]. With [X] years of experience, specializing in [your specialties].
+                </p>
+            </div>
+            
+            <div class="divider"></div>
+            
+            <div class="section">
+                <h3 class="section-title" data-en="Contact" data-de="Kontakt">Contact</h3>
+                <div class="contact-item">
+                    <i class="fas fa-envelope icon"></i>
+                    <span>your.email@example.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone icon"></i>
+                    <span>+123 456 7890</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt icon"></i>
+                    <span>City, Country</span>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h3 class="section-title" data-en="Connect" data-de="Verbinden">Connect</h3>
+                <div class="social-links">
+                    <a href="https://linkedin.com/in/yourprofile" class="social-link" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/yourusername" class="social-link" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://twitter.com/yourusername" class="social-link" target="_blank"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h3 class="section-title" data-en="Resume" data-de="Lebenslauf">Resume</h3>
+                <a href="your-resume-en.pdf" class="btn resume-link" data-en-href="your-resume-en.pdf" data-de-href="your-resume-de.pdf" target="_blank">
+                    <span data-en="View Resume" data-de="Lebenslauf ansehen">View Resume</span>
+                </a>
+                <a href="your-resume-en.pdf" class="btn resume-download" data-en-href="your-resume-en.pdf" data-de-href="your-resume-de.pdf" download>
+                    <span data-en="Download" data-de="Herunterladen">Download</span>
+                </a>
+            </div>
+            
+            <div class="section">
+                <h3 class="section-title" data-en="Portfolio" data-de="Portfolio">Portfolio</h3>
+                <a href="https://yourportfolio.com" class="btn" target="_blank">
+                    <span data-en="View Portfolio" data-de="Portfolio ansehen">View Portfolio</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const langButtons = document.querySelectorAll('.lang-btn');
+            const resumeLinks = document.querySelectorAll('.resume-link');
+            const resumeDownloads = document.querySelectorAll('.resume-download');
+            
+            // Get all elements with data-en and data-de attributes
+            const translatableElements = document.querySelectorAll('[data-en][data-de]');
+            
+            // Function to switch language
+            function switchLanguage(lang) {
+                // Update active button
+                langButtons.forEach(btn => {
+                    if (btn.dataset.lang === lang) {
+                        btn.classList.add('active');
+                    } else {
+                        btn.classList.remove('active');
+                    }
+                });
+                
+                // Update text content for all translatable elements
+                translatableElements.forEach(el => {
+                    el.textContent = el.getAttribute(`data-${lang}`);
+                });
+                
+                // Update resume links
+                resumeLinks.forEach(link => {
+                    link.href = link.getAttribute(`data-${lang}-href`);
+                });
+                
+                // Update resume download links
+                resumeDownloads.forEach(link => {
+                    link.href = link.getAttribute(`data-${lang}-href`);
+                });
+                
+                // Update HTML lang attribute
+                document.documentElement.lang = lang;
+            }
+            
+            // Add click event to language buttons
+            langButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const lang = this.dataset.lang;
+                    switchLanguage(lang);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
