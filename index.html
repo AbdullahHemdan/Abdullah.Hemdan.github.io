@@ -11,6 +11,7 @@
             --text-color: #333333;
             --accent-color: #0055a4;
             --secondary-color: #f1f1f1;
+            --highlight-color: #00b2e3;
         }
         
         * {
@@ -33,10 +34,10 @@
         
         .card {
             background: var(--card-color);
-            max-width: 500px;
+            max-width: 520px;
             width: 100%;
             border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
             overflow: hidden;
             position: relative;
         }
@@ -44,6 +45,8 @@
         .header {
             padding: 40px 30px 20px;
             text-align: center;
+            background: linear-gradient(135deg, var(--accent-color) 0%, var(--highlight-color) 100%);
+            color: white;
         }
         
         .profile-img {
@@ -53,19 +56,20 @@
             object-fit: cover;
             margin: 0 auto 20px;
             display: block;
-            border: 3px solid var(--accent-color);
+            border: 3px solid white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
         
         .name {
-            font-size: 24px;
-            font-weight: 600;
+            font-size: 28px;
+            font-weight: 700;
             margin-bottom: 5px;
         }
         
         .title {
             font-size: 16px;
             font-weight: 400;
-            opacity: 0.8;
+            opacity: 0.9;
             margin-bottom: 15px;
         }
         
@@ -78,18 +82,20 @@
         }
         
         .lang-btn {
-            background: none;
+            background: rgba(255, 255, 255, 0.2);
             border: none;
             font-size: 14px;
             cursor: pointer;
-            opacity: 0.5;
-            transition: opacity 0.3s;
+            padding: 5px 10px;
+            border-radius: 4px;
+            color: white;
+            transition: all 0.3s;
         }
         
         .lang-btn.active {
-            opacity: 1;
-            font-weight: bold;
+            background: white;
             color: var(--accent-color);
+            font-weight: bold;
         }
         
         .divider {
@@ -111,12 +117,18 @@
             font-weight: 600;
             margin-bottom: 10px;
             color: var(--accent-color);
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-title i {
+            margin-right: 8px;
         }
         
         .contact-item {
             display: flex;
             align-items: center;
-            margin-bottom: 8px;
+            margin-bottom: 12px;
         }
         
         .icon {
@@ -133,12 +145,20 @@
         
         .social-link {
             color: var(--text-color);
-            font-size: 20px;
+            font-size: 22px;
             transition: transform 0.3s, color 0.3s;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .social-link:hover {
-            color: var(--accent-color);
+            color: white;
+            background-color: var(--accent-color);
             transform: translateY(-2px);
         }
         
@@ -156,7 +176,7 @@
         }
         
         .btn:hover {
-            background-color: #003d7a;
+            background-color: var(--highlight-color);
         }
         
         .skills-list {
@@ -168,9 +188,29 @@
         
         .skill-tag {
             background: var(--secondary-color);
-            padding: 4px 10px;
+            padding: 6px 12px;
             border-radius: 4px;
-            font-size: 12px;
+            font-size: 13px;
+            transition: all 0.3s;
+        }
+        
+        .skill-tag:hover {
+            background: var(--accent-color);
+            color: white;
+        }
+        
+        .experience-item {
+            margin-bottom: 10px;
+        }
+        
+        .experience-title {
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+        
+        .experience-company, .experience-date {
+            font-size: 14px;
+            opacity: 0.8;
         }
         
         @media (max-width: 600px) {
@@ -195,21 +235,23 @@
             </div>
             <img src="profile.jpg" alt="Abdullah Hemdan" class="profile-img">
             <h1 class="name">Abdullah Hemdan</h1>
-            <p class="title" data-en="Biomedical Engineer & Medical Technology Student" data-de="Biomedizintechniker & Student der Medizintechnik">Biomedical Engineer & Medical Technology Student</p>
+            <p class="title" data-en="Biomedical Engineer & Medtech Graduate Student" data-de="Medizintechnikingenieur & Masterstudent">Biomedical Engineer & Medtech Graduate Student</p>
         </div>
         
         <div class="content">
             <div class="section">
-                <p data-en="Biomedical Engineering Master's student with software development background. Experienced in medical devices, programming, and data analytics." 
-                   data-de="Masterstudent der Biomedizintechnik mit Softwareentwicklungshintergrund. Erfahren mit Medizingeräten, Programmierung und Datenanalyse.">
-                   Biomedical Engineering Master's student with software development background. Experienced in medical devices, programming, and data analytics.
+                <p data-en="Biomedical Engineering Master's student with 2+ years of practical experience in medical devices, software development, and data analytics. Specializing in embedded systems for medical applications and device troubleshooting." 
+                   data-de="Masterstudent der Medizintechnik mit über 2 Jahren praktischer Erfahrung mit Medizingeräten, Softwareentwicklung und Datenanalyse. Spezialisiert auf eingebettete Systeme für medizinische Anwendungen und Gerätefehlerbehebung.">
+                   Biomedical Engineering Master's student with 2+ years of practical experience in medical devices, software development, and data analytics. Specializing in embedded systems for medical applications and device troubleshooting.
                 </p>
             </div>
             
             <div class="divider"></div>
             
             <div class="section">
-                <h3 class="section-title" data-en="Contact" data-de="Kontakt">Contact</h3>
+                <h3 class="section-title" data-en="Contact" data-de="Kontakt">
+                    <i class="fas fa-address-card"></i> Contact
+                </h3>
                 <div class="contact-item">
                     <i class="fas fa-envelope icon"></i>
                     <span>Abdullah.Hemdan@outlook.com</span>
@@ -225,19 +267,89 @@
             </div>
             
             <div class="section">
-                <h3 class="section-title" data-en="Skills" data-de="Fähigkeiten">Skills</h3>
-                <div class="skills-list">
-                    <span class="skill-tag">Python</span>
-                    <span class="skill-tag">MATLAB</span>
-                    <span class="skill-tag">C</span>
-                    <span class="skill-tag">SQL</span>
-                    <span class="skill-tag">Medical Devices</span>
-                    <span class="skill-tag">Data Analysis</span>
+                <h3 class="section-title" data-en="Professional Experience" data-de="Berufserfahrung">
+                    <i class="fas fa-briefcase"></i> Professional Experience
+                </h3>
+                <div class="experience-item">
+                    <div class="experience-title" data-en="Biomedical Engineer" data-de="Medizintechnikingenieur">Biomedical Engineer</div>
+                    <div class="experience-company">AM Medical Co., Cairo, Egypt</div>
+                    <div class="experience-date">Sept. 2021 - Jan. 2023</div>
                 </div>
             </div>
             
             <div class="section">
-                <h3 class="section-title" data-en="Connect" data-de="Verbinden">Connect</h3>
+                <h3 class="section-title" data-en="Education" data-de="Ausbildung">
+                    <i class="fas fa-graduation-cap"></i> Education
+                </h3>
+                <div class="experience-item">
+                    <div class="experience-title" data-en="MSc in Biomedical Engineering" data-de="MSc in Medizintechnik">MSc in Biomedical Engineering</div>
+                    <div class="experience-company">Hochschule Anhalt, Germany</div>
+                    <div class="experience-date">2024 - Present</div>
+                </div>
+                <div class="experience-item">
+                    <div class="experience-title" data-en="BEng in Biomedical Engineering" data-de="BEng in Medizintechnik">BEng in Biomedical Engineering</div>
+                    <div class="experience-company">Higher Institute of Engineering, Egypt</div>
+                    <div class="experience-date">2016 - 2021</div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h3 class="section-title" data-en="Skills" data-de="Fähigkeiten">
+                    <i class="fas fa-cogs"></i> Skills
+                </h3>
+                <div class="skills-list">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">MATLAB</span>
+                    <span class="skill-tag">C/C++</span>
+                    <span class="skill-tag">SQL</span>
+                    <span class="skill-tag">Unity 3D</span>
+                    <span class="skill-tag">Embedded Systems</span>
+                    <span class="skill-tag">Medical Devices</span>
+                    <span class="skill-tag">Data Analysis</span>
+                    <span class="skill-tag">Troubleshooting</span>
+                    <span class="skill-tag">ISO 13485</span>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h3 class="section-title" data-en="Medical Device Experience" data-de="Erfahrung mit Medizingeräten">
+                    <i class="fas fa-heartbeat"></i> Medical Device Experience
+                </h3>
+                <div class="skills-list">
+                    <span class="skill-tag">Bennett Ventilators</span>
+                    <span class="skill-tag">Mindray Anesthesia</span>
+                    <span class="skill-tag">Philips Catheter Devices</span>
+                    <span class="skill-tag">Valley Lab Diathermy</span>
+                    <span class="skill-tag">Fresenius Dialysis</span>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h3 class="section-title" data-en="Certifications" data-de="Zertifizierungen">
+                    <i class="fas fa-certificate"></i> Certifications
+                </h3>
+                <div class="skills-list">
+                    <span class="skill-tag">Python for Medical Device Programming</span>
+                    <span class="skill-tag">Embedded Systems Engineering</span>
+                    <span class="skill-tag">Medical Electronics Design</span>
+                    <span class="skill-tag">Healthcare Database Management & SQL</span>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h3 class="section-title" data-en="Professional Memberships" data-de="Berufliche Mitgliedschaften">
+                    <i class="fas fa-users"></i> Professional Memberships
+                </h3>
+                <p data-en="VDE DGBMT - German Society for Biomedical Engineering, Egyptian Engineering Syndicate - Biomedical Engineering Division" 
+                   data-de="VDE DGBMT - Deutsche Gesellschaft für Biomedizinische Technik, Ägyptisches Ingenieursyndikat - Abteilung für Medizintechnik">
+                   VDE DGBMT - German Society for Biomedical Engineering, Egyptian Engineering Syndicate - Biomedical Engineering Division
+                </p>
+            </div>
+            
+            <div class="section">
+                <h3 class="section-title" data-en="Connect" data-de="Verbinden">
+                    <i class="fas fa-link"></i> Connect
+                </h3>
                 <div class="social-links">
                     <a href="https://www.linkedin.com/in/abdullah-hemdan" class="social-link" target="_blank"><i class="fab fa-linkedin"></i></a>
                     <a href="https://www.xing.com/profile/Abdullah_Hemdan" class="social-link" target="_blank"><i class="fab fa-xing"></i></a>
@@ -245,21 +357,15 @@
             </div>
             
             <div class="section">
-                <h3 class="section-title" data-en="Resume" data-de="Lebenslauf">Resume</h3>
+                <h3 class="section-title" data-en="Resume" data-de="Lebenslauf">
+                    <i class="fas fa-file-alt"></i> Resume
+                </h3>
                 <a href="resume-en.pdf" class="btn resume-link" data-en-href="resume-en.pdf" data-de-href="resume-de.pdf" target="_blank">
-                    <span data-en="View Resume" data-de="Lebenslauf ansehen">View Resume</span>
+                    <i class="fas fa-eye"></i> <span data-en="View Resume" data-de="Lebenslauf ansehen">View Resume</span>
                 </a>
                 <a href="resume-en.pdf" class="btn resume-download" data-en-href="resume-en.pdf" data-de-href="resume-de.pdf" download>
-                    <span data-en="Download" data-de="Herunterladen">Download</span>
+                    <i class="fas fa-download"></i> <span data-en="Download" data-de="Herunterladen">Download</span>
                 </a>
-            </div>
-            
-            <div class="section">
-                <h3 class="section-title" data-en="Certifications" data-de="Zertifizierungen">Certifications</h3>
-                <p data-en="Python Programming & Raspberry Pi, Embedded Systems Engineering, Database Management & SQL" 
-                   data-de="Python-Programmierung & Raspberry Pi, Embedded Systems Engineering, Datenbankverwaltung & SQL">
-                   Python Programming & Raspberry Pi, Embedded Systems Engineering, Database Management & SQL
-                </p>
             </div>
         </div>
     </div>
