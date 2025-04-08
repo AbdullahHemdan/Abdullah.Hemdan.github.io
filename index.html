@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Business Card</title>
+    <title>Abdullah Hemdan - Digital Business Card</title>
     <style>
         :root {
             --bg-color: #f5f5f5;
             --card-color: #ffffff;
             --text-color: #333333;
-            --accent-color: #3d5afe;
+            --accent-color: #0055a4;
             --secondary-color: #f1f1f1;
         }
         
@@ -38,6 +38,7 @@
             border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
             overflow: hidden;
+            position: relative;
         }
         
         .header {
@@ -155,7 +156,21 @@
         }
         
         .btn:hover {
-            background-color: #304ffe;
+            background-color: #003d7a;
+        }
+        
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        
+        .skill-tag {
+            background: var(--secondary-color);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 12px;
         }
         
         @media (max-width: 600px) {
@@ -178,16 +193,16 @@
                 <button class="lang-btn active" data-lang="en">EN</button>
                 <button class="lang-btn" data-lang="de">DE</button>
             </div>
-            <img src="/api/placeholder/240/240" alt="Profile Photo" class="profile-img">
-            <h1 class="name">Your Name</h1>
-            <p class="title" data-en="Your Job Title" data-de="Ihr Berufsbezeichnung">Your Job Title</p>
+            <img src="/api/placeholder/240/240" alt="Abdullah Hemdan" class="profile-img">
+            <h1 class="name">Abdullah Hemdan</h1>
+            <p class="title" data-en="Biomedical Engineer & Medical Technology Student" data-de="Biomedizintechniker & Student der Medizintechnik">Biomedical Engineer & Medical Technology Student</p>
         </div>
         
         <div class="content">
             <div class="section">
-                <p data-en="Professional with expertise in [your field]. With [X] years of experience, specializing in [your specialties]." 
-                   data-de="Profi mit Expertise in [Ihr Bereich]. Mit [X] Jahren Erfahrung, spezialisiert auf [Ihre Spezialitäten].">
-                   Professional with expertise in [your field]. With [X] years of experience, specializing in [your specialties].
+                <p data-en="Biomedical Engineering Master's student with software development background. Experienced in medical devices, programming, and data analytics." 
+                   data-de="Masterstudent der Biomedizintechnik mit Softwareentwicklungshintergrund. Erfahren mit Medizingeräten, Programmierung und Datenanalyse.">
+                   Biomedical Engineering Master's student with software development background. Experienced in medical devices, programming, and data analytics.
                 </p>
             </div>
             
@@ -197,42 +212,54 @@
                 <h3 class="section-title" data-en="Contact" data-de="Kontakt">Contact</h3>
                 <div class="contact-item">
                     <i class="fas fa-envelope icon"></i>
-                    <span>your.email@example.com</span>
+                    <span>Abdullah.Hemdan@outlook.com</span>
                 </div>
                 <div class="contact-item">
                     <i class="fas fa-phone icon"></i>
-                    <span>+123 456 7890</span>
+                    <span>+49(0)15207547899</span>
                 </div>
                 <div class="contact-item">
                     <i class="fas fa-map-marker-alt icon"></i>
-                    <span>City, Country</span>
+                    <span>Bernburgerstraße, 06366 Köthen(Anhalt)</span>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h3 class="section-title" data-en="Skills" data-de="Fähigkeiten">Skills</h3>
+                <div class="skills-list">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">MATLAB</span>
+                    <span class="skill-tag">C</span>
+                    <span class="skill-tag">SQL</span>
+                    <span class="skill-tag">Medical Devices</span>
+                    <span class="skill-tag">Data Analysis</span>
                 </div>
             </div>
             
             <div class="section">
                 <h3 class="section-title" data-en="Connect" data-de="Verbinden">Connect</h3>
                 <div class="social-links">
-                    <a href="https://linkedin.com/in/yourprofile" class="social-link" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/yourusername" class="social-link" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="https://twitter.com/yourusername" class="social-link" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://linkedin.com/in/abdullahhemdan" class="social-link" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://xing.com/profile/abdullahhemdan" class="social-link" target="_blank"><i class="fab fa-xing"></i></a>
                 </div>
             </div>
             
             <div class="section">
                 <h3 class="section-title" data-en="Resume" data-de="Lebenslauf">Resume</h3>
-                <a href="your-resume-en.pdf" class="btn resume-link" data-en-href="your-resume-en.pdf" data-de-href="your-resume-de.pdf" target="_blank">
+                <a href="resume-en.pdf" class="btn resume-link" data-en-href="resume-en.pdf" data-de-href="resume-de.pdf" target="_blank">
                     <span data-en="View Resume" data-de="Lebenslauf ansehen">View Resume</span>
                 </a>
-                <a href="your-resume-en.pdf" class="btn resume-download" data-en-href="your-resume-en.pdf" data-de-href="your-resume-de.pdf" download>
+                <a href="resume-en.pdf" class="btn resume-download" data-en-href="resume-en.pdf" data-de-href="resume-de.pdf" download>
                     <span data-en="Download" data-de="Herunterladen">Download</span>
                 </a>
             </div>
             
             <div class="section">
-                <h3 class="section-title" data-en="Portfolio" data-de="Portfolio">Portfolio</h3>
-                <a href="https://yourportfolio.com" class="btn" target="_blank">
-                    <span data-en="View Portfolio" data-de="Portfolio ansehen">View Portfolio</span>
-                </a>
+                <h3 class="section-title" data-en="Certifications" data-de="Zertifizierungen">Certifications</h3>
+                <p data-en="Python Programming & Raspberry Pi, Embedded Systems Engineering, Database Management & SQL" 
+                   data-de="Python-Programmierung & Raspberry Pi, Embedded Systems Engineering, Datenbankverwaltung & SQL">
+                   Python Programming & Raspberry Pi, Embedded Systems Engineering, Database Management & SQL
+                </p>
             </div>
         </div>
     </div>
