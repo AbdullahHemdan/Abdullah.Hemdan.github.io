@@ -427,15 +427,18 @@
             </div>
             <img src="profile.jpg" alt="Abdullah Hemdan" class="profile-img">
             <h1 class="name">Abdullah Hemdan</h1>
-            <p class="title" data-en="Biomedical Engineer & Medtech Graduate Student" data-de="Medizintechnikingenieur & Masterstudent">Biomedical Engineer & Medtech Graduate Student</p>
+            <p class="title" data-en="Biomedical Engineer & Medtech Software Developer" data-de="Medizintechnik-Ingenieur & Softwareentwickler für Medizintechnik">Biomedical Engineer & Medtech Software Developer</p>
         </div>
         
         <div class="content">
             <div class="section">
+             <h3 class="section-title" data-en="Professional Summary" data-de="Berufliche Zusammenfassung">
+            <i class="fas fa-user"></i> <span data-en="Professional Summary" data-de="Berufliche Zusammenfassung">Professional Summary</span>
+            </h3>                
                 <p data-en="As a driven Biomedical Engineer and passionate Medtech graduate student, I am actively seeking internship and student positions in medical software development, clinical engineering, and healthcare technology. With over 2 years of practical experience in working with cutting-edge medical devices such as ventilators, patient monitors, and diagnostic equipment, I possess strong programming skills in Python, MATLAB, C++, and SQL. In addition, I have hands-on experience with modern frameworks like React and Django, as well as expertise in data visualization and designing responsive user interfaces for medical signal processing applications. My track record demonstrates successful optimization of medical device performance through innovative software solutions, comprehensive data analysis, and efficient preventive maintenance strategies." 
-                       data-de="Als engagierter Medizintechnikingenieur und leidenschaftlicher Medtech-Masterstudent suche ich aktiv nach Praktika und Werkstudentenstellen in der medizinischen Softwareentwicklung, klinischen Technik und Gesundheitstechnologie. Mit mehr als 2 Jahren praktischer Erfahrung im Umgang mit hochmodernen medizinischen Geräten wie Beatmungsgeräten, Patientenmonitoren und Diagnosegeräten verfüge ich über starke Programmierkenntnisse in Python, MATLAB, C++ und SQL. Darüber hinaus habe ich praktische Erfahrungen mit modernen Frameworks wie React und Django sowie Fachkenntnisse in der Datenvisualisierung und der Entwicklung von responsiven Benutzeroberflächen für medizinische Signalverarbeitungsanwendungen. Mein Erfolg basiert auf der Optimierung der Leistung medizinischer Geräte durch innovative Softwarelösungen, umfassende Datenanalyse und effiziente Strategien für die vorbeugende Wartung." 
-                >
-                    Biomedical Engineer and graduate student actively seeking opportunities in medical software development, clinical engineering, and healthcare technology.
+                   data-de="Als engagierter Medizintechnikingenieur und leidenschaftlicher Medtech-Masterstudent suche ich aktiv nach Praktika und Werkstudentenstellen in der medizinischen Softwareentwicklung, klinischen Technik und Gesundheitstechnologie. Mit mehr als 2 Jahren praktischer Erfahrung im Umgang mit hochmodernen medizinischen Geräten wie Beatmungsgeräten, Patientenmonitoren und Diagnosegeräten verfüge ich über starke Programmierkenntnisse in Python, MATLAB, C++ und SQL. Darüber hinaus habe ich praktische Erfahrungen mit modernen Frameworks wie React und Django sowie Fachkenntnisse in der Datenvisualisierung und der Entwicklung von responsiven Benutzeroberflächen für medizinische Signalverarbeitungsanwendungen. Mein Erfolg basiert auf der Optimierung der Leistung medizinischer Geräte durch innovative Softwarelösungen, umfassende Datenanalyse und effiziente Strategien für die vorbeugende Wartung." 
+                
+                    As a driven Biomedical Engineer and passionate Medtech graduate student, I am actively seeking internship and student positions in medical software development, clinical engineering, and healthcare technology. With over 2 years of practical experience in working with cutting-edge medical devices such as ventilators, patient monitors, and diagnostic equipment, I possess strong programming skills in Python, MATLAB, C++, and SQL. In addition, I have hands-on experience with modern frameworks like React and Django, as well as expertise in data visualization and designing responsive user interfaces for medical signal processing applications. My track record demonstrates successful optimization of medical device performance through innovative software solutions, comprehensive data analysis, and efficient preventive maintenance strategies.
                 </p>
             </div>
             
@@ -586,7 +589,7 @@
                         <i class="fas fa-flag"></i> Arabic (Mother Tongue)
                     </div>
                     <div class="skill-tag">
-                        <i class="fas fa-flag-usa"></i> English (C1)
+                        <i class="fas fa-flag-uk"></i> English (C1)
                     </div>
                     <div class="skill-tag">
                         <i class="fas fa-flag-de"></i> German (B1)
@@ -623,52 +626,52 @@
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const langButtons = document.querySelectorAll('.lang-btn');
-            const resumeLinks = document.querySelectorAll('.resume-link');
-            const resumeDownloads = document.querySelectorAll('.resume-download');
-            
-            // Get all elements with data-en and data-de attributes
-            const translatableElements = document.querySelectorAll('[data-en][data-de]');
-            
-            // Function to switch language
-            function switchLanguage(lang) {
-                // Update active button
-                langButtons.forEach(btn => {
-                    if (btn.dataset.lang === lang) {
-                        btn.classList.add('active');
-                    } else {
-                        btn.classList.remove('active');
-                    }
-                });
-                
-                // Update text content for all translatable elements
-                translatableElements.forEach(el => {
-                    el.textContent = el.getAttribute(`data-${lang}`);
-                });
-                
-                // Update resume links
-                resumeLinks.forEach(link => {
-                    link.href = link.getAttribute(`data-${lang}-href`);
-                });
-                
-                // Update resume download links
-                resumeDownloads.forEach(link => {
-                    link.href = link.getAttribute(`data-${lang}-href`);
-                });
-                
-                // Update HTML lang attribute
-                document.documentElement.lang = lang;
-            }
-            
-            // Add click event to language buttons
+        document.addEventListener('DOMContentLoaded', function () {
+        const langButtons = document.querySelectorAll('.lang-btn');
+        const translatableElements = document.querySelectorAll('[data-en][data-de]');
+    
+        function switchLanguage(lang) {
             langButtons.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const lang = this.dataset.lang;
-                    switchLanguage(lang);
+                btn.classList.remove('active');
+                if (btn.dataset.lang === lang) {
+                    btn.classList.add('active');
+                }
+            });
+    
+            // Update text content for all translatable elements
+            translatableElements.forEach(el => {
+                el.textContent = el.getAttribute(`data-${lang}`);
+            });
+    
+            // Update the HTML lang attribute to set the language correctly
+            document.documentElement.lang = lang;
+    
+            // Ensure that flags are reset properly
+            if (lang === 'en') {
+                document.querySelectorAll('.fas.fa-flag-de').forEach(flag => {
+                    flag.style.display = 'inline';
                 });
+                document.querySelectorAll('.fas.fa-flag-uk').forEach(flag => {
+                    flag.style.display = 'none';
+                });
+            } else {
+                document.querySelectorAll('.fas.fa-flag-uk').forEach(flag => {
+                    flag.style.display = 'inline';
+                });
+                document.querySelectorAll('.fas.fa-flag-de').forEach(flag => {
+                    flag.style.display = 'none';
+                });
+            }
+        }
+    
+        langButtons.forEach(btn => {
+            btn.addEventListener('click', function () {
+                const lang = this.dataset.lang;
+                switchLanguage(lang);
             });
         });
+    });
+
     </script>
 </body>
 </html>
