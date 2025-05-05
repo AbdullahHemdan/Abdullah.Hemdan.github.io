@@ -122,13 +122,12 @@
             display: flex;
             align-items: center;
         }
-
+        
         .section-title i {
             font-size: 18px; /* Adjust icon size */
             margin-right: 8px; /* Space between icon and text */
             color: var(--primary-color); /* Ensure icon color matches text color */
         }
-
         
         .contact-item {
             display: flex;
@@ -291,6 +290,34 @@
             opacity: 0.8;
         }
         
+        .language-skill {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+        
+        .language-skill .lang-name {
+            font-weight: 500;
+        }
+        
+        .language-skill .lang-level {
+            opacity: 0.7;
+            font-size: 13px;
+        }
+        
+        .flag-icon {
+            width: 18px;
+            height: 18px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            margin-right: 5px;
+            background-color: var(--light-grey);
+            color: var(--secondary-color);
+        }
+        
         /* Responsive adjustments */
         /* Desktop (default above) */
         
@@ -432,13 +459,12 @@
         
         <div class="content">
             <div class="section">
-             <h3 class="section-title" data-en="Professional Summary" data-de="Berufliche Zusammenfassung">
-            <i class="fas fa-user"></i> <span data-en="Professional Summary" data-de="Berufliche Zusammenfassung">Professional Summary</span>
-            </h3>                
+                <h3 class="section-title" data-en="Professional Summary" data-de="Berufliche Zusammenfassung">
+                    <i class="fas fa-user"></i> <span data-en="Professional Summary" data-de="Berufliche Zusammenfassung">Professional Summary</span>
+                </h3>
                 <p data-en="As a driven Biomedical Engineer and passionate Medtech graduate student, I am actively seeking internship and student positions in medical software development, clinical engineering, and healthcare technology. With over 2 years of practical experience in working with cutting-edge medical devices such as ventilators, patient monitors, and diagnostic equipment, I possess strong programming skills in Python, MATLAB, C++, and SQL. In addition, I have hands-on experience with modern frameworks like React and Django, as well as expertise in data visualization and designing responsive user interfaces for medical signal processing applications. My track record demonstrates successful optimization of medical device performance through innovative software solutions, comprehensive data analysis, and efficient preventive maintenance strategies." 
-                   data-de="Als engagierter Medizintechnikingenieur und leidenschaftlicher Medtech-Masterstudent suche ich aktiv nach Praktika und Werkstudentenstellen in der medizinischen Softwareentwicklung, klinischen Technik und Gesundheitstechnologie. Mit mehr als 2 Jahren praktischer Erfahrung im Umgang mit hochmodernen medizinischen Geräten wie Beatmungsgeräten, Patientenmonitoren und Diagnosegeräten verfüge ich über starke Programmierkenntnisse in Python, MATLAB, C++ und SQL. Darüber hinaus habe ich praktische Erfahrungen mit modernen Frameworks wie React und Django sowie Fachkenntnisse in der Datenvisualisierung und der Entwicklung von responsiven Benutzeroberflächen für medizinische Signalverarbeitungsanwendungen. Mein Erfolg basiert auf der Optimierung der Leistung medizinischer Geräte durch innovative Softwarelösungen, umfassende Datenanalyse und effiziente Strategien für die vorbeugende Wartung." 
-                
-                    As a driven Biomedical Engineer and passionate Medtech graduate student, I am actively seeking internship and student positions in medical software development, clinical engineering, and healthcare technology. With over 2 years of practical experience in working with cutting-edge medical devices such as ventilators, patient monitors, and diagnostic equipment, I possess strong programming skills in Python, MATLAB, C++, and SQL. In addition, I have hands-on experience with modern frameworks like React and Django, as well as expertise in data visualization and designing responsive user interfaces for medical signal processing applications. My track record demonstrates successful optimization of medical device performance through innovative software solutions, comprehensive data analysis, and efficient preventive maintenance strategies.
+                   data-de="Als engagierter Medizintechnikingenieur und leidenschaftlicher Medtech-Masterstudent suche ich aktiv nach Praktika und Werkstudentenstellen in der medizinischen Softwareentwicklung, klinischen Technik und Gesundheitstechnologie. Mit mehr als 2 Jahren praktischer Erfahrung im Umgang mit hochmodernen medizinischen Geräten wie Beatmungsgeräten, Patientenmonitoren und Diagnosegeräten verfüge ich über starke Programmierkenntnisse in Python, MATLAB, C++ und SQL. Darüber hinaus habe ich praktische Erfahrungen mit modernen Frameworks wie React und Django sowie Fachkenntnisse in der Datenvisualisierung und der Entwicklung von responsiven Benutzeroberflächen für medizinische Signalverarbeitungsanwendungen. Mein Erfolg basiert auf der Optimierung der Leistung medizinischer Geräte durch innovative Softwarelösungen, umfassende Datenanalyse und effiziente Strategien für die vorbeugende Wartung.">
+                   As a driven Biomedical Engineer and passionate Medtech graduate student, I am actively seeking internship and student positions in medical software development, clinical engineering, and healthcare technology. With over 2 years of practical experience in working with cutting-edge medical devices such as ventilators, patient monitors, and diagnostic equipment, I possess strong programming skills in Python, MATLAB, C++, and SQL. In addition, I have hands-on experience with modern frameworks like React and Django, as well as expertise in data visualization and designing responsive user interfaces for medical signal processing applications. My track record demonstrates successful optimization of medical device performance through innovative software solutions, comprehensive data analysis, and efficient preventive maintenance strategies.
                 </p>
             </div>
             
@@ -557,19 +583,6 @@
             </div>
             
             <div class="section">
-                <h3 class="section-title" data-en="Medical Device Experience" data-de="Erfahrung mit Medizingeräten">
-                    <i class="fas fa-heartbeat"></i> Medical Device Experience
-                </h3>
-                <div class="skills-list">
-                    <span class="skill-tag">Bennett Ventilators</span>
-                    <span class="skill-tag">Mindray Anesthesia</span>
-                    <span class="skill-tag">Philips Catheter Devices</span>
-                    <span class="skill-tag">Valley Lab Diathermy</span>
-                    <span class="skill-tag">Fresenius Dialysis</span>
-                </div>
-            </div>
-            
-            <div class="section">
                 <h3 class="section-title" data-en="Certifications" data-de="Zertifizierungen">
                     <i class="fas fa-certificate"></i> <span data-en="Certifications" data-de="Zertifizierungen">Certifications</span>
                 </h3>
@@ -580,26 +593,30 @@
                     <span class="skill-tag">Healthcare Database Management & SQL</span>
                 </div>
             </div>
+            
             <div class="section">
                 <h3 class="section-title" data-en="Language Skills" data-de="Sprachkenntnisse">
                     <i class="fas fa-language"></i> <span data-en="Language Skills" data-de="Sprachkenntnisse">Language Skills</span>
                 </h3>
                 <div class="skills-list">
-                    <div class="skill-tag">
-                        <i class="fas fa-flag"></i> Arabic (Mother Tongue)
-                    </div>
-                    <div class="skill-tag">
-                        <i class="fas fa-flag-uk"></i> English (C1)
-                    </div>
-                    <div class="skill-tag">
-                        <i class="fas fa-flag-de"></i> German (B1)
-                    </div>
-                    <div class="skill-tag">
-                        <i class="fas fa-flag-fr"></i> French (A2)
-                    </div>
+                    <span class="skill-tag" data-en="Arabic (Mother tongue)" data-de="Arabisch (Muttersprache)">
+                        <i class="fas fa-comment"></i> Arabic (Mother tongue)
+                    </span>
+                    <span class="skill-tag" data-en="English (C1)" data-de="Englisch (C1)">
+                        <i class="fas fa-comment"></i> English (C1)
+                    </span>
+                    <span class="skill-tag" data-en="German (B1)" data-de="Deutsch (B1)">
+                        <i class="fas fa-comment"></i> German (B1)
+                    </span>
+                    <span class="skill-tag" data-en="French (A1)" data-de="Französisch (A1)">
+                        <i class="fas fa-comment"></i> French (A1)
+                    </span>
+                    <span class="skill-tag" data-en="Turkish (A1)" data-de="Türkisch (A1)">
+                        <i class="fas fa-comment"></i> Turkish (A1)
+                    </span>
                 </div>
             </div>
-
+            
             <div class="section">
                 <h3 class="section-title" data-en="Connect" data-de="Verbinden">
                     <i class="fas fa-link"></i> <span data-en="Connect" data-de="Verbinden">Connect</span>
@@ -626,52 +643,99 @@
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-        const langButtons = document.querySelectorAll('.lang-btn');
-        const translatableElements = document.querySelectorAll('[data-en][data-de]');
-    
-        function switchLanguage(lang) {
-            langButtons.forEach(btn => {
-                btn.classList.remove('active');
-                if (btn.dataset.lang === lang) {
-                    btn.classList.add('active');
-                }
-            });
-    
-            // Update text content for all translatable elements
-            translatableElements.forEach(el => {
-                el.textContent = el.getAttribute(`data-${lang}`);
-            });
-    
-            // Update the HTML lang attribute to set the language correctly
-            document.documentElement.lang = lang;
-    
-            // Ensure that flags are reset properly
-            if (lang === 'en') {
-                document.querySelectorAll('.fas.fa-flag-de').forEach(flag => {
-                    flag.style.display = 'inline';
+        document.addEventListener('DOMContentLoaded', function() {
+            const langButtons = document.querySelectorAll('.lang-btn');
+            const resumeLinks = document.querySelectorAll('.resume-link');
+            const resumeDownloads = document.querySelectorAll('.resume-download');
+            
+            // Get all elements with data-en and data-de attributes
+            const translatableElements = document.querySelectorAll('[data-en][data-de]');
+            
+            // Function to switch language
+            function switchLanguage(lang) {
+                // Update active button
+                langButtons.forEach(btn => {
+                    if (btn.dataset.lang === lang) {
+                        btn.classList.add('active');
+                    } else {
+                        btn.classList.remove('active');
+                    }
                 });
-                document.querySelectorAll('.fas.fa-flag-uk').forEach(flag => {
-                    flag.style.display = 'none';
+                
+                // Update text content for all translatable elements
+                translatableElements.forEach(el => {
+                    // Special handling for elements with icons
+                    if (el.querySelector('i') || el.closest('.section-title')) {
+                        // If this is a section title or contains an icon
+                        const icon = el.querySelector('i');
+                        const spanElement = el.querySelector('span');
+                        
+                        if (spanElement) {
+                            // Only update the span text, not the entire content
+                            spanElement.textContent = el.getAttribute(`data-${lang}`);
+                        } else {
+                            // No span, update the whole content
+                            el.textContent = el.getAttribute(`data-${lang}`);
+                        }
+                        
+                        // Re-insert the icon if it was there
+                        if (icon && !el.contains(icon)) {
+                            el.insertBefore(icon, el.firstChild);
+                        }
+                    } else {
+                        // Normal elements without icons, update whole content
+                        el.textContent = el.getAttribute(`data-${lang}`);
+                    }
                 });
-            } else {
-                document.querySelectorAll('.fas.fa-flag-uk').forEach(flag => {
-                    flag.style.display = 'inline';
+                
+                // Update resume links
+                resumeLinks.forEach(link => {
+                    link.href = link.getAttribute(`data-${lang}-href`);
+                    
+                    // Preserve icon in button
+                    const buttonIcon = link.querySelector('i');
+                    const buttonSpan = link.querySelector('span');
+                    
+                    if (buttonSpan) {
+                        buttonSpan.textContent = buttonSpan.getAttribute(`data-${lang}`);
+                    }
+                    
+                    // Make sure icon is still there
+                    if (buttonIcon && !link.contains(buttonIcon)) {
+                        link.insertBefore(buttonIcon, link.firstChild);
+                    }
                 });
-                document.querySelectorAll('.fas.fa-flag-de').forEach(flag => {
-                    flag.style.display = 'none';
+                
+                // Update resume download links
+                resumeDownloads.forEach(link => {
+                    link.href = link.getAttribute(`data-${lang}-href`);
+                    
+                    // Preserve icon in button
+                    const buttonIcon = link.querySelector('i');
+                    const buttonSpan = link.querySelector('span');
+                    
+                    if (buttonSpan) {
+                        buttonSpan.textContent = buttonSpan.getAttribute(`data-${lang}`);
+                    }
+                    
+                    // Make sure icon is still there
+                    if (buttonIcon && !link.contains(buttonIcon)) {
+                        link.insertBefore(buttonIcon, link.firstChild);
+                    }
                 });
+                
+                // Update HTML lang attribute
+                document.documentElement.lang = lang;
             }
-        }
-    
-        langButtons.forEach(btn => {
-            btn.addEventListener('click', function () {
-                const lang = this.dataset.lang;
-                switchLanguage(lang);
+            
+            // Add click event to language buttons
+            langButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const lang = this.dataset.lang;
+                    switchLanguage(lang);
+                });
             });
         });
-    });
-
     </script>
 </body>
 </html>
