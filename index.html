@@ -49,6 +49,7 @@
             text-align: center;
             background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
             color: white;
+            margin-bottom: 20px; /* Added vertical margin after header */
         }
         
         .profile-img {
@@ -307,15 +308,35 @@
         }
         
         .flag-icon {
-            width: 18px;
-            height: 18px;
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 50%;
-            margin-right: 5px;
-            background-color: var(--light-grey);
-            color: var(--secondary-color);
+            width: 16px;
+            height: 16px;
+            display: inline-block;
+            margin-right: 6px;
+            vertical-align: middle;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-radius: 2px;
+        }
+        
+        .flag-sa { /* Saudi Arabia */
+            background-image: url('https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/flags/4x3/sa.svg');
+        }
+        
+        .flag-gb { /* United Kingdom */
+            background-image: url('https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/flags/4x3/gb.svg');
+        }
+        
+        .flag-de { /* Germany */
+            background-image: url('https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/flags/4x3/de.svg');
+        }
+        
+        .flag-fr { /* France */
+            background-image: url('https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/flags/4x3/fr.svg');
+        }
+        
+        .flag-tr { /* Turkey */
+            background-image: url('https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/flags/4x3/tr.svg');
         }
         
         /* Responsive adjustments */
@@ -600,19 +621,19 @@
                 </h3>
                 <div class="skills-list">
                     <span class="skill-tag" data-en="Arabic (Mother tongue)" data-de="Arabisch (Muttersprache)">
-                        <i class="fas fa-comment"></i> Arabic (Mother tongue)
+                        <span class="flag-icon flag-sa"></span> Arabic (Mother tongue)
                     </span>
                     <span class="skill-tag" data-en="English (C1)" data-de="Englisch (C1)">
-                        <i class="fas fa-comment"></i> English (C1)
+                        <span class="flag-icon flag-gb"></span> English (C1)
                     </span>
                     <span class="skill-tag" data-en="German (B1)" data-de="Deutsch (B1)">
-                        <i class="fas fa-comment"></i> German (B1)
+                        <span class="flag-icon flag-de"></span> German (B1)
                     </span>
                     <span class="skill-tag" data-en="French (A1)" data-de="Französisch (A1)">
-                        <i class="fas fa-comment"></i> French (A1)
+                        <span class="flag-icon flag-fr"></span> French (A1)
                     </span>
                     <span class="skill-tag" data-en="Turkish (A1)" data-de="Türkisch (A1)">
-                        <i class="fas fa-comment"></i> Turkish (A1)
+                        <span class="flag-icon flag-tr"></span> Turkish (A1)
                     </span>
                 </div>
             </div>
@@ -664,8 +685,23 @@
                 
                 // Update text content for all translatable elements
                 translatableElements.forEach(el => {
+                    // For flag elements, preserve the flag
+                    if (el.querySelector('.flag-icon')) {
+                        // Get the flag element
+                        const flagIcon = el.querySelector('.flag-icon');
+                        
+                        // Update the text content after the flag
+                        const textContent = el.getAttribute(`data-${lang}`);
+                        
+                        // Clear the element but keep the flag
+                        el.innerHTML = '';
+                        el.appendChild(flagIcon);
+                        
+                        // Add a text node after the flag
+                        el.appendChild(document.createTextNode(' ' + textContent));
+                    }
                     // Special handling for elements with icons
-                    if (el.querySelector('i') || el.closest('.section-title')) {
+                    else if (el.querySelector('i') || el.closest('.section-title')) {
                         // If this is a section title or contains an icon
                         const icon = el.querySelector('i');
                         const spanElement = el.querySelector('span');
