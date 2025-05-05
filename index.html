@@ -308,35 +308,36 @@
         }
         
         .flag-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 6px;
             width: 16px;
             height: 16px;
-            display: inline-block;
-            margin-right: 6px;
-            vertical-align: middle;
-            background-size: contain;
-            background-position: center;
-            background-repeat: no-repeat;
-            border-radius: 2px;
+            font-size: 12px;
+            border-radius: 50%;
+            color: var(--light-grey);
+            background-color: var(--secondary-color);
         }
         
-        .flag-sa { /* Saudi Arabia */
-            background-image: url('https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/flags/4x3/sa.svg');
+        .flag-sa::before { /* Saudi Arabia */
+            content: "AR";
         }
         
-        .flag-gb { /* United Kingdom */
-            background-image: url('https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/flags/4x3/gb.svg');
+        .flag-gb::before { /* United Kingdom */
+            content: "GB";
         }
         
-        .flag-de { /* Germany */
-            background-image: url('https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/flags/4x3/de.svg');
+        .flag-de::before { /* Germany */
+            content: "DE";
         }
         
-        .flag-fr { /* France */
-            background-image: url('https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/flags/4x3/fr.svg');
+        .flag-fr::before { /* France */
+            content: "FR";
         }
         
-        .flag-tr { /* Turkey */
-            background-image: url('https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/flags/4x3/tr.svg');
+        .flag-tr::before { /* Turkey */
+            content: "TR";
         }
         
         /* Responsive adjustments */
@@ -480,12 +481,12 @@
         
         <div class="content">
             <div class="section">
-                <h3 class="section-title" data-en="Professional Summary" data-de="Berufliche Zusammenfassung">
-                    <i class="fas fa-user"></i> <span data-en="Professional Summary" data-de="Berufliche Zusammenfassung">Professional Summary</span>
+                <h3 class="section-title" data-en="Professional Summary" data-de="BERUFSPROFIL">
+                    <i class="fas fa-user"></i> <span data-en="Professional Summary" data-de="BERUFSPROFIL">Professional Summary</span>
                 </h3>
-                <p data-en="As a driven Biomedical Engineer and passionate Medtech graduate student, I am actively seeking internship and student positions in medical software development, clinical engineering, and healthcare technology. With over 2 years of practical experience in working with cutting-edge medical devices such as ventilators, patient monitors, and diagnostic equipment, I possess strong programming skills in Python, MATLAB, C++, and SQL. In addition, I have hands-on experience with modern frameworks like React and Django, as well as expertise in data visualization and designing responsive user interfaces for medical signal processing applications. My track record demonstrates successful optimization of medical device performance through innovative software solutions, comprehensive data analysis, and efficient preventive maintenance strategies." 
-                   data-de="Als engagierter Medizintechnikingenieur und leidenschaftlicher Medtech-Masterstudent suche ich aktiv nach Praktika und Werkstudentenstellen in der medizinischen Softwareentwicklung, klinischen Technik und Gesundheitstechnologie. Mit mehr als 2 Jahren praktischer Erfahrung im Umgang mit hochmodernen medizinischen Geräten wie Beatmungsgeräten, Patientenmonitoren und Diagnosegeräten verfüge ich über starke Programmierkenntnisse in Python, MATLAB, C++ und SQL. Darüber hinaus habe ich praktische Erfahrungen mit modernen Frameworks wie React und Django sowie Fachkenntnisse in der Datenvisualisierung und der Entwicklung von responsiven Benutzeroberflächen für medizinische Signalverarbeitungsanwendungen. Mein Erfolg basiert auf der Optimierung der Leistung medizinischer Geräte durch innovative Softwarelösungen, umfassende Datenanalyse und effiziente Strategien für die vorbeugende Wartung.">
-                   As a driven Biomedical Engineer and passionate Medtech graduate student, I am actively seeking internship and student positions in medical software development, clinical engineering, and healthcare technology. With over 2 years of practical experience in working with cutting-edge medical devices such as ventilators, patient monitors, and diagnostic equipment, I possess strong programming skills in Python, MATLAB, C++, and SQL. In addition, I have hands-on experience with modern frameworks like React and Django, as well as expertise in data visualization and designing responsive user interfaces for medical signal processing applications. My track record demonstrates successful optimization of medical device performance through innovative software solutions, comprehensive data analysis, and efficient preventive maintenance strategies.
+                <p data-en="Biomedical Engineer and graduate student seeking opportunities in medical software development and healthcare technology. With 2+ years of experience working with medical devices and strong programming skills (Python, MATLAB, C++, SQL, React, Django). Expertise in data visualization and UI development for medical applications. Proven track record of optimizing device performance through innovative software solutions and data analysis." 
+                   data-de="Medizintechnikingenieur und Masterstudent auf der Suche nach Positionen in der medizinischen Softwareentwicklung und Gesundheitstechnologie. Mit über 2 Jahren Erfahrung mit medizinischen Geräten und fundierten Programmierkenntnissen (Python, MATLAB, C++, SQL, React, Django). Expertise in Datenvisualisierung und UI-Entwicklung für medizinische Anwendungen. Nachweisliche Erfolge bei der Optimierung der Geräteleistung durch innovative Softwarelösungen und Datenanalyse.">
+                   Biomedical Engineer and graduate student seeking opportunities in medical software development and healthcare technology. With 2+ years of experience working with medical devices and strong programming skills (Python, MATLAB, C++, SQL, React, Django). Expertise in data visualization and UI development for medical applications. Proven track record of optimizing device performance through innovative software solutions and data analysis.
                 </p>
             </div>
             
