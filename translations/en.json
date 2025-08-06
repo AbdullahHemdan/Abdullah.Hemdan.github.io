@@ -1,0 +1,84 @@
+{
+    "nav": {
+      "home": "[ home ]",
+      "about": "[ about ]",
+      "engineering": "[ engineering ]",
+      "software": "[ software ]",
+      "blog": "[ blog ]",
+      "services": "[ services ]",
+      "contact": "[ contact ]"
+    },
+    "home": {
+      "name": "Abdullah Hemdan",
+      "title1": "> Biomedical Engineer",
+      "title2": "> Software Developer",
+      "title3": "> Graduate Student",
+      "location": "Köthen, Sachsen-Anhalt, Germany",
+      "mission": "I bridge the gap between healthcare and technology, developing innovative medical software solutions and optimizing critical medical device performance. With 2+ years of hands-on experience in biomedical engineering and a passion for coding, I create tools that advance healthcare innovation and improve patient care outcomes.",
+      "view_resume": "View Resume",
+      "contact_email": "Contact Me",
+      "services": "My Services"
+    },
+    "terminal": {
+      "title": "abdullah@portfolio:~$",
+      "welcome": "Welcome to Abdullah's interactive portfolio terminal!",
+      "help_prompt": "Type 'help' to see available commands.",
+      "help_output": "Available commands:\n  about      - Learn about my background and experience\n  engineering - View my engineering projects and experience\n  software   - Explore my software development work\n  blog       - Read my latest articles and insights\n  services   - See professional services I offer\n  contact    - Get in touch with me\n  help       - Show this help message\n  clear      - Clear the terminal\n  theme      - Toggle between dark/light theme\n  lang       - Switch language (en/de)\n  social     - Show social media links",
+      "command_not_found": "Command not found. Type 'help' for available commands.",
+      "navigating_to": "Navigating to",
+      "theme_switched": "Theme switched to",
+      "lang_switched": "Language switched to",
+      "social_links": "Social Links:\n  LinkedIn: https://linkedin.com/in/abdullah-hemdan\n  XING: https://xing.com/profile/Abdullah_Hemdan\n  Email: Abdullah.Hemdan@outlook.com\n  Phone: +49 152 07547899"
+    },
+    "about": {
+      "title": "About Me",
+      "subtitle": "Advancing healthcare through technology and innovation",
+      "bio_title": "Professional Summary",
+      "bio1": "As a dedicated Biomedical Engineer currently pursuing my Master's degree at Hochschule Anhalt, I specialize in medical software development, healthcare IoT, and advanced biomedical instrumentation. My journey in healthcare technology began with hands-on experience managing critical medical devices across 15+ healthcare facilities.",
+      "bio2": "During my tenure at AM Medical Co. in Cairo, I successfully managed maintenance and calibration for 25+ critical medical devices, achieving 99.9% operational uptime while ensuring full FDA/ISO 13485 compliance. My implementation of Python-based monitoring software reduced service response time by 40% and resolved 95% of technical issues within 24 hours.",
+      "bio3": "My technical expertise spans multiple programming languages including Python (3+ years), MATLAB (4+ years), C/C++, and SQL, with specialized knowledge in embedded systems for medical applications. I'm particularly passionate about developing diagnostic algorithms and predictive maintenance solutions that improve device accuracy by up to 30%.",
+      "bio4": "Currently based in Germany, I'm actively seeking internship and working student positions in medical software development and clinical engineering, where I can contribute to cutting-edge healthcare technology solutions while expanding my expertise in the European medical device landscape.",
+      "education_title": "Education",
+      "msc_title": "Master of Science in Biomedical Engineering",
+      "msc_institution": "Hochschule Anhalt, Köthen, Germany",
+      "msc_description": "Specialized in Medical Software Development, Healthcare IoT, and Advanced Biomedical Instrumentation. Core coursework includes Medical Device Software Validation, Clinical Engineering Management, and Healthcare Data Analytics.",
+      "beng_title": "Bachelor of Engineering in Biomedical Engineering", 
+      "beng_institution": "Higher Institute of Engineering, El-Shorouk, Cairo",
+      "beng_description": "Graduated with 70% overall average and 90% in final project focused on Augmented Reality in Medical Education developed using Unity. Key coursework included Biomedical Signal Processing, Medical Electronics, and Embedded Systems for Medical Applications.",
+      "skills_title": "Technical Skills",
+      "programming_title": "Programming Languages",
+      "frameworks_title": "Frameworks & Tools", 
+      "standards_title": "Medical Standards",
+      "languages_title": "Languages",
+      "arabic": "Arabic (Native)",
+      "english": "English (C1)",
+      "german": "German (B1)",
+      "french": "French (A1)",
+      "turkish": "Turkish (A1)",
+      "contact_title": "Quick Contact",
+      "location": "Köthen, Germany"
+    },
+    "blog": {
+      "title": "Blog",
+      "subtitle": "Insights from the intersection of medicine and technology"
+    },
+    "reading": {
+      "back": "Back to Blog"
+    },
+    "engineering": {
+      "title": "Engineering Experience",
+      "subtitle": "Hands-on biomedical engineering with measurable impact"
+    },
+    "software": {
+      "title": "Software Development",
+      "subtitle": "Code-driven solutions for healthcare innovation"
+    },
+    "services": {
+      "title": "Services",
+      "subtitle": "Professional biomedical engineering and software development solutions"
+    },
+    "contact": {
+      "title": "Contact",
+      "subtitle": "Let's collaborate on innovative healthcare solutions"
+    }
+  }

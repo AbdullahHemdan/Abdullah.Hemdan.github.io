@@ -1,0 +1,216 @@
+{
+    "contact_info": {
+      "email": "Abdullah.Hemdan@outlook.com",
+      "phone": "+49 152 07547899",
+      "location": {
+        "en": "Koethen, Saxony-Anhalt, Germany",
+        "de": "Köthen, Sachsen-Anhalt, Deutschland"
+      },
+      "availability": {
+        "en": "Available for internships and working student positions",
+        "de": "Verfügbar für Praktika und Werkstudentenstellen"
+      }
+    },
+    "specializations": [
+      {
+        "en": "Medical Software Development",
+        "de": "Medizinische Softwareentwicklung"
+      },
+      {
+        "en": "Healthcare IoT Solutions",
+        "de": "Gesundheits-IoT-Lösungen"
+      },
+      {
+        "en": "Predictive Maintenance",
+        "de": "Prädiktive Wartung"
+      },
+      {
+        "en": "Medical Device Validation",
+        "de": "Medizingeräte-Validierung"
+      },
+      {
+        "en": "Clinical Engineering",
+        "de": "Klinische Technik"
+      }
+    ],
+    "social_links": [
+      {
+        "platform": "linkedin",
+        "url": "https://www.linkedin.com/in/abdullah-hemdan",
+        "icon": "fab fa-linkedin",
+        "color": "#0077b5"
+      },
+      {
+        "platform": "xing",
+        "url": "https://www.xing.com/profile/Abdullah_Hemdan",
+        "icon": "fab fa-xing",
+        "color": "#026466"
+      },
+      {
+        "platform": "github",
+        "url": "https://github.com/AbdullahHemdan",
+        "icon": "fab fa-github",
+        "color": "#333"
+      },
+      {
+        "platform": "email",
+        "url": "mailto:Abdullah.Hemdan@outlook.com",
+        "icon": "fas fa-envelope",
+        "color": "#ea4335"
+      }
+    ],
+    "form": {
+      "inquiry_types": [
+        {
+          "value": "internship",
+          "label": {
+            "en": "Internship Opportunity",
+            "de": "Praktikumsmöglichkeit"
+          }
+        },
+        {
+          "value": "working_student",
+          "label": {
+            "en": "Working Student Position",
+            "de": "Werkstudentenstelle"
+          }
+        },
+        {
+          "value": "collaboration",
+          "label": {
+            "en": "Research Collaboration",
+            "de": "Forschungszusammenarbeit"
+          }
+        },
+        {
+          "value": "consulting",
+          "label": {
+            "en": "Consulting Project",
+            "de": "Beratungsprojekt"
+          }
+        },
+        {
+          "value": "speaking",
+          "label": {
+            "en": "Speaking Engagement",
+            "de": "Vortragsengagement"
+          }
+        },
+        {
+          "value": "general",
+          "label": {
+            "en": "General Inquiry",
+            "de": "Allgemeine Anfrage"
+          }
+        }
+      ],
+      "placeholders": {
+        "name": {
+          "en": "Your full name",
+          "de": "Ihr vollständiger Name"
+        },
+        "email": {
+          "en": "your.email@company.com",
+          "de": "ihre.email@unternehmen.com"
+        },
+        "company": {
+          "en": "Your company or organization",
+          "de": "Ihr Unternehmen oder Ihre Organisation"
+        },
+        "subject": {
+          "en": "Brief description of your inquiry",
+          "de": "Kurze Beschreibung Ihrer Anfrage"
+        },
+        "message": {
+          "en": "Tell me about your project, opportunity, or how we can work together. Include details about timeline, scope, and any specific requirements you have in mind.",
+          "de": "Erzählen Sie mir von Ihrem Projekt, Ihrer Gelegenheit oder wie wir zusammenarbeiten können. Fügen Sie Details zu Zeitplan, Umfang und spezifischen Anforderungen hinzu, die Sie im Sinn haben."
+        }
+      },
+      "labels": {
+        "name": {
+          "en": "Name",
+          "de": "Name"
+        },
+        "email": {
+          "en": "Email",
+          "de": "E-Mail"
+        },
+        "company": {
+          "en": "Company/Organization",
+          "de": "Unternehmen/Organisation"
+        },
+        "inquiry_type": {
+          "en": "Inquiry Type",
+          "de": "Art der Anfrage"
+        },
+        "subject": {
+          "en": "Subject",
+          "de": "Betreff"
+        },
+        "message": {
+          "en": "Message",
+          "de": "Nachricht"
+        },
+        "submit": {
+          "en": "Send Message",
+          "de": "Nachricht senden"
+        }
+      }
+    },
+    "response_time": {
+      "en": "I typically respond within 24 hours",
+      "de": "Ich antworte normalerweise innerhalb von 24 Stunden"
+    },
+    "preferred_contact": {
+      "title": {
+        "en": "Preferred Contact Methods",
+        "de": "Bevorzugte Kontaktmethoden"
+      },
+      "methods": [
+        {
+          "method": {
+            "en": "Email for detailed project discussions",
+            "de": "E-Mail für detaillierte Projektdiskussionen"
+          },
+          "description": {
+            "en": "Best for sharing documents, technical requirements, and detailed project specifications.",
+            "de": "Am besten zum Teilen von Dokumenten, technischen Anforderungen und detaillierten Projektspezifikationen."
+          }
+        },
+        {
+          "method": {
+            "en": "Phone/WhatsApp for quick questions",
+            "de": "Telefon/WhatsApp für schnelle Fragen"
+          },
+          "description": {
+            "en": "Great for initial discussions, clarifications, or urgent matters.",
+            "de": "Großartig für erste Diskussionen, Klarstellungen oder dringende Angelegenheiten."
+          }
+        },
+        {
+          "method": {
+            "en": "LinkedIn for professional networking",
+            "de": "LinkedIn für professionelles Networking"
+          },
+          "description": {
+            "en": "Connect with me to stay updated on my latest projects and industry insights.",
+            "de": "Verbinden Sie sich mit mir, um über meine neuesten Projekte und Brancheneinblicke auf dem Laufenden zu bleiben."
+          }
+        }
+      ]
+    },
+    "calendar": {
+      "title": {
+        "en": "Schedule a Meeting",
+        "de": "Einen Termin vereinbaren"
+      },
+      "description": {
+        "en": "For complex projects or detailed discussions, I'm happy to schedule a video call. Please mention your preferred time zone and availability in your message.",
+        "de": "Für komplexe Projekte oder detaillierte Diskussionen vereinbare ich gerne einen Videoanruf. Bitte erwähnen Sie Ihre bevorzugte Zeitzone und Verfügbarkeit in Ihrer Nachricht."
+      },
+      "availability": {
+        "en": "Available Monday-Friday, 9:00-17:00 CET",
+        "de": "Verfügbar Montag-Freitag, 9:00-17:00 MEZ"
+      }
+    }
+  }

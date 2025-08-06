@@ -1,0 +1,452 @@
+{
+    "projects": [
+      {
+        "id": "medical_device_monitor",
+        "title": {
+          "en": "Medical Device Monitoring System",
+          "de": "Medizingeräte-Überwachungssystem"
+        },
+        "category": "healthcare_software",
+        "technologies": ["Python", "NumPy", "Pandas", "PyQt5", "SQLite", "Real-time Monitoring"],
+        "description": {
+          "en": "Python-based monitoring software with real-time diagnostics for critical medical equipment. Features automated alert systems, performance analytics, and compliance reporting designed specifically for healthcare environments.",
+          "de": "Python-basierte Überwachungssoftware mit Echtzeit-Diagnose für kritische Medizingeräte. Bietet automatisierte Warnsysteme, Leistungsanalysen und Compliance-Berichterstattung speziell für Gesundheitsumgebungen."
+        },
+        "key_features": [
+          {
+            "en": "Real-time device status monitoring across 25+ medical devices",
+            "de": "Echtzeit-Gerätestatus-Überwachung über 25+ Medizingeräte"
+          },
+          {
+            "en": "Automated alert system with SMS and email notifications",
+            "de": "Automatisiertes Warnsystem mit SMS- und E-Mail-Benachrichtigungen"
+          },
+          {
+            "en": "Performance analytics dashboard with trend analysis",
+            "de": "Leistungsanalyse-Dashboard mit Trendanalyse"
+          },
+          {
+            "en": "Compliance reporting for FDA and ISO 13485 standards",
+            "de": "Compliance-Berichterstattung für FDA- und ISO 13485-Standards"
+          }
+        ],
+        "results": [
+          {
+            "metric": "40%",
+            "description": {
+              "en": "reduction in service response time",
+              "de": "Reduzierung der Servicereaktionszeit"
+            }
+          },
+          {
+            "metric": "95%",
+            "description": {
+              "en": "of technical issues resolved within 24 hours",
+              "de": "der technischen Probleme innerhalb von 24 Stunden gelöst"
+            }
+          },
+          {
+            "metric": "99.9%",
+            "description": {
+              "en": "operational uptime achieved",
+              "de": "Betriebszeit erreicht"
+            }
+          }
+        ],
+        "code_sample": {
+          "language": "python",
+          "title": {
+            "en": "Device Monitoring Core Class",
+            "de": "Geräteüberwachung Kernklasse"
+          },
+          "code": "import pandas as pd\nimport numpy as np\nfrom PyQt5 import QtWidgets\n\nclass DeviceMonitor:\n    def __init__(self):\n        self.devices = []\n        self.alerts = []\n    \n    def analyze_performance(self, data):\n        # Real-time performance analysis\n        anomalies = self.detect_anomalies(data)\n        if anomalies:\n            return self.generate_alerts(anomalies)\n        return None\n    \n    def detect_anomalies(self, data):\n        # Statistical anomaly detection\n        threshold = np.std(data) * 2\n        return data[np.abs(data - np.mean(data)) > threshold]"
+        },
+        "github_url": "#",
+        "demo_url": "#",
+        "documentation_url": "#"
+      },
+      {
+        "id": "matlab_signal_processing",
+        "title": {
+          "en": "MATLAB Signal Processing Suite",
+          "de": "MATLAB-Signalverarbeitungssuite"
+        },
+        "category": "biomedical_engineering",
+        "technologies": ["MATLAB", "Signal Processing Toolbox", "Statistics Toolbox", "GUI Development"],
+        "description": {
+          "en": "Comprehensive biomedical signal processing toolkit with advanced filtering, artifact removal, and diagnostic algorithm implementation for ECG, EEG, and other physiological signals.",
+          "de": "Umfassendes biomedizinisches Signalverarbeitungs-Toolkit mit erweiterten Filtern, Artefakt-Entfernung und diagnostischen Algorithmus-Implementierungen für EKG, EEG und andere physiologische Signale."
+        },
+        "key_features": [
+          {
+            "en": "Advanced filtering algorithms for biomedical signals",
+            "de": "Erweiterte Filteralgorithmen für biomedizinische Signale"
+          },
+          {
+            "en": "Real-time ECG analysis with R-peak detection",
+            "de": "Echtzeit-EKG-Analyse mit R-Zacken-Erkennung"
+          },
+          {
+            "en": "Artifact removal using independent component analysis",
+            "de": "Artefakt-Entfernung mittels Independent Component Analysis"
+          },
+          {
+            "en": "Interactive GUI for signal visualization and analysis",
+            "de": "Interaktive GUI für Signalvisualisierung und -analyse"
+          }
+        ],
+        "results": [
+          {
+            "metric": "25%",
+            "description": {
+              "en": "improvement in equipment lifespan",
+              "de": "Verbesserung der Gerätelebensdauer"
+            }
+          },
+          {
+            "metric": "20+",
+            "description": {
+              "en": "parameters tracked in real-time",
+              "de": "Parameter in Echtzeit verfolgt"
+            }
+          },
+          {
+            "metric": "30%",
+            "description": {
+              "en": "improvement in diagnostic accuracy",
+              "de": "Verbesserung der diagnostischen Genauigkeit"
+            }
+          }
+        ],
+        "code_sample": {
+          "language": "matlab",
+          "title": {
+            "en": "ECG Signal Processing Function",
+            "de": "EKG-Signalverarbeitungsfunktion"
+          },
+          "code": "function filtered_signal = process_ecg(raw_signal, fs)\n% ECG Signal Processing with Butterworth Filter\n% Input: raw_signal - ECG data, fs - sampling frequency\n% Output: filtered_signal - processed ECG\n\n% Apply Butterworth bandpass filter (0.5-40 Hz)\n[b, a] = butter(4, [0.5 40]/(fs/2), 'bandpass');\nfiltered_signal = filtfilt(b, a, raw_signal);\n\n% Remove baseline drift\nfiltered_signal = detrend(filtered_signal, 'linear');\n\n% Detect R-peaks for heart rate analysis\n[peaks, locs] = findpeaks(filtered_signal, 'MinPeakHeight', 0.3);\n\nend"
+        },
+        "github_url": "#",
+        "demo_url": "#",
+        "documentation_url": "#"
+      },
+      {
+        "id": "healthcare_database",
+        "title": {
+          "en": "Healthcare Database Management System",
+          "de": "Gesundheitsdatenbank-Managementsystem"
+        },
+        "category": "data_management",
+        "technologies": ["SQL", "PostgreSQL", "Python", "Django", "Data Visualization"],
+        "description": {
+          "en": "SQL-based database system for managing patient data, equipment maintenance records, and compliance documentation. Features automated reporting and data visualization capabilities with full HIPAA and GDPR compliance.",
+          "de": "SQL-basiertes Datenbanksystem für die Verwaltung von Patientendaten, Gerätewartungsaufzeichnungen und Compliance-Dokumentation. Bietet automatisierte Berichterstattung und Datenvisualisierungsfunktionen mit vollständiger HIPAA- und GDPR-Konformität."
+        },
+        "key_features": [
+          {
+            "en": "Secure patient data management with encryption",
+            "de": "Sichere Patientendatenverwaltung mit Verschlüsselung"
+          },
+          {
+            "en": "Equipment maintenance scheduling and tracking",
+            "de": "Gerätewartungsplanung und -verfolgung"
+          },
+          {
+            "en": "Automated compliance reporting for audits",
+            "de": "Automatisierte Compliance-Berichterstattung für Audits"
+          },
+          {
+            "en": "Interactive dashboards for data visualization",
+            "de": "Interaktive Dashboards für Datenvisualisierung"
+          }
+        ],
+        "results": [
+          {
+            "metric": "100%",
+            "description": {
+              "en": "HIPAA and GDPR compliance achieved",
+              "de": "HIPAA- und GDPR-Konformität erreicht"
+            }
+          },
+          {
+            "metric": "50%",
+            "description": {
+              "en": "reduction in data retrieval time",
+              "de": "Reduzierung der Datenabrufzeit"
+            }
+          },
+          {
+            "metric": "24/7",
+            "description": {
+              "en": "automated monitoring and alerts",
+              "de": "automatisierte Überwachung und Warnungen"
+            }
+          }
+        ],
+        "code_sample": {
+          "language": "sql",
+          "title": {
+            "en": "Database Schema for Medical Devices",
+            "de": "Datenbankschema für Medizingeräte"
+          },
+          "code": "CREATE TABLE medical_devices (\n    device_id INT PRIMARY KEY,\n    device_name VARCHAR(100) NOT NULL,\n    manufacturer VARCHAR(50),\n    model_number VARCHAR(50),\n    serial_number VARCHAR(50) UNIQUE,\n    installation_date DATE,\n    last_maintenance DATE,\n    next_maintenance DATE,\n    status ENUM('active', 'maintenance', 'inactive') DEFAULT 'active',\n    location VARCHAR(100),\n    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP\n);\n\n-- Query for devices needing maintenance\nSELECT device_name, last_maintenance, \n       DATEDIFF(NOW(), last_maintenance) as days_since_maintenance\nFROM medical_devices \nWHERE last_maintenance < DATE_SUB(NOW(), INTERVAL 30 DAY)\n  AND status = 'active'\nORDER BY last_maintenance ASC;"
+        },
+        "github_url": "#",
+        "demo_url": "#",
+        "documentation_url": "#"
+      },
+      {
+        "id": "unity_ar_education",
+        "title": {
+          "en": "Unity AR Medical Education Platform",
+          "de": "Unity AR-Plattform für medizinische Ausbildung"
+        },
+        "category": "ar_vr",
+        "technologies": ["Unity 3D", "C#", "ARCore", "3D Modeling", "Android Development"],
+        "description": {
+          "en": "Augmented Reality application for medical education using Unity 3D. Interactive 3D models of medical devices with step-by-step maintenance procedures and troubleshooting guides for enhanced learning experience.",
+          "de": "Augmented-Reality-Anwendung für medizinische Ausbildung mit Unity 3D. Interaktive 3D-Modelle von Medizingeräten mit schrittweisen Wartungsverfahren und Fehlerbehebungsleitfäden für verbesserte Lernerfahrung."
+        },
+        "key_features": [
+          {
+            "en": "Interactive 3D models of medical equipment",
+            "de": "Interaktive 3D-Modelle medizinischer Geräte"
+          },
+          {
+            "en": "Step-by-step maintenance procedure guides",
+            "de": "Schrittweise Wartungsverfahrensanleitungen"
+          },
+          {
+            "en": "Troubleshooting scenarios with virtual components",
+            "de": "Fehlerbehebungsszenarien mit virtuellen Komponenten"
+          },
+          {
+            "en": "Progress tracking and competency assessment",
+            "de": "Fortschrittsverfolgung und Kompetenzbewertung"
+          }
+        ],
+        "results": [
+          {
+            "metric": "90%",
+            "description": {
+              "en": "final project grade achieved",
+              "de": "erreichte Abschlussprojekt-Note"
+            }
+          },
+          {
+            "metric": "35%",
+            "description": {
+              "en": "improvement in learning retention",
+              "de": "Verbesserung der Lernbindung"
+            }
+          },
+          {
+            "metric": "10+",
+            "description": {
+              "en": "medical device models created",
+              "de": "erstellte Medizingeräte-Modelle"
+            }
+          }
+        ],
+        "code_sample": {
+          "language": "csharp",
+          "title": {
+            "en": "AR Device Interaction Controller",
+            "de": "AR-Geräte-Interaktionscontroller"
+          },
+          "code": "using UnityEngine;\nusing UnityEngine.XR.ARFoundation;\nusing UnityEngine.XR.ARSubsystems;\n\npublic class DeviceInteractionController : MonoBehaviour\n{\n    [SerializeField] private ARRaycastManager raycastManager;\n    [SerializeField] private GameObject deviceModelPrefab;\n    \n    private Camera arCamera;\n    private bool isDeviceActive = false;\n    \n    void Start()\n    {\n        arCamera = Camera.main;\n    }\n    \n    void Update()\n    {\n        HandleTouchInput();\n    }\n    \n    void HandleTouchInput()\n    {\n        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)\n        {\n            Vector2 touchPosition = Input.GetTouch(0).position;\n            PlaceDeviceModel(touchPosition);\n        }\n    }\n    \n    void PlaceDeviceModel(Vector2 screenPosition)\n    {\n        List<ARRaycastHit> hits = new List<ARRaycastHit>();\n        if (raycastManager.Raycast(screenPosition, hits, TrackableType.PlaneWithinPolygon))\n        {\n            Pose hitPose = hits[0].pose;\n            Instantiate(deviceModelPrefab, hitPose.position, hitPose.rotation);\n            isDeviceActive = true;\n        }\n    }\n}"
+        },
+        "github_url": "#",
+        "demo_url": "#",
+        "documentation_url": "#"
+      }
+    ],
+    "technical_stack": {
+      "title": {
+        "en": "Technical Stack & Expertise",
+        "de": "Technischer Stack & Expertise"
+      },
+      "categories": [
+        {
+          "name": {
+            "en": "Programming Languages",
+            "de": "Programmiersprachen"
+          },
+          "skills": [
+            {
+              "name": "Python",
+              "level": 90,
+              "years": "3+",
+              "description": {
+                "en": "Advanced proficiency in medical device programming, data analysis, and automation",
+                "de": "Fortgeschrittene Kenntnisse in Medizingeräteprogrammierung, Datenanalyse und Automatisierung"
+              }
+            },
+            {
+              "name": "MATLAB",
+              "level": 95,
+              "years": "4+", 
+              "description": {
+                "en": "Expert in biomedical signal processing, medical device analytics, and GUI development",
+                "de": "Experte in biomedizinischer Signalverarbeitung, Medizingeräte-Analytik und GUI-Entwicklung"
+              }
+            },
+            {
+              "name": "C/C++",
+              "level": 80,
+              "years": "2+",
+              "description": {
+                "en": "Embedded systems programming for medical devices and real-time applications",
+                "de": "Embedded-Systems-Programmierung für Medizingeräte und Echtzeitanwendungen"
+              }
+            },
+            {
+              "name": "SQL",
+              "level": 85,
+              "years": "2+",
+              "description": {
+                "en": "Database design and management for healthcare data with compliance requirements",
+                "de": "Datenbankdesign und -verwaltung für Gesundheitsdaten mit Compliance-Anforderungen"
+              }
+            }
+          ]
+        },
+        {
+          "name": {
+            "en": "Frameworks & Tools",
+            "de": "Frameworks & Tools"
+          },
+          "skills": [
+            {
+              "name": "Unity 3D",
+              "level": 85,
+              "years": "2+",
+              "description": {
+                "en": "AR/VR development for medical education and training applications",
+                "de": "AR/VR-Entwicklung für medizinische Ausbildungs- und Trainingsanwendungen"
+              }
+            },
+            {
+              "name": "Django/Flask",
+              "level": 75,
+              "years": "1+",
+              "description": {
+                "en": "Web application development for healthcare management systems",
+                "de": "Webanwendungsentwicklung für Gesundheitsmanagement-Systeme"
+              }
+            },
+            {
+              "name": "React",
+              "level": 70,
+              "years": "1+",
+              "description": {
+                "en": "Frontend development for medical device interfaces and dashboards",
+                "de": "Frontend-Entwicklung für Medizingeräte-Schnittstellen und Dashboards"
+              }
+            },
+            {
+              "name": "PyQt/tkinter",
+              "level": 90,
+              "years": "3+",
+              "description": {
+                "en": "Desktop application development for medical device control and monitoring",
+                "de": "Desktop-Anwendungsentwicklung für Medizingeräte-Steuerung und -Überwachung"
+              }
+            }
+          ]
+        },
+        {
+          "name": {
+            "en": "Specialized Areas",
+            "de": "Spezialbereiche"
+          },
+          "skills": [
+            {
+              "name": "Medical Device Software",
+              "level": 90,
+              "years": "2+",
+              "description": {
+                "en": "IEC 62304 compliant software development for critical medical devices",
+                "de": "IEC 62304-konforme Softwareentwicklung für kritische Medizingeräte"
+              }
+            },
+            {
+              "name": "Healthcare IoT",
+              "level": 80,
+              "years": "2+",
+              "description": {
+                "en": "Connected medical device systems with real-time monitoring and analytics",
+                "de": "Vernetzte Medizingeräte-Systeme mit Echtzeitüberwachung und Analytik"
+              }
+            },
+            {
+              "name": "Predictive Maintenance",
+              "level": 85,
+              "years": "2+",
+              "description": {
+                "en": "Machine learning algorithms for equipment failure prediction and optimization",
+                "de": "Machine-Learning-Algorithmen für Geräteausfall-Vorhersage und -Optimierung"
+              }
+            },
+            {
+              "name": "Data Visualization",
+              "level": 85,
+              "years": "3+",
+              "description": {
+                "en": "Interactive dashboards and reports for medical device performance analysis",
+                "de": "Interaktive Dashboards und Berichte für Medizingeräte-Leistungsanalyse"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "development_philosophy": {
+      "title": {
+        "en": "Development Philosophy",
+        "de": "Entwicklungsphilosophie"
+      },
+      "principles": [
+        {
+          "title": {
+            "en": "Patient Safety First",
+            "de": "Patientensicherheit zuerst"
+          },
+          "description": {
+            "en": "Every line of code is written with patient safety as the top priority, following medical device software standards and best practices.",
+            "de": "Jede Codezeile wird mit Patientensicherheit als oberster Priorität geschrieben, unter Befolgung medizinischer Gerätesoftware-Standards und bewährter Praktiken."
+          }
+        },
+        {
+          "title": {
+            "en": "Evidence-Based Development",
+            "de": "Evidenzbasierte Entwicklung"
+          },
+          "description": {
+            "en": "Solutions are built on solid research, real-world testing, and measurable outcomes that improve healthcare delivery.",
+            "de": "Lösungen basieren auf solider Forschung, realen Tests und messbaren Ergebnissen, die die Gesundheitsversorgung verbessern."
+          }
+        },
+        {
+          "title": {
+            "en": "Regulatory Compliance",
+            "de": "Regulatorische Konformität"
+          },
+          "description": {
+            "en": "All software development follows FDA, CE, and international standards for medical devices, ensuring global deployment capability.",
+            "de": "Alle Softwareentwicklung folgt FDA-, CE- und internationalen Standards für Medizingeräte und gewährleistet globale Einsatzfähigkeit."
+          }
+        },
+        {
+          "title": {
+            "en": "Continuous Innovation",
+            "de": "Kontinuierliche Innovation"
+          },
+          "description": {
+            "en": "Embracing emerging technologies like AI, IoT, and AR/VR to solve complex healthcare challenges and improve patient outcomes.",
+            "de": "Umarmung neuer Technologien wie KI, IoT und AR/VR zur Lösung komplexer Gesundheitsherausforderungen und Verbesserung der Patientenergebnisse."
+          }
+        }
+      ]
+    }
+  }
