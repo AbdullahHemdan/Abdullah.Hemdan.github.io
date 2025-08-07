@@ -1,0 +1,314 @@
+{
+    "en": {
+      "page_title": "Professional Services",
+      "page_subtitle": "Expert biomedical engineering and software development solutions",
+      "services_overview": {
+        "title": "Healthcare Technology Solutions",
+        "description": "I provide specialized consulting and development services in biomedical engineering and medical software development. With 2+ years of hands-on experience managing critical medical devices and developing healthcare software solutions, I help organizations optimize their medical technology operations and improve patient care outcomes."
+      },
+      "services": [
+        {
+          "id": "medical_device_consulting",
+          "title": "Medical Device Consulting",
+          "description": "Expert consultation on medical device maintenance, calibration, validation, and optimization. Drawing from experience with 25+ critical devices including ventilators, anesthesia machines, and diagnostic equipment.",
+          "features": [
+            "Device performance assessment and optimization",
+            "Maintenance protocol development and optimization",
+            "FDA/ISO 13485 compliance review and guidance",
+            "Technical staff training and certification programs",
+            "Equipment lifecycle management strategies",
+            "Regulatory documentation and technical writing"
+          ],
+          "pricing": "€75 - €120 per hour",
+          "duration": "Project-based or ongoing retainer"
+        },
+        {
+          "id": "software_development",
+          "title": "Medical Software Development",
+          "description": "Custom software solutions for healthcare applications with full regulatory compliance. Specializing in Python, MATLAB, and web-based systems for medical device monitoring and healthcare data management.",
+          "features": [
+            "Requirements analysis and system design",
+            "IEC 62304 compliant software development",
+            "Real-time monitoring and analytics systems",
+            "Medical device integration and APIs",
+            "Database design and healthcare data management",
+            "Testing, validation, and documentation"
+          ],
+          "pricing": "€2,500 - €25,000",
+          "duration": "2-8 months depending on complexity"
+        },
+        {
+          "id": "iot_healthcare_solutions",
+          "title": "Healthcare IoT Solutions",
+          "description": "Connected medical device systems with real-time monitoring, predictive maintenance, and data analytics. Transform your medical equipment into smart, connected systems that improve operational efficiency.",
+          "features": [
+            "IoT sensor integration and connectivity",
+            "Real-time data collection and processing",
+            "Predictive maintenance algorithms",
+            "Cloud-based monitoring dashboards",
+            "Mobile applications for remote monitoring",
+            "Data security and GDPR compliance"
+          ],
+          "pricing": "€5,000 - €35,000",
+          "duration": "3-10 months for full implementation"
+        },
+        {
+          "id": "training_education",
+          "title": "Training & Education Programs",
+          "description": "Comprehensive training programs for medical professionals and technical staff. Proven curriculum that reduced user-error malfunctions by 60% across 80+ healthcare professionals.",
+          "features": [
+            "Custom curriculum design for your organization",
+            "Hands-on workshops with real equipment",
+            "Digital learning materials and resources",
+            "Competency assessment and certification",
+            "Ongoing support and refresher training",
+            "Multilingual training materials (EN/DE/AR)"
+          ],
+          "pricing": "€800 - €1,500 per day",
+          "duration": "1-10 days per program"
+        },
+        {
+          "id": "research_collaboration",
+          "title": "Research & Development Partnerships",
+          "description": "Academic and industry research collaborations in biomedical engineering, AR/VR medical applications, and healthcare technology innovation.",
+          "features": [
+            "Research proposal development and funding applications",
+            "Experimental design and data collection protocols",
+            "Technical implementation and prototyping",
+            "Academic paper writing and publication support",
+            "Conference presentations and knowledge dissemination",
+            "Intellectual property development and protection"
+          ],
+          "pricing": "Negotiable based on project scope and funding",
+          "duration": "6 months to 3 years"
+        },
+        {
+          "id": "technical_writing",
+          "title": "Technical Documentation Services",
+          "description": "Professional documentation for medical devices, software systems, and regulatory submissions. Clear, compliant documentation that meets international standards.",
+          "features": [
+            "Regulatory submission documentation",
+            "User manuals and operating procedures",
+            "Technical specifications and design documents",
+            "Risk management and clinical evaluation reports",
+            "Software documentation per IEC 62304",
+            "Multilingual documentation services"
+          ],
+          "pricing": "€50 - €80 per hour",
+          "duration": "1-6 weeks depending on scope"
+        }
+      ],
+      "process": {
+        "title": "My Service Process",
+        "description": "A structured approach to delivering high-quality results",
+        "steps": [
+          {
+            "title": "Discovery & Analysis",
+            "description": "Understanding your specific needs, challenges, and goals through detailed consultation and technical assessment."
+          },
+          {
+            "title": "Strategy & Planning",
+            "description": "Developing a comprehensive project plan with clear timelines, deliverables, milestones, and success metrics."
+          },
+          {
+            "title": "Implementation & Development",
+            "description": "Executing the solution with regular progress updates, quality checkpoints, and continuous stakeholder communication."
+          },
+          {
+            "title": "Testing & Validation",
+            "description": "Rigorous testing, validation, and compliance verification to ensure the solution meets all requirements and standards."
+          },
+          {
+            "title": "Delivery & Support",
+            "description": "Final delivery with comprehensive documentation, training, and ongoing support to ensure successful implementation."
+          }
+        ]
+      },
+      "why_choose_me": {
+        "title": "Why Work With Me",
+        "reasons": [
+          {
+            "title": "Proven Track Record",
+            "description": "2+ years managing critical medical devices with 99.9% uptime and demonstrated cost savings through predictive maintenance solutions."
+          },
+          {
+            "title": "Regulatory Expertise",
+            "description": "Deep understanding of FDA, ISO 13485, IEC 62304, and European medical device regulations from hands-on compliance experience."
+          },
+          {
+            "title": "Technical Excellence",
+            "description": "Strong programming skills in Python, MATLAB, and modern web technologies, combined with practical biomedical engineering knowledge."
+          },
+          {
+            "title": "International Perspective",
+            "description": "Multilingual capabilities (EN/DE/AR) and experience working across different healthcare systems and regulatory environments."
+          },
+          {
+            "title": "Academic Foundation",
+            "description": "Currently pursuing Master's in Biomedical Engineering in Germany, staying current with latest research and industry developments."
+          }
+        ]
+      },
+      "contact_cta": {
+        "title": "Ready to Start Your Project?",
+        "description": "Whether you need consulting, software development, or training services, I'm here to help you achieve your healthcare technology goals. Let's discuss how we can work together to improve patient care through innovative technology solutions.",
+        "button_text": "Get In Touch"
+      }
+    },
+    "de": {
+      "page_title": "Professionelle Dienstleistungen",
+      "page_subtitle": "Experten-Biomedizintechnik und Softwareentwicklungslösungen",
+      "services_overview": {
+        "title": "Gesundheitstechnologie-Lösungen",
+        "description": "Ich biete spezialisierte Beratungs- und Entwicklungsdienstleistungen in der Biomedizintechnik und medizinischen Softwareentwicklung. Mit über 2 Jahren praktischer Erfahrung im Management kritischer Medizingeräte und der Entwicklung von Gesundheitssoftware-Lösungen helfe ich Organisationen, ihre Medizintechnik-Operationen zu optimieren und die Patientenversorgung zu verbessern."
+      },
+      "services": [
+        {
+          "id": "medical_device_consulting",
+          "title": "Medizingeräte-Beratung",
+          "description": "Expertenberatung zu Medizingeräte-Wartung, Kalibrierung, Validierung und Optimierung. Basierend auf Erfahrung mit über 25 kritischen Geräten einschließlich Beatmungsgeräten, Anästhesiegeräten und Diagnosegeräten.",
+          "features": [
+            "Geräteleistungsbewertung und -optimierung",
+            "Entwicklung und Optimierung von Wartungsprotokollen",
+            "FDA/ISO 13485-Compliance-Überprüfung und -beratung",
+            "Technische Mitarbeiterschulung und Zertifizierungsprogramme",
+            "Strategien für Geräte-Lifecycle-Management",
+            "Regulatorische Dokumentation und technisches Schreiben"
+          ],
+          "pricing": "€75 - €120 pro Stunde",
+          "duration": "Projektbasiert oder fortlaufende Betreuung"
+        },
+        {
+          "id": "software_development",
+          "title": "Medizinische Softwareentwicklung",
+          "description": "Maßgeschneiderte Softwarelösungen für Gesundheitsanwendungen mit vollständiger regulatorischer Konformität. Spezialisiert auf Python, MATLAB und webbasierte Systeme für Medizingeräte-Überwachung und Gesundheitsdatenmanagement.",
+          "features": [
+            "Anforderungsanalyse und Systemdesign",
+            "IEC 62304-konforme Softwareentwicklung",
+            "Echtzeit-Überwachungs- und Analysesysteme",
+            "Medizingeräte-Integration und APIs",
+            "Datenbankdesign und Gesundheitsdatenmanagement",
+            "Tests, Validierung und Dokumentation"
+          ],
+          "pricing": "€2.500 - €25.000",
+          "duration": "2-8 Monate je nach Komplexität"
+        },
+        {
+          "id": "iot_healthcare_solutions",
+          "title": "Gesundheits-IoT-Lösungen",
+          "description": "Vernetzte Medizingeräte-Systeme mit Echtzeit-Überwachung, prädiktiver Wartung und Datenanalytik. Transformieren Sie Ihre Medizingeräte in intelligente, vernetzte Systeme, die die Betriebseffizienz verbessern.",
+          "features": [
+            "IoT-Sensor-Integration und Konnektivität",
+            "Echtzeit-Datensammlung und -verarbeitung",
+            "Prädiktive Wartungsalgorithmen",
+            "Cloud-basierte Überwachungs-Dashboards",
+            "Mobile Apps für Remote-Monitoring",
+            "Datensicherheit und DSGVO-Konformität"
+          ],
+          "pricing": "€5.000 - €35.000",
+          "duration": "3-10 Monate für vollständige Implementierung"
+        },
+        {
+          "id": "training_education",
+          "title": "Schulungs- und Bildungsprogramme",
+          "description": "Umfassende Schulungsprogramme für medizinische Fachkräfte und technisches Personal. Bewährtes Curriculum, das benutzerbedingteStörungen um 60% bei über 80 Gesundheitsfachkräften reduzierte.",
+          "features": [
+            "Maßgeschneidertes Curriculum-Design für Ihre Organisation",
+            "Praktische Workshops mit echten Geräten",
+            "Digitale Lernmaterialien und Ressourcen",
+            "Kompetenzbewertung und Zertifizierung",
+            "Fortlaufende Unterstützung und Auffrischungsschulungen",
+            "Mehrsprachige Schulungsmaterialien (EN/DE/AR)"
+          ],
+          "pricing": "€800 - €1.500 pro Tag",
+          "duration": "1-10 Tage pro Programm"
+        },
+        {
+          "id": "research_collaboration",
+          "title": "Forschungs- und Entwicklungspartnerschaften",
+          "description": "Akademische und industrielle Forschungskooperationen in der Biomedizintechnik, AR/VR-Medizinapplikationen und Gesundheitstechnologie-Innovation.",
+          "features": [
+            "Forschungsantragsentwicklung und Finanzierungsanträge",
+            "Experimentelles Design und Datensammlung-Protokolle",
+            "Technische Implementierung und Prototyping",
+            "Unterstützung beim Schreiben und Veröffentlichen wissenschaftlicher Arbeiten",
+            "Konferenzpräsentationen und Wissensdissemination",
+            "Entwicklung und Schutz geistigen Eigentums"
+          ],
+          "pricing": "Verhandelbar basierend auf Projektumfang und Finanzierung",
+          "duration": "6 Monate bis 3 Jahre"
+        },
+        {
+          "id": "technical_writing",
+          "title": "Technische Dokumentationsdienstleistungen",
+          "description": "Professionelle Dokumentation für Medizingeräte, Softwaresysteme und regulatorische Einreichungen. Klare, konforme Dokumentation, die internationalen Standards entspricht.",
+          "features": [
+            "Regulatorische Einreichungsdokumentation",
+            "Benutzerhandbücher und Betriebsverfahren",
+            "Technische Spezifikationen und Designdokumente",
+            "Risikomanagement- und klinische Bewertungsberichte",
+            "Software-Dokumentation nach IEC 62304",
+            "Mehrsprachige Dokumentationsdienstleistungen"
+          ],
+          "pricing": "€50 - €80 pro Stunde",
+          "duration": "1-6 Wochen je nach Umfang"
+        }
+      ],
+      "process": {
+        "title": "Mein Service-Prozess",
+        "description": "Ein strukturierter Ansatz zur Lieferung hochwertiger Ergebnisse",
+        "steps": [
+          {
+            "title": "Entdeckung & Analyse",
+            "description": "Verstehen Ihrer spezifischen Bedürfnisse, Herausforderungen und Ziele durch detaillierte Beratung und technische Bewertung."
+          },
+          {
+            "title": "Strategie & Planung",
+            "description": "Entwicklung eines umfassenden Projektplans mit klaren Zeitplänen, Ergebnissen, Meilensteinen und Erfolgsmetriken."
+          },
+          {
+            "title": "Implementierung & Entwicklung",
+            "description": "Ausführung der Lösung mit regelmäßigen Fortschritts-Updates, Qualitätskontrollpunkten und kontinuierlicher Stakeholder-Kommunikation."
+          },
+          {
+            "title": "Tests & Validierung",
+            "description": "Rigorose Tests, Validierung und Compliance-Überprüfung zur Sicherstellung, dass die Lösung alle Anforderungen und Standards erfüllt."
+          },
+          {
+            "title": "Lieferung & Support",
+            "description": "Endgültige Lieferung mit umfassender Dokumentation, Schulung und fortlaufendem Support zur Gewährleistung erfolgreicher Implementierung."
+          }
+        ]
+      },
+      "why_choose_me": {
+        "title": "Warum mit mir arbeiten",
+        "reasons": [
+          {
+            "title": "Bewährte Erfolgsbilanz",
+            "description": "2+ Jahre Management kritischer Medizingeräte mit 99,9% Betriebszeit und nachgewiesenen Kosteneinsparungen durch prädiktive Wartungslösungen."
+          },
+          {
+            "title": "Regulatorische Expertise",
+            "description": "Tiefes Verständnis von FDA, ISO 13485, IEC 62304 und europäischen Medizingeräte-Vorschriften aus praktischer Compliance-Erfahrung."
+          },
+          {
+            "title": "Technische Exzellenz",
+            "description": "Starke Programmierfertigkeiten in Python, MATLAB und modernen Webtechnologien, kombiniert mit praktischem biomedizintechnischem Wissen."
+          },
+          {
+            "title": "Internationale Perspektive",
+            "description": "Mehrsprachige Fähigkeiten (EN/DE/AR) und Erfahrung in verschiedenen Gesundheitssystemen und regulatorischen Umgebungen."
+          },
+          {
+            "title": "Akademisches Fundament",
+            "description": "Derzeit Master-Studium in Biomedizintechnik in Deutschland, auf dem Laufenden mit neuester Forschung und Branchenentwicklungen."
+          }
+        ]
+      },
+      "contact_cta": {
+        "title": "Bereit, Ihr Projekt zu starten?",
+        "description": "Ob Sie Beratung, Softwareentwicklung oder Schulungsdienstleistungen benötigen, ich bin hier, um Ihnen bei der Erreichung Ihrer Gesundheitstechnologie-Ziele zu helfen. Lassen Sie uns besprechen, wie wir zusammenarbeiten können, um die Patientenversorgung durch innovative Technologielösungen zu verbessern.",
+        "button_text": "Kontakt aufnehmen"
+      }
+    }
+  }

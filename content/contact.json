@@ -1,216 +1,296 @@
 {
+  "en": {
+    "page_title": "Contact",
+    "page_subtitle": "Let's collaborate on innovative healthcare solutions",
     "contact_info": {
       "email": "Abdullah.Hemdan@outlook.com",
       "phone": "+49 152 07547899",
-      "location": {
-        "en": "Koethen, Saxony-Anhalt, Germany",
-        "de": "Köthen, Sachsen-Anhalt, Deutschland"
-      },
-      "availability": {
-        "en": "Available for internships and working student positions",
-        "de": "Verfügbar für Praktika und Werkstudentenstellen"
-      }
+      "location": "Köthen, Sachsen-Anhalt, Germany",
+      "availability": "Available for internships and working student positions",
+      "response_time": "I typically respond within 24 hours",
+      "linkedin": "https://linkedin.com/in/abdullah-hemdan",
+      "xing": "https://xing.com/profile/Abdullah_Hemdan",
+      "github": "https://github.com/AbdullahHemdan"
     },
     "specializations": [
       {
-        "en": "Medical Software Development",
-        "de": "Medizinische Softwareentwicklung"
+        "title": "Medical Software Development",
+        "description": "IEC 62304 compliant software for critical medical devices"
       },
       {
-        "en": "Healthcare IoT Solutions",
-        "de": "Gesundheits-IoT-Lösungen"
+        "title": "Healthcare IoT Solutions", 
+        "description": "Connected medical device systems with real-time monitoring"
       },
       {
-        "en": "Predictive Maintenance",
-        "de": "Prädiktive Wartung"
+        "title": "Predictive Maintenance",
+        "description": "AI-powered algorithms for equipment failure prevention"
       },
       {
-        "en": "Medical Device Validation",
-        "de": "Medizingeräte-Validierung"
+        "title": "Medical Device Validation",
+        "description": "Comprehensive testing and compliance verification"
       },
       {
-        "en": "Clinical Engineering",
-        "de": "Klinische Technik"
+        "title": "Clinical Engineering",
+        "description": "Equipment management and optimization for healthcare facilities"
       }
     ],
-    "social_links": [
+    "services": [
       {
-        "platform": "linkedin",
-        "url": "https://www.linkedin.com/in/abdullah-hemdan",
-        "icon": "fab fa-linkedin",
-        "color": "#0077b5"
+        "id": "consulting",
+        "title": "Medical Device Consulting",
+        "description": "Expert consultation on device maintenance, calibration, and optimization",
+        "includes": [
+          "Device performance assessment",
+          "Maintenance protocol optimization", 
+          "Compliance review (FDA/ISO 13485)",
+          "Staff training programs",
+          "Technical documentation"
+        ],
+        "pricing": "Starting from €75/hour",
+        "duration": "Project-based or hourly"
       },
       {
-        "platform": "xing",
-        "url": "https://www.xing.com/profile/Abdullah_Hemdan",
-        "icon": "fab fa-xing",
-        "color": "#026466"
+        "id": "development",
+        "title": "Software Development", 
+        "description": "Custom healthcare software solutions with regulatory compliance",
+        "includes": [
+          "Requirements analysis",
+          "Custom software development",
+          "IEC 62304 compliance",
+          "Testing & validation",
+          "Documentation & support"
+        ],
+        "pricing": "€2,500 - €15,000",
+        "duration": "2-6 months typically"
       },
       {
-        "platform": "github",
-        "url": "https://github.com/AbdullahHemdan",
-        "icon": "fab fa-github",
-        "color": "#333"
-      },
-      {
-        "platform": "email",
-        "url": "mailto:Abdullah.Hemdan@outlook.com",
-        "icon": "fas fa-envelope",
-        "color": "#ea4335"
+        "id": "training",
+        "title": "Training & Education",
+        "description": "Professional development programs for medical technology teams",
+        "includes": [
+          "Custom curriculum design",
+          "Hands-on workshops",
+          "Digital learning materials",
+          "Competency assessment", 
+          "Ongoing support"
+        ],
+        "pricing": "€500/day",
+        "duration": "1-5 days per program"
       }
     ],
-    "form": {
-      "inquiry_types": [
+    "opportunities": {
+      "title": "I'm Looking For",
+      "types": [
         {
-          "value": "internship",
-          "label": {
-            "en": "Internship Opportunity",
-            "de": "Praktikumsmöglichkeit"
-          }
+          "type": "Internship Opportunities",
+          "description": "3-6 month internships in medical software development or clinical engineering",
+          "preferences": [
+            "Medical device companies",
+            "Healthcare technology startups",
+            "Hospital engineering departments",
+            "Research institutions"
+          ]
         },
         {
-          "value": "working_student",
-          "label": {
-            "en": "Working Student Position",
-            "de": "Werkstudentenstelle"
-          }
+          "type": "Working Student Positions",
+          "description": "Part-time positions (15-20 hours/week) during my Master's studies",
+          "preferences": [
+            "Medical software projects",
+            "IoT healthcare solutions",
+            "Device validation projects",
+            "Research and development"
+          ]
         },
         {
-          "value": "collaboration",
-          "label": {
-            "en": "Research Collaboration",
-            "de": "Forschungszusammenarbeit"
-          }
-        },
-        {
-          "value": "consulting",
-          "label": {
-            "en": "Consulting Project",
-            "de": "Beratungsprojekt"
-          }
-        },
-        {
-          "value": "speaking",
-          "label": {
-            "en": "Speaking Engagement",
-            "de": "Vortragsengagement"
-          }
-        },
-        {
-          "value": "general",
-          "label": {
-            "en": "General Inquiry",
-            "de": "Allgemeine Anfrage"
-          }
+          "type": "Research Collaborations",
+          "description": "Academic or industry research partnerships in biomedical engineering",
+          "preferences": [
+            "AR/VR in medical education",
+            "Predictive maintenance algorithms",
+            "Medical device innovation",
+            "Healthcare data analytics"
+          ]
         }
-      ],
-      "placeholders": {
-        "name": {
-          "en": "Your full name",
-          "de": "Ihr vollständiger Name"
-        },
-        "email": {
-          "en": "your.email@company.com",
-          "de": "ihre.email@unternehmen.com"
-        },
-        "company": {
-          "en": "Your company or organization",
-          "de": "Ihr Unternehmen oder Ihre Organisation"
-        },
-        "subject": {
-          "en": "Brief description of your inquiry",
-          "de": "Kurze Beschreibung Ihrer Anfrage"
-        },
-        "message": {
-          "en": "Tell me about your project, opportunity, or how we can work together. Include details about timeline, scope, and any specific requirements you have in mind.",
-          "de": "Erzählen Sie mir von Ihrem Projekt, Ihrer Gelegenheit oder wie wir zusammenarbeiten können. Fügen Sie Details zu Zeitplan, Umfang und spezifischen Anforderungen hinzu, die Sie im Sinn haben."
-        }
-      },
-      "labels": {
-        "name": {
-          "en": "Name",
-          "de": "Name"
-        },
-        "email": {
-          "en": "Email",
-          "de": "E-Mail"
-        },
-        "company": {
-          "en": "Company/Organization",
-          "de": "Unternehmen/Organisation"
-        },
-        "inquiry_type": {
-          "en": "Inquiry Type",
-          "de": "Art der Anfrage"
-        },
-        "subject": {
-          "en": "Subject",
-          "de": "Betreff"
-        },
-        "message": {
-          "en": "Message",
-          "de": "Nachricht"
-        },
-        "submit": {
-          "en": "Send Message",
-          "de": "Nachricht senden"
-        }
-      }
-    },
-    "response_time": {
-      "en": "I typically respond within 24 hours",
-      "de": "Ich antworte normalerweise innerhalb von 24 Stunden"
+      ]
     },
     "preferred_contact": {
-      "title": {
-        "en": "Preferred Contact Methods",
-        "de": "Bevorzugte Kontaktmethoden"
-      },
+      "title": "How to Reach Me",
       "methods": [
         {
-          "method": {
-            "en": "Email for detailed project discussions",
-            "de": "E-Mail für detaillierte Projektdiskussionen"
-          },
-          "description": {
-            "en": "Best for sharing documents, technical requirements, and detailed project specifications.",
-            "de": "Am besten zum Teilen von Dokumenten, technischen Anforderungen und detaillierten Projektspezifikationen."
-          }
+          "method": "Email",
+          "when": "For detailed project discussions",
+          "description": "Best for sharing documents, technical requirements, and detailed project specifications. I typically respond within 24 hours."
         },
         {
-          "method": {
-            "en": "Phone/WhatsApp for quick questions",
-            "de": "Telefon/WhatsApp für schnelle Fragen"
-          },
-          "description": {
-            "en": "Great for initial discussions, clarifications, or urgent matters.",
-            "de": "Großartig für erste Diskussionen, Klarstellungen oder dringende Angelegenheiten."
-          }
+          "method": "LinkedIn",
+          "when": "For professional networking",
+          "description": "Connect with me to stay updated on my latest projects and industry insights. Great for initial introductions."
         },
         {
-          "method": {
-            "en": "LinkedIn for professional networking",
-            "de": "LinkedIn für professionelles Networking"
-          },
-          "description": {
-            "en": "Connect with me to stay updated on my latest projects and industry insights.",
-            "de": "Verbinden Sie sich mit mir, um über meine neuesten Projekte und Brancheneinblicke auf dem Laufenden zu bleiben."
-          }
+          "method": "Phone/WhatsApp",
+          "when": "For urgent matters",
+          "description": "Available for quick questions, clarifications, or urgent project discussions. Please send a message first."
         }
       ]
     },
     "calendar": {
-      "title": {
-        "en": "Schedule a Meeting",
-        "de": "Einen Termin vereinbaren"
+      "title": "Schedule a Meeting",
+      "description": "For complex projects or detailed discussions, I'm happy to schedule a video call.",
+      "availability": "Available Monday-Friday, 9:00-17:00 CET",
+      "note": "Please mention your preferred time zone and availability in your message."
+    },
+    "location_details": {
+      "current": "Köthen, Sachsen-Anhalt, Germany",
+      "willing_to_travel": "Yes, for the right opportunities",
+      "remote_work": "Available for remote collaboration",
+      "relocation": "Open to relocation within Germany and Europe"
+    }
+  },
+  "de": {
+    "page_title": "Kontakt", 
+    "page_subtitle": "Lassen Sie uns an innovativen Gesundheitslösungen zusammenarbeiten",
+    "contact_info": {
+      "email": "Abdullah.Hemdan@outlook.com",
+      "phone": "+49 152 07547899", 
+      "location": "Köthen, Sachsen-Anhalt, Deutschland",
+      "availability": "Verfügbar für Praktika und Werkstudentenstellen",
+      "response_time": "Ich antworte normalerweise innerhalb von 24 Stunden",
+      "linkedin": "https://linkedin.com/in/abdullah-hemdan",
+      "xing": "https://xing.com/profile/Abdullah_Hemdan",
+      "github": "https://github.com/AbdullahHemdan"
+    },
+    "specializations": [
+      {
+        "title": "Medizinische Softwareentwicklung",
+        "description": "IEC 62304-konforme Software für kritische Medizingeräte"
       },
-      "description": {
-        "en": "For complex projects or detailed discussions, I'm happy to schedule a video call. Please mention your preferred time zone and availability in your message.",
-        "de": "Für komplexe Projekte oder detaillierte Diskussionen vereinbare ich gerne einen Videoanruf. Bitte erwähnen Sie Ihre bevorzugte Zeitzone und Verfügbarkeit in Ihrer Nachricht."
+      {
+        "title": "Gesundheits-IoT-Lösungen",
+        "description": "Vernetzte Medizingeräte-Systeme mit Echtzeitüberwachung"
       },
-      "availability": {
-        "en": "Available Monday-Friday, 9:00-17:00 CET",
-        "de": "Verfügbar Montag-Freitag, 9:00-17:00 MEZ"
+      {
+        "title": "Prädiktive Wartung",
+        "description": "KI-gestützte Algorithmen zur Verhinderung von Geräteausfällen"
+      },
+      {
+        "title": "Medizingeräte-Validierung",
+        "description": "Umfassende Tests und Compliance-Überprüfung"
+      },
+      {
+        "title": "Klinische Technik",
+        "description": "Geräteverwaltung und -optimierung für Gesundheitseinrichtungen"
       }
+    ],
+    "services": [
+      {
+        "id": "consulting",
+        "title": "Medizingeräte-Beratung",
+        "description": "Expertenberatung zu Gerätewartung, Kalibrierung und Optimierung",
+        "includes": [
+          "Geräteleistungsbewertung",
+          "Wartungsprotokoll-Optimierung",
+          "Compliance-Überprüfung (FDA/ISO 13485)",
+          "Mitarbeiterschulungsprogramme",
+          "Technische Dokumentation"
+        ],
+        "pricing": "Ab €75/Stunde",
+        "duration": "Projektbasiert oder stündlich"
+      },
+      {
+        "id": "development",
+        "title": "Softwareentwicklung",
+        "description": "Maßgeschneiderte Gesundheitssoftware-Lösungen mit regulatorischer Konformität",
+        "includes": [
+          "Anforderungsanalyse",
+          "Maßgeschneiderte Softwareentwicklung",
+          "IEC 62304-Konformität",
+          "Tests & Validierung",
+          "Dokumentation & Support"
+        ],
+        "pricing": "€2.500 - €15.000",
+        "duration": "Typischerweise 2-6 Monate"
+      },
+      {
+        "id": "training",
+        "title": "Schulung & Weiterbildung",
+        "description": "Professionelle Entwicklungsprogramme für Medizintechnik-Teams",
+        "includes": [
+          "Maßgeschneidertes Curriculum-Design",
+          "Praktische Workshops",
+          "Digitale Lernmaterialien",
+          "Kompetenzbewertung",
+          "Fortlaufende Unterstützung"
+        ],
+        "pricing": "€500/Tag",
+        "duration": "1-5 Tage pro Programm"
+      }
+    ],
+    "opportunities": {
+      "title": "Ich suche nach",
+      "types": [
+        {
+          "type": "Praktikumsmöglichkeiten",
+          "description": "3-6 Monate Praktika in medizinischer Softwareentwicklung oder klinischer Technik",
+          "preferences": [
+            "Medizingeräte-Unternehmen",
+            "Gesundheitstechnologie-Startups",
+            "Krankenhaus-Technikabteilungen",
+            "Forschungseinrichtungen"
+          ]
+        },
+        {
+          "type": "Werkstudentenstellen",
+          "description": "Teilzeitstellen (15-20 Stunden/Woche) während meines Masterstudiums",
+          "preferences": [
+            "Medizinische Softwareprojekte",
+            "IoT-Gesundheitslösungen",
+            "Gerätevalidierungsprojekte",
+            "Forschung und Entwicklung"
+          ]
+        },
+        {
+          "type": "Forschungskooperationen",
+          "description": "Akademische oder industrielle Forschungspartnerschaften in der Biomedizintechnik",
+          "preferences": [
+            "AR/VR in der medizinischen Ausbildung",
+            "Prädiktive Wartungsalgorithmen",
+            "Medizingeräte-Innovation",
+            "Gesundheitsdatenanalytik"
+          ]
+        }
+      ]
+    },
+    "preferred_contact": {
+      "title": "Wie Sie mich erreichen",
+      "methods": [
+        {
+          "method": "E-Mail",
+          "when": "Für detaillierte Projektdiskussionen",
+          "description": "Am besten zum Teilen von Dokumenten, technischen Anforderungen und detaillierten Projektspezifikationen. Ich antworte normalerweise innerhalb von 24 Stunden."
+        },
+        {
+          "method": "LinkedIn", 
+          "when": "Für professionelles Networking",
+          "description": "Verbinden Sie sich mit mir, um über meine neuesten Projekte und Brancheneinblicke auf dem Laufenden zu bleiben. Großartig für erste Vorstellungen."
+        },
+        {
+          "method": "Telefon/WhatsApp",
+          "when": "Für dringende Angelegenheiten",
+          "description": "Verfügbar für schnelle Fragen, Klarstellungen oder dringende Projektdiskussionen. Bitte senden Sie zuerst eine Nachricht."
+        }
+      ]
+    },
+    "calendar": {
+      "title": "Einen Termin vereinbaren",
+      "description": "Für komplexe Projekte oder detaillierte Diskussionen vereinbare ich gerne einen Videoanruf.",
+      "availability": "Verfügbar Montag-Freitag, 9:00-17:00 MEZ",
+      "note": "Bitte erwähnen Sie Ihre bevorzugte Zeitzone und Verfügbarkeit in Ihrer Nachricht."
+    },
+    "location_details": {
+      "current": "Köthen, Sachsen-Anhalt, Deutschland",
+      "willing_to_travel": "Ja, für die richtigen Gelegenheiten",
+      "remote_work": "Verfügbar für Remote-Zusammenarbeit",
+      "relocation": "Offen für Umzug innerhalb Deutschlands und Europas"
     }
   }
+}

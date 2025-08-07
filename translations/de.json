@@ -1,85 +1,66 @@
 {
-    "nav": {
-      "home": "[ startseite ]",
-      "about": "[ über mich ]",
-      "engineering": "[ ingenieurwesen ]",
-      "software": "[ software ]",
-      "blog": "[ blog ]",
-      "services": "[ dienstleistungen ]",
-      "contact": "[ kontakt ]"
-    },
-    "home": {
-      "name": "Abdullah Hemdan",
-      "title1": "> Biomedizin-Ingenieur",
-      "title2": "> Software-Entwickler",
-      "title3": "> Masterstudent",
-      "location": "Köthen, Sachsen-Anhalt, Deutschland",
-      "mission": "Ich verbinde das Gesundheitswesen mit der Technologie und entwickle innovative medizinische Softwarelösungen zur Optimierung kritischer Medizingeräte. Mit über 2 Jahren praktischer Erfahrung in der Biomedizintechnik und einer Leidenschaft für das Programmieren schaffe ich Werkzeuge, die Innovationen im Gesundheitswesen vorantreiben und die Patientenversorgung verbessern.",
-      "view_resume": "Lebenslauf ansehen",
-      "contact_email": "Kontakt aufnehmen",
-      "services": "Meine Dienstleistungen"
-    },
-    "terminal": {
-      "title": "abdullah@portfolio:~$",
-      "welcome": "Willkommen zu Abdullahs interaktivem Portfolio-Terminal!",
-      "help_prompt": "Geben Sie 'help' ein, um verfügbare Befehle zu sehen.",
-      "help_output": "Verfügbare Befehle:\n  about      - Erfahren Sie mehr über meinen Hintergrund\n  engineering - Meine Ingenieursprojekte und Erfahrungen\n  software   - Erkunden Sie meine Softwareentwicklung\n  blog       - Lesen Sie meine neuesten Artikel\n  services   - Professionelle Dienstleistungen\n  contact    - Kontaktieren Sie mich\n  help       - Diese Hilfemeldung anzeigen\n  clear      - Terminal leeren\n  theme      - Zwischen dunklem/hellem Design wechseln\n  lang       - Sprache wechseln (en/de)\n  social     - Social Media Links anzeigen",
-      "command_not_found": "Befehl nicht gefunden. Geben Sie 'help' für verfügbare Befehle ein.",
-      "navigating_to": "Navigation zu",
-      "theme_switched": "Design gewechselt zu",
-      "lang_switched": "Sprache gewechselt zu",
-      "social_links": "Social Links:\n  LinkedIn: https://linkedin.com/in/abdullah-hemdan\n  XING: https://xing.com/profile/Abdullah_Hemdan\n  Email: Abdullah.Hemdan@outlook.com\n  Telefon: +49 152 07547899"
-    },
-    "about": {
-      "title": "Über mich",
-      "subtitle": "Weiterentwicklung des Gesundheitswesens durch Technologie und Innovation",
-      "bio_title": "Berufsprofil",
-      "bio1": "Als engagierter Biomedizin-Ingenieur, der derzeit seinen Master an der Hochschule Anhalt absolviert, spezialisiere ich mich auf medizinische Softwareentwicklung, Gesundheits-IoT und fortgeschrittene biomedizinische Instrumentierung. Meine Reise in der Gesundheitstechnologie begann mit praktischer Erfahrung bei der Verwaltung kritischer Medizingeräte in über 15 Gesundheitseinrichtungen.",
-      "bio2": "Während meiner Tätigkeit bei AM Medical Co. in Kairo verwaltete ich erfolgreich Wartung und Kalibrierung für über 25 kritische Medizingeräte und erreichte eine Betriebszeit von 99,9% bei vollständiger FDA/ISO 13485-Konformität. Meine Implementierung Python-basierter Überwachungssoftware reduzierte die Servicereaktionszeit um 40% und löste 95% der technischen Probleme innerhalb von 24 Stunden.",
-      "bio3": "Meine technische Expertise umfasst mehrere Programmiersprachen einschließlich Python (3+ Jahre), MATLAB (4+ Jahre), C/C++ und SQL, mit spezialisiertem Wissen in eingebetteten Systemen für medizinische Anwendungen. Ich bin besonders leidenschaftlich bei der Entwicklung von Diagnosealgorithmen und Predictive-Maintenance-Lösungen, die die Gerätegenauigkeit um bis zu 30% verbessern.",
-      "bio4": "Derzeit in Deutschland ansässig, suche ich aktiv nach Praktikums- und Werkstudentenpositionen in der medizinischen Softwareentwicklung und klinischen Technik, wo ich zu innovativen Gesundheitstechnologielösungen beitragen und gleichzeitig mein Fachwissen in der europäischen Medizingerätelandschaft erweitern kann.",
-      "education_title": "Ausbildung",
-      "msc_title": "Master of Science in Medizintechnik",
-      "msc_institution": "Hochschule Anhalt, Köthen, Deutschland",
-      "msc_description": "Spezialisiert auf medizinische Softwareentwicklung, Healthcare IoT und fortschrittliche biomedizinische Instrumentierung. Kernkurse umfassen Validierung von Medizingerätesoftware, Management klinischer Technik und Gesundheitsdatenanalytik.",
-      "beng_title": "Bachelor of Engineering in Medizintechnik",
-      "beng_institution": "Higher Institute of Engineering, El-Shorouk, Kairo",
-      "beng_description": "Abschluss mit 70% Gesamtdurchschnitt und 90% im Abschlussprojekt mit Schwerpunkt auf Augmented Reality in der medizinischen Ausbildung mit Unity. Wichtige Kurse umfassten biomedizinische Signalverarbeitung, medizinische Elektronik und eingebettete Systeme für medizinische Anwendungen.",
-      "skills_title": "Technische Fähigkeiten",
-      "programming_title": "Programmiersprachen",
-      "frameworks_title": "Frameworks & Tools",
-      "standards_title": "Medizinische Standards",
-      "languages_title": "Sprachen",
-      "arabic": "Arabisch (Muttersprache)",
-      "english": "Englisch (C1)",
-      "german": "Deutsch (B1)",
-      "french": "Französisch (A1)",
-      "turkish": "Türkisch (A1)",
-      "contact_title": "Schnellkontakt",
-      "location": "Köthen, Deutschland"
-    },
-    
-    "blog": {
-      "title": "Blog",
-      "subtitle": "Einblicke aus der Schnittstelle von Medizin und Technologie"
-    },
-    "reading": {
-      "back": "Zurück zum Blog"
-    },
-    "engineering": {
-      "title": "Ingenieurserfahrung",
-      "subtitle": "Praktische Biomedizintechnik mit messbaren Auswirkungen"
-    },
-    "software": {
-      "title": "Softwareentwicklung",
-      "subtitle": "Code-getriebene Lösungen für Innovationen im Gesundheitswesen"
-    },
-    "services": {
-      "title": "Dienstleistungen", 
-      "subtitle": "Professionelle Biomedizintechnik und Softwareentwicklungslösungen"
-    },
-    "contact": {
-      "title": "Kontakt",
-      "subtitle": "Lassen Sie uns an innovativen Gesundheitslösungen zusammenarbeiten"
-    }
+  "nav": {
+    "home": "[ startseite ]",
+    "about": "[ über mich ]",
+    "experience": "[ erfahrung ]",
+    "projects": "[ projekte ]",
+    "services": "[ dienstleistungen ]",
+    "blog": "[ blog ]",
+    "contact": "[ kontakt ]"
+  },
+  "home": {
+    "subtitle": "Köthen, Sachsen-Anhalt, Deutschland",
+    "view_resume": "Lebenslauf ansehen",
+    "contact_email": "Kontakt aufnehmen",
+    "view_projects": "Projekte ansehen"
+  },
+  "terminal": {
+    "title": "abdullah@portfolio:~$",
+    "welcome": "Willkommen zu Abdullahs interaktivem Portfolio-Terminal!",
+    "help_prompt": "Geben Sie 'help' ein, um verfügbare Befehle zu sehen.",
+    "help_output": "Verfügbare Befehle:\n  about      - Erfahren Sie mehr über meinen Hintergrund\n  experience - Meine Berufserfahrung ansehen\n  projects   - Erkunden Sie meine Softwareentwicklung\n  services   - Meine professionellen Dienstleistungen\n  blog       - Lesen Sie meine neuesten Artikel\n  contact    - Kontaktieren Sie mich\n  help       - Diese Hilfemeldung anzeigen\n  clear      - Terminal leeren\n  theme      - Zwischen dunklem/hellem Design wechseln\n  lang       - Sprache wechseln (en/de)\n  social     - Social Media Links anzeigen",
+    "command_not_found": "Befehl nicht gefunden. Geben Sie 'help' für verfügbare Befehle ein.",
+    "navigating_to": "Navigation zu",
+    "theme_switched": "Design gewechselt zu",
+    "lang_switched": "Sprache gewechselt zu",
+    "social_links": "Social Links:\n  LinkedIn: https://linkedin.com/in/abdullah-hemdan\n  XING: https://xing.com/profile/Abdullah_Hemdan\n  Email: Abdullah.Hemdan@outlook.com\n  Telefon: +49 152 07547899"
+  },
+  "about": {
+    "title": "Über mich",
+    "subtitle": "Weiterentwicklung des Gesundheitswesens durch Technologie und Innovation",
+    "name": "Abdullah Hemdan",
+    "title1": "Biomedizin-Ingenieur",
+    "title2": "Software-Entwickler",
+    "title3": "Masterstudent",
+    "location": "Köthen, Sachsen-Anhalt, Deutschland"
+  },
+  "experience": {
+    "title": "Berufserfahrung",
+    "subtitle": "Praktische Biomedizintechnik mit messbaren Auswirkungen"
+  },
+  "projects": {
+    "title": "Projekte & Entwicklung",
+    "subtitle": "Code-getriebene Lösungen für Innovationen im Gesundheitswesen"
+  },
+  "services": {
+    "title": "Dienstleistungen",
+    "subtitle": "Professionelle Biomedizintechnik und Softwareentwicklungslösungen"
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Einblicke aus der Schnittstelle von Medizin und Technologie"
+  },
+  "reading": {
+    "back": "Zurück zum Blog"
+  },
+  "contact": {
+    "title": "Kontakt",
+    "subtitle": "Lassen Sie uns an innovativen Gesundheitslösungen zusammenarbeiten"
+  },
+  "footer": {
+    "tagline": "Biomedizin-Ingenieur & Software-Entwickler",
+    "location": "Köthen, Deutschland",
+    "available": "Verfügbar für Gelegenheiten",
+    "rights": "Alle Rechte vorbehalten."
   }
+}

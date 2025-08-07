@@ -1,0 +1,282 @@
+{
+    "en": {
+      "page_title": "Professional Experience",
+      "page_subtitle": "Hands-on biomedical engineering with measurable impact",
+      "experience": [
+        {
+          "id": "am_medical",
+          "position": "Biomedical Engineer",
+          "company": "AM Medical Co.",
+          "location": "Cairo, Egypt",
+          "period": "September 2021 - January 2023",
+          "type": "Full-time Position",
+          "description": "Led comprehensive medical device management across multiple healthcare facilities, ensuring optimal performance and regulatory compliance for critical life-support equipment.",
+          "key_achievements": [
+            "Managed maintenance and calibration for 25+ critical medical devices including Bennett ventilators, Mindray anesthesia machines, Philips catheter devices, and Valley Lab diathermy systems",
+            "Achieved 99.9% operational uptime across all managed equipment while maintaining full FDA/ISO 13485 compliance",
+            "Implemented Python-based monitoring software that reduced service response time by 40% and resolved 95% of technical issues within 24 hours",
+            "Developed and delivered 12 comprehensive technical training programs for 80+ medical professionals, resulting in 60% reduction in user-error device malfunctions",
+            "Created custom MATLAB-based performance monitoring dashboard that improved equipment lifespan by 25% through predictive maintenance scheduling"
+          ],
+          "technologies": [
+            "Python Programming",
+            "MATLAB Development",
+            "Medical Device Calibration",
+            "FDA/ISO 13485 Compliance",
+            "Predictive Analytics",
+            "Technical Training",
+            "Equipment Management Systems"
+          ],
+          "impact_metrics": [
+            {
+              "metric": "99.9%",
+              "description": "Equipment uptime achieved"
+            },
+            {
+              "metric": "40%",
+              "description": "Reduction in service response time"
+            },
+            {
+              "metric": "25%",
+              "description": "Improvement in equipment lifespan"
+            },
+            {
+              "metric": "60%",
+              "description": "Reduction in user-error malfunctions"
+            }
+          ]
+        },
+        {
+          "id": "al_safa_hospital",
+          "position": "Laboratory and Operating Room Department Intern",
+          "company": "Al-Safa Hospital",
+          "location": "Giza, Egypt",
+          "period": "July 2019 - August 2019",
+          "type": "Internship",
+          "description": "Gained hands-on experience in clinical laboratory operations and OR equipment management, focusing on quality control and process optimization.",
+          "key_achievements": [
+            "Processed 150+ laboratory samples daily using automated analyzers with integrated SQL database management",
+            "Improved laboratory workflow efficiency by 15% through systematic process analysis and optimization",
+            "Conducted daily quality control inspections on 20+ critical medical devices, identifying 8 potential failures before patient impact",
+            "Assisted in implementing electronic documentation system that reduced paperwork processing time by 30%",
+            "Collaborated with multidisciplinary teams to ensure seamless patient care coordination"
+          ],
+          "technologies": [
+            "Laboratory Equipment Operation",
+            "SQL Database Management",
+            "Quality Control Systems",
+            "Electronic Documentation",
+            "Process Optimization"
+          ]
+        },
+        {
+          "id": "medical_leadership",
+          "position": "Endoscopy Equipment Specialist Intern",
+          "company": "Medical Leadership Co.",
+          "location": "Giza, Egypt",
+          "period": "May 2019 - June 2019",
+          "type": "Internship",
+          "description": "Specialized training in advanced endoscopy equipment operation and maintenance, developing expertise in precision medical instrumentation.",
+          "key_achievements": [
+            "Mastered operation and maintenance procedures for 10+ Olympus and Karl Storz endoscopy equipment models",
+            "Developed comprehensive troubleshooting guideline document that reduced diagnostic time by 20% for technical staff",
+            "Participated in equipment upgrade projects and learned advanced calibration techniques",
+            "Assisted senior technicians in complex repair procedures, gaining valuable hands-on experience"
+          ],
+          "technologies": [
+            "Olympus Endoscopy Systems",
+            "Karl Storz Equipment",
+            "Precision Instrumentation",
+            "Technical Documentation",
+            "Troubleshooting Protocols"
+          ]
+        },
+        {
+          "id": "cairo_university",
+          "position": "Hemodialysis and Sterilization Technology Intern",
+          "company": "Cairo University Hospital",
+          "location": "Giza, Egypt",
+          "period": "August 2018 - September 2018",
+          "type": "Internship",
+          "description": "Intensive training in life-critical medical equipment operation, focusing on hemodialysis systems and sterilization protocols in a major university hospital setting.",
+          "key_achievements": [
+            "Operated and monitored 8 Fresenius hemodialysis machines, ensuring safe treatment for 40+ patients weekly",
+            "Conducted 25+ sterilization cycles using STERIS and Getinge industrial autoclaves with 100% compliance record",
+            "Participated in validation testing of new dialysis water purification system installation",
+            "Learned critical safety protocols for handling life-support equipment in high-stakes clinical environment"
+          ],
+          "technologies": [
+            "Fresenius Hemodialysis Systems",
+            "STERIS Sterilization Equipment",
+            "Getinge Autoclaves",
+            "Water Purification Systems",
+            "Clinical Safety Protocols"
+          ]
+        }
+      ],
+      "certifications": [
+        {
+          "name": "Medical Device Quality Management (ISO 13485)",
+          "issuer": "International Standards Organization",
+          "year": "2022",
+          "status": "Active"
+        },
+        {
+          "name": "FDA Medical Device Regulations",
+          "issuer": "Food and Drug Administration",
+          "year": "2022",
+          "status": "Active"
+        }
+      ],
+      "core_competencies": [
+        "Medical Device Management",
+        "Regulatory Compliance (FDA/ISO)",
+        "Predictive Maintenance",
+        "Technical Training & Documentation",
+        "Quality Assurance Systems",
+        "Healthcare IoT Implementation",
+        "Cross-functional Team Leadership",
+        "Process Optimization"
+      ]
+    },
+    "de": {
+      "page_title": "Berufserfahrung",
+      "page_subtitle": "Praktische Biomedizintechnik mit messbaren Auswirkungen",
+      "experience": [
+        {
+          "id": "am_medical",
+          "position": "Medizintechnikingenieur",
+          "company": "AM Medical Co.",
+          "location": "Kairo, Ägypten",
+          "period": "September 2021 - Januar 2023",
+          "type": "Vollzeitstelle",
+          "description": "Leitete umfassendes Medizingeräte-Management in mehreren Gesundheitseinrichtungen und gewährleistete optimale Leistung und regulatorische Konformität für kritische lebenserhaltende Geräte.",
+          "key_achievements": [
+            "Verwaltete Wartung und Kalibrierung von über 25 kritischen Medizingeräten einschließlich Bennett-Beatmungsgeräten, Mindray-Anästhesiegeräten, Philips-Kathetergeräten und Valley Lab-Diathermiegeräten",
+            "Erreichte 99,9% Betriebszeit bei allen verwalteten Geräten bei vollständiger FDA/ISO 13485-Konformität",
+            "Implementierte Python-basierte Überwachungssoftware, die die Servicereaktionszeit um 40% reduzierte und 95% der technischen Probleme innerhalb von 24 Stunden löste",
+            "Entwickelte und führte 12 umfassende technische Schulungsprogramme für über 80 medizinische Fachkräfte durch, was zu einer 60%igen Reduzierung benutzerbedingter Gerätefehlfunktionen führte",
+            "Erstellte ein kundenspezifisches MATLAB-basiertes Leistungsüberwachungs-Dashboard, das die Gerätelebensdauer um 25% durch prädiktive Wartungsplanung verbesserte"
+          ],
+          "technologies": [
+            "Python-Programmierung",
+            "MATLAB-Entwicklung",
+            "Medizingeräte-Kalibrierung",
+            "FDA/ISO 13485-Konformität",
+            "Prädiktive Analytik",
+            "Technische Schulung",
+            "Geräteverwaltungssysteme"
+          ],
+          "impact_metrics": [
+            {
+              "metric": "99,9%",
+              "description": "Erreichte Gerätebetriebszeit"
+            },
+            {
+              "metric": "40%",
+              "description": "Reduzierung der Servicereaktionszeit"
+            },
+            {
+              "metric": "25%",
+              "description": "Verbesserung der Gerätelebensdauer"
+            },
+            {
+              "metric": "60%",
+              "description": "Reduzierung benutzerbedingter Fehlfunktionen"
+            }
+          ]
+        },
+        {
+          "id": "al_safa_hospital",
+          "position": "Praktikant in Labor- und OP-Abteilung",
+          "company": "Al-Safa Hospital",
+          "location": "Giza, Ägypten",
+          "period": "Juli 2019 - August 2019",
+          "type": "Praktikum",
+          "description": "Sammelte praktische Erfahrungen in klinischen Laborabläufen und OP-Geräteverwaltung mit Fokus auf Qualitätskontrolle und Prozessoptimierung.",
+          "key_achievements": [
+            "Verarbeitete täglich über 150 Laborproben mit automatisierten Analysegeräten und integrierter SQL-Datenbankverwaltung",
+            "Verbesserte die Effizienz des Laborarbeitsablaufs um 15% durch systematische Prozessanalyse und -optimierung",
+            "Führte tägliche Qualitätskontrollinspektionen an über 20 kritischen Medizingeräten durch und identifizierte 8 potenzielle Ausfälle vor Patientenauswirkungen",
+            "Unterstützte bei der Implementierung eines elektronischen Dokumentationssystems, das die Papierkram-Verarbeitungszeit um 30% reduzierte",
+            "Arbeitete mit multidisziplinären Teams zusammen, um nahtlose Patientenversorgungskoordination zu gewährleisten"
+          ],
+          "technologies": [
+            "Laborgerätebetrieb",
+            "SQL-Datenbankverwaltung",
+            "Qualitätskontrollsysteme",
+            "Elektronische Dokumentation",
+            "Prozessoptimierung"
+          ]
+        },
+        {
+          "id": "medical_leadership",
+          "position": "Praktikant für Endoskopiegeräte-Spezialist",
+          "company": "Medical Leadership Co.",
+          "location": "Giza, Ägypten",
+          "period": "Mai 2019 - Juni 2019",
+          "type": "Praktikum",
+          "description": "Spezialisierte Ausbildung in fortgeschrittener Endoskopiegeräte-Bedienung und -Wartung, Entwicklung von Expertise in Präzisions-Medizininstrumenten.",
+          "key_achievements": [
+            "Beherrschte Bedienungs- und Wartungsverfahren für über 10 Olympus- und Karl Storz-Endoskopiegeräte-Modelle",
+            "Entwickelte umfassendes Fehlerbehebungs-Leitliniendokument, das die Diagnosezeit für technisches Personal um 20% reduzierte",
+            "Nahm an Geräte-Upgrade-Projekten teil und lernte fortgeschrittene Kalibrierungstechniken",
+            "Unterstützte erfahrene Techniker bei komplexen Reparaturverfahren und sammelte wertvolle praktische Erfahrungen"
+          ],
+          "technologies": [
+            "Olympus-Endoskopiesysteme",
+            "Karl Storz-Geräte",
+            "Präzisionsinstrumentierung",
+            "Technische Dokumentation",
+            "Fehlerbehebungsprotokolle"
+          ]
+        },
+        {
+          "id": "cairo_university",
+          "position": "Praktikant für Hämodialyse- und Sterilisationstechnologie",
+          "company": "Universitätsklinikum Kairo",
+          "location": "Giza, Ägypten",
+          "period": "August 2018 - September 2018",
+          "type": "Praktikum",
+          "description": "Intensive Schulung im Umgang mit lebenskritischen Medizingeräten mit Fokus auf Hämodialysesysteme und Sterilisationsprotokolle in einem großen Universitätsklinikum.",
+          "key_achievements": [
+            "Betrieb und Überwachung von 8 Fresenius-Hämodialysegeräten zur sicheren Behandlung von über 40 Patienten wöchentlich",
+            "Führte über 25 Sterilisationszyklen mit STERIS- und Getinge-Industrieautoklaven mit 100% Compliance-Rekord durch",
+            "Nahm an Validierungstests der neuen Dialyse-Wasserreinigungsanlagen-Installation teil",
+            "Lernte kritische Sicherheitsprotokolle für den Umgang mit lebenserhaltenden Geräten in einer hochriskanten klinischen Umgebung"
+          ],
+          "technologies": [
+            "Fresenius-Hämodialysesysteme",
+            "STERIS-Sterilisationsausrüstung",
+            "Getinge-Autoklaven",
+            "Wasserreinigungssysteme",
+            "Klinische Sicherheitsprotokolle"
+          ]
+        }
+      ],
+      "certifications": [
+        {
+          "name": "Medizingeräte-Qualitätsmanagement (ISO 13485)",
+          "issuer": "Internationale Standards Organisation",
+          "year": "2022",
+          "status": "Aktiv"
+        },
+        {
+          "name": "FDA-Medizingeräte-Vorschriften",
+          "issuer": "Food and Drug Administration",
+          "year": "2022",
+          "status": "Aktiv"
+        }
+      ],
+      "core_competencies": [
+        "Medizingeräte-Management",
+        "Regulatorische Konformität (FDA/ISO)",
+        "Prädiktive Wartung",
+        "Technische Schulung & Dokumentation",
+        "Qualitätssicherungssysteme",
+        "Healthcare IoT-Implementierung",
+        "Funktionsübergreifende Teamführung",
+        "Prozessoptimierung"
+      ]
+    }
+  }

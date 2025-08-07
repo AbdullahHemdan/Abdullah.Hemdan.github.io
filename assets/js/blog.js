@@ -1,19 +1,6 @@
 /**
- * Blog System Component
- * 
- * This component handles the markdown-based blog system with bilingual support.
- * It manages blog post loading, rendering, and navigation between posts and the blog list.
- * 
- * Key Features:
- * - Bilingual support with .en.md/.de.md files
- * - Markdown to HTML conversion
- * - SEO-friendly URLs with hash routing
- * - Responsive reading experience
- * - Automatic metadata extraction
- * 
- * Design Philosophy:
- * The blog system treats content as data, separating it from presentation.
- * This allows for easy content management and consistent rendering across languages.
+ * Enhanced Blog System Component
+ * Handles markdown-based blog system with bilingual support
  */
 
 class BlogApp {
@@ -28,7 +15,6 @@ class BlogApp {
     
     /**
      * Initialize the blog system
-     * This sets up the basic configuration and loads the post metadata
      */
     async init() {
         try {
@@ -40,13 +26,6 @@ class BlogApp {
     
     /**
      * Load posts metadata from posts.json
-     * This file contains information about all available blog posts
-     * 
-     * The metadata approach allows us to:
-     * - Control which posts are published
-     * - Set publication dates and categories
-     * - Provide multilingual titles and descriptions
-     * - Control the order of posts
      */
     async loadPostsMetadata() {
         try {
@@ -61,14 +40,69 @@ class BlogApp {
             console.log(`Loaded metadata for ${this.posts.length} blog posts`);
         } catch (error) {
             console.error('Error loading posts metadata:', error);
-            // Fallback: create empty posts array
-            this.posts = [];
+            // Fallback: create sample posts
+            this.posts = this.getSamplePosts();
         }
     }
     
     /**
+     * Get sample posts when posts.json is not available
+     */
+    getSamplePosts() {
+        return [
+            {
+                id: "medical-device-software",
+                published: true,
+                publishedDate: "2024-01-15",
+                title: {
+                    en: "The Future of Medical Device Software Validation",
+                    de: "Die Zukunft der Validierung medizinischer Gerätesoftware"
+                },
+                excerpt: {
+                    en: "Exploring emerging trends in medical software validation and their impact on patient care, drawing from hands-on experience with IEC 62304 compliance and device management.",
+                    de: "Erforschung aufkommender Trends in der medizinischen Software-Validierung und deren Auswirkungen auf die Patientenversorgung, basierend auf praktischer Erfahrung mit IEC 62304-Konformität."
+                },
+                tags: ["Medical Software", "IEC 62304", "Validation", "Healthcare"],
+                readingTime: 8,
+                category: "technical"
+            },
+            {
+                id: "python-healthcare",
+                published: true,
+                publishedDate: "2023-12-10",
+                title: {
+                    en: "Python in Healthcare: From Device Monitoring to Predictive Maintenance",
+                    de: "Python im Gesundheitswesen: Von Gerätüberwachung bis zur prädiktiven Wartung"
+                },
+                excerpt: {
+                    en: "How Python transformed medical device management in clinical environments, sharing practical examples and lessons learned from reducing device downtime by 40%.",
+                    de: "Wie Python das Medizingeräte-Management in klinischen Umgebungen transformierte, mit praktischen Beispielen und Erkenntnissen aus der 40%igen Reduzierung von Geräteausfallzeiten."
+                },
+                tags: ["Python", "Healthcare", "Predictive Maintenance", "Programming"],
+                readingTime: 12,
+                category: "technical"
+            },
+            {
+                id: "ar-medical-education",
+                published: true,
+                publishedDate: "2023-11-20",
+                title: {
+                    en: "Augmented Reality in Medical Education: A Unity 3D Implementation",
+                    de: "Augmented Reality in der medizinischen Ausbildung: Eine Unity 3D-Implementierung"
+                },
+                excerpt: {
+                    en: "Detailed case study of developing an AR platform for biomedical engineering education, achieving 90% grade and improving learning retention by 35%.",
+                    de: "Detaillierte Fallstudie zur Entwicklung einer AR-Plattform für die biomedizintechnische Ausbildung mit 90% Note und 35% Verbesserung der Lernbindung."
+                },
+                tags: ["Augmented Reality", "Unity 3D", "Medical Education", "Research"],
+                readingTime: 15,
+                category: "research"
+            }
+        ];
+    }
+    
+    /**
      * Load and display the blog post list
-     * This creates the main blog page with all available posts
      */
     async loadBlogList() {
         const blogListElement = document.getElementById('blogList');
@@ -101,7 +135,6 @@ class BlogApp {
     
     /**
      * Create an article card for the blog list
-     * Each card represents one blog post with preview information
      */
     createArticleCard(post) {
         const card = document.createElement('div');
@@ -125,9 +158,8 @@ class BlogApp {
             dateOptions
         );
         
-        // Calculate reading time (rough estimate: 200 words per minute)
-        const wordCount = excerpt.split(' ').length * 4; // Estimate full article length
-        const readingTime = Math.ceil(wordCount / 200);
+        // Calculate reading time
+        const readingTime = post.readingTime || 5;
         const readingTimeText = currentLang === 'de' 
             ? `${readingTime} Min. Lesezeit` 
             : `${readingTime} min read`;
@@ -138,7 +170,10 @@ class BlogApp {
             <div class="article-meta">
                 <span class="publish-date">${formattedDate}</span>
                 <span class="reading-time">${readingTimeText}</span>
-                ${post.tags ? `<span class="tags">${post.tags.join(', ')}</span>` : ''}
+                ${post.tags ? `<span class="tags">${post.tags.slice(0, 3).join(', ')}</span>` : ''}
+            </div>
+            <div class="read-more">
+                <span>${currentLang === 'de' ? 'Artikel lesen' : 'Read Article'}</span>
             </div>
         `;
         
@@ -147,29 +182,27 @@ class BlogApp {
             this.loadArticle(post.id);
         });
         
-        // Add hover effects for better UX
-        card.addEventListener('mouseenter', () => {
-            card.style.transform = 'translateY(-2px)';
-        });
-        
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = 'translateY(0)';
-        });
-        
         return card;
     }
     
     /**
      * Show message when no posts are available
-     * Provides helpful feedback instead of empty space
      */
     showNoPosts(container) {
         const noPosts = document.createElement('div');
         noPosts.className = 'no-posts-message';
+        
+        const currentLang = this.mainApp.currentLang;
+        const title = currentLang === 'de' ? 'Noch keine Blog-Posts verfügbar' : 'No blog posts available yet';
+        const message = currentLang === 'de' ? 
+            'Schauen Sie bald wieder vorbei für Einblicke in Biomedizintechnik und Gesundheitstechnologie!' :
+            'Check back soon for insights on biomedical engineering and healthcare technology!';
+        
         noPosts.innerHTML = `
-            <div style="text-align: center; padding: 4rem 2rem;">
-                <h3>No blog posts available yet</h3>
-                <p>Check back soon for insights on biomedical engineering and healthcare technology!</p>
+            <div class="empty-state">
+                <div class="empty-icon">📝</div>
+                <h3>${title}</h3>
+                <p>${message}</p>
             </div>
         `;
         container.appendChild(noPosts);
@@ -177,7 +210,6 @@ class BlogApp {
     
     /**
      * Load and display a specific article
-     * This handles the full article reading view
      */
     async loadArticle(postId) {
         try {
@@ -210,7 +242,6 @@ class BlogApp {
     
     /**
      * Load markdown content for a specific post
-     * This handles the bilingual file system (.en.md/.de.md)
      */
     async loadMarkdownContent(post) {
         const currentLang = this.mainApp.currentLang;
@@ -233,59 +264,117 @@ class BlogApp {
             
         } catch (error) {
             console.error('Error loading markdown content:', error);
-            // Return error content instead of breaking the page
-            return this.getErrorContent();
+            // Return sample content
+            return this.getSampleContent(post.id);
         }
     }
     
     /**
-     * Convert markdown to HTML
-     * This is a simplified markdown parser - in production, you might use a library like marked.js
-     * 
-     * For educational purposes, I'm showing how basic markdown parsing works:
-     * - Headers are identified by # symbols
-     * - Paragraphs are separated by double line breaks
-     * - Bold text is wrapped in **
-     * - Links use [text](url) format
+     * Get sample content when markdown files are not available
+     */
+    getSampleContent(postId) {
+        const currentLang = this.mainApp.currentLang;
+        
+        const sampleContent = {
+            en: `# ${postId.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}
+
+This is a sample blog post demonstrating the blog system functionality. In a real implementation, this content would be loaded from markdown files in the posts directory.
+
+## Key Features
+
+The blog system supports:
+- Bilingual content (English/German)
+- Markdown formatting
+- Shareable URLs
+- Responsive design
+- Article metadata
+
+## Technical Implementation
+
+This blog system is built with:
+- Vanilla JavaScript for lightweight performance
+- Fetch API for content loading
+- CSS Grid for responsive layout
+- URL hash routing for shareability
+
+## Next Steps
+
+To complete the blog system:
+1. Create markdown files in the posts/ directory
+2. Add proper metadata in posts.json
+3. Customize the styling to match your brand
+4. Add more advanced features as needed`,
+            
+            de: `# ${postId.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}
+
+Dies ist ein Beispiel-Blog-Post zur Demonstration der Blog-System-Funktionalität. In einer echten Implementierung würde dieser Inhalt aus Markdown-Dateien im Posts-Verzeichnis geladen werden.
+
+## Hauptfunktionen
+
+Das Blog-System unterstützt:
+- Zweisprachiger Inhalt (Englisch/Deutsch)
+- Markdown-Formatierung
+- Teilbare URLs
+- Responsives Design
+- Artikel-Metadaten
+
+## Technische Implementierung
+
+Dieses Blog-System ist gebaut mit:
+- Vanilla JavaScript für leichte Performance
+- Fetch API für Content-Loading
+- CSS Grid für responsives Layout
+- URL Hash-Routing für Teilbarkeit
+
+## Nächste Schritte
+
+Um das Blog-System zu vervollständigen:
+1. Markdown-Dateien im posts/ Verzeichnis erstellen
+2. Korrekte Metadaten in posts.json hinzufügen
+3. Styling an Ihre Marke anpassen
+4. Weitere erweiterte Funktionen nach Bedarf hinzufügen`
+        };
+        
+        return sampleContent[currentLang] || sampleContent.en;
+    }
+    
+    /**
+     * Convert markdown to HTML (simple implementation)
      */
     markdownToHtml(markdown) {
         let html = markdown;
         
-        // Convert headers (##, ###, etc.)
+        // Convert headers
         html = html.replace(/^### (.*$)/gim, '<h3>$1</h3>');
         html = html.replace(/^## (.*$)/gim, '<h2>$1</h2>');
         html = html.replace(/^# (.*$)/gim, '<h1>$1</h1>');
         
-        // Convert paragraphs (double line breaks)
+        // Convert paragraphs
         html = html.replace(/\n\n/g, '</p><p>');
         html = '<p>' + html + '</p>';
         
-        // Clean up empty paragraphs
+        // Clean up
         html = html.replace(/<p><\/p>/g, '');
         html = html.replace(/<p>\s*<h/g, '<h');
         html = html.replace(/h>\s*<\/p>/g, 'h>');
         
-        // Convert bold text
+        // Convert formatting
         html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-        
-        // Convert italic text
         html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
+        html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
         
         // Convert links
         html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank">$1</a>');
         
-        // Convert code blocks
-        html = html.replace(/```([\s\S]*?)```/g, '<pre><code>$1</code></pre>');
-        
-        // Convert inline code
-        html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
+        // Convert lists
+        html = html.replace(/^\- (.*$)/gim, '<li>$1</li>');
+        html = html.replace(/(<li>.*<\/li>)/s, '<ul>$1</ul>');
         
         return html;
     }
     
     /**
      * Render the complete article in the reading view
-     * This creates the full reading experience with metadata and content
      */
     renderArticle(post, markdownContent) {
         const articleContainer = document.getElementById('articleContent');
@@ -321,16 +410,16 @@ class BlogApp {
                     <strong>${currentLang === 'de' ? 'Veröffentlicht:' : 'Published:'}</strong> 
                     ${formattedDate}
                 </div>
-                ${post.tags ? `
-                    <div class="meta-item">
-                        <strong>${currentLang === 'de' ? 'Themen:' : 'Topics:'}</strong> 
-                        ${post.tags.join(', ')}
-                    </div>
-                ` : ''}
                 ${post.readingTime ? `
                     <div class="meta-item">
                         <strong>${currentLang === 'de' ? 'Lesezeit:' : 'Reading time:'}</strong> 
                         ${post.readingTime} ${currentLang === 'de' ? 'Minuten' : 'minutes'}
+                    </div>
+                ` : ''}
+                ${post.tags ? `
+                    <div class="meta-item">
+                        <strong>${currentLang === 'de' ? 'Themen:' : 'Topics:'}</strong> 
+                        ${post.tags.join(', ')}
                     </div>
                 ` : ''}
             </div>
@@ -345,13 +434,12 @@ class BlogApp {
         // Scroll to top of article
         articleContainer.scrollTop = 0;
         
-        // Add any additional enhancements
+        // Enhance article content
         this.enhanceArticleContent(articleContainer);
     }
     
     /**
      * Enhance article content with interactive elements
-     * This adds polish and improves the reading experience
      */
     enhanceArticleContent(container) {
         // Make external links open in new tab
@@ -361,68 +449,35 @@ class BlogApp {
             link.setAttribute('rel', 'noopener noreferrer');
         });
         
-        // Add copy code functionality to code blocks
-        const codeBlocks = container.querySelectorAll('pre code');
-        codeBlocks.forEach(block => {
-            this.addCopyButton(block);
-        });
-        
-        // Lazy load images if any
+        // Style images
         const images = container.querySelectorAll('img');
         images.forEach(img => {
             img.setAttribute('loading', 'lazy');
             img.style.maxWidth = '100%';
             img.style.height = 'auto';
             img.style.borderRadius = '8px';
+            img.style.margin = '2rem 0';
         });
-    }
-    
-    /**
-     * Add copy button to code blocks
-     * Improves developer experience when reading technical posts
-     */
-    addCopyButton(codeBlock) {
-        const button = document.createElement('button');
-        button.className = 'copy-code-button';
-        button.innerHTML = '<i class="fas fa-copy"></i>';
-        button.style.cssText = `
-            position: absolute;
-            top: 0.5rem;
-            right: 0.5rem;
-            background: var(--accent);
-            color: var(--bg-dark);
-            border: none;
-            padding: 0.25rem 0.5rem;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 0.8rem;
-        `;
         
-        // Make parent relative for absolute positioning
-        codeBlock.parentElement.style.position = 'relative';
-        codeBlock.parentElement.appendChild(button);
-        
-        button.addEventListener('click', async () => {
-            try {
-                await navigator.clipboard.writeText(codeBlock.textContent);
-                button.innerHTML = '<i class="fas fa-check"></i>';
-                setTimeout(() => {
-                    button.innerHTML = '<i class="fas fa-copy"></i>';
-                }, 2000);
-            } catch (err) {
-                console.error('Failed to copy code:', err);
+        // Style code blocks
+        const codeBlocks = container.querySelectorAll('code');
+        codeBlocks.forEach(code => {
+            if (!code.parentElement.tagName.toLowerCase() === 'pre') {
+                code.style.background = 'var(--border)';
+                code.style.padding = '0.2rem 0.4rem';
+                code.style.borderRadius = '4px';
+                code.style.fontSize = '0.9rem';
             }
         });
     }
     
     /**
      * Set up back navigation from article to blog list
-     * This ensures users can easily navigate back
      */
     setupBackNavigation() {
         const backButton = document.getElementById('backToBlog');
         if (backButton) {
-            // Remove any existing event listeners
+            // Remove existing event listeners by cloning
             const newBackButton = backButton.cloneNode(true);
             backButton.parentNode.replaceChild(newBackButton, backButton);
             
@@ -436,14 +491,13 @@ class BlogApp {
     
     /**
      * Navigate back to the blog list
-     * Updates URL and shows blog list page
      */
     navigateBackToBlog() {
         // Clear the hash to remove post URL
-        window.location.hash = 'writing';
+        window.location.hash = 'blog';
         
         // Navigate to blog page
-        this.mainApp.navigateToPage('writing');
+        this.mainApp.navigateToPage('blog');
         
         // Reload blog list to ensure it's current
         this.loadBlogList();
@@ -451,23 +505,24 @@ class BlogApp {
     
     /**
      * Show error message when article fails to load
-     * Provides helpful feedback instead of broken page
      */
     showArticleError() {
         const articleContainer = document.getElementById('articleContent');
         if (articleContainer) {
             const currentLang = this.mainApp.currentLang;
+            const errorTitle = currentLang === 'de' ? 'Artikel nicht gefunden' : 'Article Not Found';
             const errorMessage = currentLang === 'de' 
                 ? 'Entschuldigung, dieser Artikel konnte nicht geladen werden.' 
                 : 'Sorry, this article could not be loaded.';
+            const backButtonText = currentLang === 'de' ? 'Zurück zur Blog-Liste' : 'Back to Blog List';
             
             articleContainer.innerHTML = `
-                <div style="text-align: center; padding: 4rem 2rem;">
-                    <h2>Article Not Found</h2>
+                <div class="error-state">
+                    <div class="error-icon">⚠️</div>
+                    <h2>${errorTitle}</h2>
                     <p>${errorMessage}</p>
-                    <button onclick="window.portfolioApp.navigateToPage('writing')" 
-                            style="margin-top: 2rem; padding: 0.8rem 1.5rem; background: var(--accent); color: var(--bg-dark); border: none; border-radius: 4px; cursor: pointer;">
-                        ${currentLang === 'de' ? 'Zurück zur Blog-Liste' : 'Back to Blog List'}
+                    <button onclick="window.portfolioApp.navigateToPage('blog')" class="error-back-button">
+                        ${backButtonText}
                     </button>
                 </div>
             `;
@@ -475,21 +530,11 @@ class BlogApp {
     }
     
     /**
-     * Get error content when markdown file fails to load
-     * Provides fallback content instead of empty page
-     */
-    getErrorContent() {
-        const currentLang = this.mainApp.currentLang;
-        return currentLang === 'de' 
-            ? '# Artikel nicht verfügbar\n\nEntschuldigung, dieser Artikel konnte nicht geladen werden. Bitte versuchen Sie es später erneut.'
-            : '# Article Unavailable\n\nSorry, this article could not be loaded. Please try again later.';
-    }
-    
-    /**
      * Search functionality (for future enhancement)
-     * This provides a foundation for adding search capabilities
      */
     searchPosts(query) {
+        if (!query.trim()) return this.posts;
+        
         const lowerQuery = query.toLowerCase();
         return this.posts.filter(post => {
             const currentLang = this.mainApp.currentLang;

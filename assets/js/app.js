@@ -1,9 +1,6 @@
 /**
- * Portfolio Application - Main Logic Controller
- * 
- * This is the core application that manages state, translations, navigation,
- * and coordinates between different components. Think of this as the central
- * nervous system of your portfolio website.
+ * Enhanced Portfolio Application - Main Logic Controller
+ * Handles loading, routing, translations, and content management
  */
 
 class PortfolioApp {
@@ -14,13 +11,15 @@ class PortfolioApp {
         this.translations = {};
         this.currentPath = window.location.hash.substring(1) || 'home';
         
-        // DOM element references - caching for performance
+        // Cache DOM elements for performance
         this.elements = {
             themeToggle: document.getElementById('themeToggle'),
             langToggle: document.getElementById('langToggle'),
             navCommands: document.querySelectorAll('.nav-command'),
             pages: document.querySelectorAll('.page'),
-            bootSequence: document.getElementById('bootSequence')
+            loadingSpinner: document.getElementById('loadingSpinner'),
+            typedText: document.getElementById('typedText'),
+            cursor: document.getElementById('cursor')
         };
         
         // Initialize the application
@@ -28,13 +27,19 @@ class PortfolioApp {
     }
     
     /**
-     * Initialize the application by setting up all components
-     * This follows a specific order to ensure everything loads correctly
+     * Initialize the application with proper loading sequence
      */
     async init() {
         try {
-            // Step 1: Load translations first (needed for everything else)
-            await this.loadTranslations();
+            // Show loading spinner
+            this.showLoadingSpinner();
+            
+            // Step 1: Load all resources in parallel for faster loading
+            await Promise.all([
+                this.loadTranslations(),
+                this.preloadContent(),
+                this.simulateMinimumLoadTime() // Ensure smooth UX
+            ]);
             
             // Step 2: Set up initial UI state
             this.initializeTheme();
@@ -43,27 +48,59 @@ class PortfolioApp {
             // Step 3: Set up event handlers
             this.initializeEventHandlers();
             
-            // Step 4: Handle routing (if user came with a specific URL)
+            // Step 4: Handle routing
             this.initializeRouting();
             
-            // Step 5: Start boot sequence animation
-            this.startBootSequence();
+            // Step 5: Start typing animation
+            this.startTypingAnimation();
+            
+            // Step 6: Hide loading spinner
+            this.hideLoadingSpinner();
             
             console.log('Portfolio application initialized successfully');
             
         } catch (error) {
             console.error('Error initializing application:', error);
-            // Fallback: hide boot sequence and show main content
-            this.elements.bootSequence.style.display = 'none';
+            this.hideLoadingSpinner();
         }
     }
     
     /**
-     * Load translation files dynamically
-     * This allows for easy addition of new languages without changing code
+     * Show loading spinner with smooth animation
+     */
+    showLoadingSpinner() {
+        const spinner = this.elements.loadingSpinner;
+        if (spinner) {
+            spinner.style.display = 'flex';
+            spinner.style.opacity = '1';
+        }
+    }
+    
+    /**
+     * Hide loading spinner with smooth animation
+     */
+    hideLoadingSpinner() {
+        const spinner = this.elements.loadingSpinner;
+        if (spinner) {
+            spinner.style.opacity = '0';
+            setTimeout(() => {
+                spinner.style.display = 'none';
+            }, 500);
+        }
+    }
+    
+    /**
+     * Simulate minimum load time for smooth UX
+     */
+    simulateMinimumLoadTime() {
+        return new Promise(resolve => setTimeout(resolve, 1000));
+    }
+    
+    /**
+     * Load translation files with error handling
      */
     async loadTranslations() {
-        const languages = ['en', 'de']; // Add more languages here as needed
+        const languages = ['en', 'de'];
         
         for (const lang of languages) {
             try {
@@ -74,44 +111,84 @@ class PortfolioApp {
                 this.translations[lang] = await response.json();
             } catch (error) {
                 console.error(`Error loading ${lang} translations:`, error);
-                // Fallback: if translations fail to load, provide minimal structure
-                if (!this.translations[lang]) {
-                    this.translations[lang] = { nav: {}, home: {}, terminal: {} };
-                }
+                // Provide fallback structure
+                this.translations[lang] = this.getFallbackTranslations(lang);
             }
         }
     }
     
     /**
-     * Set up the theme system
-     * This handles both initial theme setup and the toggle functionality
+     * Preload critical content files
      */
-    initializeTheme() {
-        document.body.setAttribute('data-theme', this.currentTheme);
-        this.elements.themeToggle.textContent = this.currentTheme === 'dark' ? '◐' : '◑';
+    async preloadContent() {
+        const contentFiles = ['about', 'experience', 'projects', 'contact'];
+        
+        // Preload content files in parallel
+        const contentPromises = contentFiles.map(async (fileName) => {
+            try {
+                const response = await fetch(`content/${fileName}.json`);
+                if (response.ok) {
+                    return response.json();
+                }
+            } catch (error) {
+                console.log(`Content file ${fileName}.json not found, will use fallback`);
+            }
+            return null;
+        });
+        
+        await Promise.all(contentPromises);
     }
     
     /**
-     * Set up the language system
-     * This handles both initial language setup and translation updates
+     * Get fallback translations for critical functionality
+     */
+    getFallbackTranslations(lang) {
+        const fallbacks = {
+            en: {
+                nav: { home: "[ home ]", about: "[ about ]", experience: "[ experience ]", projects: "[ projects ]", blog: "[ blog ]", contact: "[ contact ]" },
+                terminal: { welcome: "Welcome to Abdullah's portfolio!", help_prompt: "Type 'help' for commands." },
+                home: { subtitle: "Köthen, Germany" }
+            },
+            de: {
+                nav: { home: "[ startseite ]", about: "[ über mich ]", experience: "[ erfahrung ]", projects: "[ projekte ]", blog: "[ blog ]", contact: "[ kontakt ]" },
+                terminal: { welcome: "Willkommen zu Abdullahs Portfolio!", help_prompt: "Geben Sie 'help' ein." },
+                home: { subtitle: "Köthen, Deutschland" }
+            }
+        };
+        return fallbacks[lang] || fallbacks.en;
+    }
+    
+    /**
+     * Initialize theme system
+     */
+    initializeTheme() {
+        document.body.setAttribute('data-theme', this.currentTheme);
+        if (this.elements.themeToggle) {
+            this.elements.themeToggle.textContent = this.currentTheme === 'dark' ? '◐' : '◑';
+        }
+    }
+    
+    /**
+     * Initialize language system
      */
     initializeLanguage() {
         document.body.setAttribute('data-lang', this.currentLang);
-        this.elements.langToggle.textContent = this.currentLang.toUpperCase();
+        if (this.elements.langToggle) {
+            this.elements.langToggle.textContent = this.currentLang.toUpperCase();
+        }
         this.updateAllTranslations();
     }
     
     /**
      * Set up all event handlers
-     * Organizing event handlers in one place makes the code more maintainable
      */
     initializeEventHandlers() {
-        // Theme toggle handler
+        // Theme toggle
         this.elements.themeToggle?.addEventListener('click', () => {
             this.toggleTheme();
         });
         
-        // Language toggle handler  
+        // Language toggle  
         this.elements.langToggle?.addEventListener('click', () => {
             this.toggleLanguage();
         });
@@ -135,15 +212,7 @@ class PortfolioApp {
             });
         });
         
-        // Handle browser back/forward buttons
-        window.addEventListener('popstate', () => {
-            const hash = window.location.hash.substring(1);
-            if (hash) {
-                this.handleRouteChange(hash);
-            }
-        });
-        
-        // Handle hash changes (for shareable URLs)
+        // Handle hash changes
         window.addEventListener('hashchange', () => {
             const hash = window.location.hash.substring(1);
             this.handleRouteChange(hash);
@@ -151,23 +220,19 @@ class PortfolioApp {
     }
     
     /**
-     * Handle routing - this enables shareable URLs and proper navigation
-     * This is what makes URLs like yoursite.com/#about work correctly
+     * Handle routing initialization
      */
     initializeRouting() {
         if (this.currentPath.startsWith('post/')) {
-            // Handle blog post URLs
             const articleId = this.currentPath.replace('post/', '');
             this.loadBlogPost(articleId);
         } else if (this.currentPath && this.currentPath !== 'home') {
-            // Handle page navigation
             this.navigateToPage(this.currentPath);
         }
     }
     
     /**
-     * Handle route changes (when URL hash changes)
-     * This ensures the correct content is shown based on the URL
+     * Handle route changes
      */
     handleRouteChange(hash) {
         if (hash.startsWith('post/')) {
@@ -182,35 +247,35 @@ class PortfolioApp {
     
     /**
      * Navigate to a specific page
-     * This is the core navigation function used throughout the app
      */
     navigateToPage(pageName) {
-        // Update URL without reloading the page
+        // Update URL
         if (pageName !== 'home') {
             window.location.hash = pageName;
         } else {
-            // For home page, clear the hash
             history.replaceState(null, null, window.location.pathname);
         }
         
-        // Update navigation visual state
+        // Update navigation state
         this.updateNavigationState(pageName);
         
         // Show the correct page
         this.showPage(pageName);
         
-        // Load page-specific content if needed
+        // Load page content
         this.loadPageContent(pageName);
+        
+        // Restart typing animation if returning to home
+        if (pageName === 'home') {
+            setTimeout(() => this.startTypingAnimation(), 100);
+        }
     }
     
     /**
-     * Update navigation visual state (which nav item is active)
+     * Update navigation visual state
      */
     updateNavigationState(pageName) {
-        // Remove active class from all navigation items
         this.elements.navCommands.forEach(cmd => cmd.classList.remove('active'));
-        
-        // Add active class to current navigation item
         const activeNav = document.querySelector(`[data-page="${pageName}"]`);
         if (activeNav) {
             activeNav.classList.add('active');
@@ -218,14 +283,10 @@ class PortfolioApp {
     }
     
     /**
-     * Show the correct page by managing visibility
-     * This implements the single-page application behavior
+     * Show the correct page
      */
     showPage(pageName) {
-        // Hide all pages
         this.elements.pages.forEach(page => page.classList.remove('active'));
-        
-        // Show target page
         const targetPage = document.getElementById(pageName);
         if (targetPage) {
             targetPage.classList.add('active');
@@ -233,16 +294,16 @@ class PortfolioApp {
     }
     
     /**
-     * Load page-specific content dynamically
-     * This enables content to be managed in separate files
+     * Load page-specific content
      */
     async loadPageContent(pageName) {
         const contentLoaders = {
-            'engineering': () => this.loadEngineeringContent(),
-            'software': () => this.loadSoftwareContent(),
+            'about': () => this.loadAboutContent(),
+            'experience': () => this.loadExperienceContent(),
+            'projects': () => this.loadProjectsContent(),
             'services': () => this.loadServicesContent(),
             'contact': () => this.loadContactContent(),
-            'writing': () => this.loadBlogList()
+            'blog': () => this.loadBlogList()
         };
         
         const loader = contentLoaders[pageName];
@@ -251,53 +312,375 @@ class PortfolioApp {
                 await loader();
             } catch (error) {
                 console.error(`Error loading content for ${pageName}:`, error);
+                this.showContentError(pageName);
             }
         }
     }
     
     /**
-     * Toggle between dark and light themes
-     * This provides a smooth, animated transition between themes
+     * Load About page content
      */
-    toggleTheme() {
-        this.currentTheme = this.currentTheme === 'dark' ? 'light' : 'dark';
-        
-        // Update the UI
-        document.body.setAttribute('data-theme', this.currentTheme);
-        this.elements.themeToggle.textContent = this.currentTheme === 'dark' ? '◐' : '◑';
-        
-        // Save preference
-        localStorage.setItem('portfolio-theme', this.currentTheme);
-        
-        // Update terminal if it exists and is visible
-        const terminal = window.terminalApp;
-        if (terminal && document.getElementById('home').classList.contains('active')) {
-            terminal.addToTerminal(`${this.getTranslation('terminal.theme_switched')} ${this.currentTheme}`);
+    async loadAboutContent() {
+        try {
+            const response = await fetch('content/about.json');
+            if (response.ok) {
+                const data = await response.json();
+                this.renderAboutContent(data);
+            } else {
+                this.renderDefaultAboutContent();
+            }
+        } catch (error) {
+            console.error('Error loading about content:', error);
+            this.renderDefaultAboutContent();
         }
     }
     
     /**
-     * Toggle between languages
-     * This switches the entire interface language and updates all text content
+     * Render About content
+     */
+    renderAboutContent(data) {
+        const container = document.getElementById('aboutContent');
+        if (!container || !data) return;
+        
+        const currentLang = this.currentLang;
+        const content = data[currentLang] || data.en || {};
+        
+        container.innerHTML = `
+            <div class="content-section">
+                <h3>${content.bio_title || 'Professional Summary'}</h3>
+                ${content.bio_paragraphs ? content.bio_paragraphs.map(p => `<p>${p}</p>`).join('') : '<p>Loading content...</p>'}
+            </div>
+            
+            <div class="content-section">
+                <h3>${content.education_title || 'Education'}</h3>
+                ${content.education ? content.education.map(edu => `
+                    <div class="timeline-item">
+                        <div class="timeline-date">${edu.period}</div>
+                        <div class="timeline-title">${edu.degree}</div>
+                        <div class="timeline-company">${edu.institution}</div>
+                        <div class="timeline-description">${edu.description}</div>
+                    </div>
+                `).join('') : '<p>Loading content...</p>'}
+            </div>
+            
+            <div class="content-section">
+                <h3>${content.skills_title || 'Technical Skills'}</h3>
+                ${content.skills ? Object.entries(content.skills).map(([category, skills]) => `
+                    <div class="skill-category">
+                        <h4>${category}</h4>
+                        <div class="skills-list">
+                            ${skills.map(skill => `<span class="skill-tag">${skill}</span>`).join('')}
+                        </div>
+                    </div>
+                `).join('') : '<p>Loading content...</p>'}
+            </div>
+        `;
+    }
+    
+    /**
+     * Render default About content when JSON fails to load
+     */
+    renderDefaultAboutContent() {
+        const container = document.getElementById('aboutContent');
+        if (!container) return;
+        
+        container.innerHTML = `
+            <div class="content-section">
+                <h3>Professional Summary</h3>
+                <p>Biomedical Engineer currently pursuing Master's degree at Hochschule Anhalt, specializing in medical software development and healthcare technology.</p>
+                <p>Experienced in medical device management, Python development, and regulatory compliance with a focus on improving patient care through innovative technology solutions.</p>
+            </div>
+        `;
+    }
+    
+    /**
+     * Load other content types with similar patterns
+     */
+    /**
+     * Load Services page content
+     */
+    async loadServicesContent() {
+        try {
+            const response = await fetch('content/services.json');
+            if (response.ok) {
+                const data = await response.json();
+                this.renderServicesContent(data);
+            } else {
+                this.renderDefaultServicesContent();
+            }
+        } catch (error) {
+            console.error('Error loading services content:', error);
+            this.renderDefaultServicesContent();
+        }
+    }
+    
+    /**
+     * Render Services content
+     */
+    renderServicesContent(data) {
+        const container = document.getElementById('servicesContent');
+        if (!container || !data) return;
+        
+        const currentLang = this.currentLang;
+        const content = data[currentLang] || data.en || {};
+        
+        let html = '';
+        
+        // Services overview
+        if (content.services_overview) {
+            html += `
+                <div class="content-section">
+                    <h3>${content.services_overview.title}</h3>
+                    <p>${content.services_overview.description}</p>
+                </div>
+            `;
+        }
+        
+        // Services list
+        if (content.services && content.services.length > 0) {
+            html += '<div class="services-grid">';
+            content.services.forEach(service => {
+                html += `
+                    <div class="service-card">
+                        <h4>${service.title}</h4>
+                        <p class="service-description">${service.description}</p>
+                        <div class="service-features">
+                            <h5>What's included:</h5>
+                            <ul>
+                                ${service.features.map(feature => `<li>${feature}</li>`).join('')}
+                            </ul>
+                        </div>
+                        <div class="service-pricing">
+                            <span class="price">${service.pricing}</span>
+                            <span class="duration">${service.duration}</span>
+                        </div>
+                    </div>
+                `;
+            });
+            html += '</div>';
+        }
+        
+        // Process section
+        if (content.process) {
+            html += `
+                <div class="content-section">
+                    <h3>${content.process.title}</h3>
+                    <div class="process-steps">
+                        ${content.process.steps.map((step, index) => `
+                            <div class="process-step">
+                                <div class="step-number">${index + 1}</div>
+                                <div class="step-content">
+                                    <h4>${step.title}</h4>
+                                    <p>${step.description}</p>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+        
+        // Contact CTA
+        if (content.contact_cta) {
+            html += `
+                <div class="content-section cta-section">
+                    <h3>${content.contact_cta.title}</h3>
+                    <p>${content.contact_cta.description}</p>
+                    <a href="#" class="cta-button" data-page="contact">${content.contact_cta.button_text}</a>
+                </div>
+            `;
+        }
+        
+        container.innerHTML = html;
+        
+        // Add event listeners for CTA buttons
+        const ctaButtons = container.querySelectorAll('.cta-button[data-page]');
+        ctaButtons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetPage = btn.getAttribute('data-page');
+                this.navigateToPage(targetPage);
+            });
+        });
+    }
+    
+    /**
+     * Render default Services content
+     */
+    renderDefaultServicesContent() {
+        const container = document.getElementById('servicesContent');
+        if (!container) return;
+        
+        const isGerman = this.currentLang === 'de';
+        
+        container.innerHTML = `
+            <div class="content-section">
+                <h3>${isGerman ? 'Professionelle Dienstleistungen' : 'Professional Services'}</h3>
+                <p>${isGerman ? 
+                    'Ich biete spezialisierte Dienstleistungen in der Biomedizintechnik und Softwareentwicklung für Gesundheitseinrichtungen und Technologieunternehmen.' : 
+                    'I offer specialized services in biomedical engineering and software development for healthcare facilities and technology companies.'
+                }</p>
+                
+                <div class="services-grid">
+                    <div class="service-card">
+                        <h4>${isGerman ? 'Medizingeräte-Beratung' : 'Medical Device Consulting'}</h4>
+                        <p>${isGerman ? 
+                            'Expertenberatung zu Gerätewartung, Kalibrierung und Optimierung mit über 2 Jahren praktischer Erfahrung.' : 
+                            'Expert consultation on device maintenance, calibration, and optimization with 2+ years of hands-on experience.'
+                        }</p>
+                        <div class="service-pricing">
+                            <span class="price">${isGerman ? 'Ab €75/Stunde' : 'From €75/hour'}</span>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card">
+                        <h4>${isGerman ? 'Softwareentwicklung' : 'Software Development'}</h4>
+                        <p>${isGerman ? 
+                            'Maßgeschneiderte Lösungen für medizinische Anwendungen mit vollständiger regulatorischer Konformität.' : 
+                            'Custom solutions for medical applications with full regulatory compliance.'
+                        }</p>
+                        <div class="service-pricing">
+                            <span class="price">€2,500 - €15,000</span>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card">
+                        <h4>${isGerman ? 'Schulung & Training' : 'Training & Education'}</h4>
+                        <p>${isGerman ? 
+                            'Technische Schulungsprogramme für medizinische Fachkräfte und Technikerteams.' : 
+                            'Technical training programs for medical professionals and technical teams.'
+                        }</p>
+                        <div class="service-pricing">
+                            <span class="price">${isGerman ? '€500/Tag' : '€500/day'}</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cta-section">
+                    <h3>${isGerman ? 'Interesse an einer Zusammenarbeit?' : 'Interested in Working Together?'}</h3>
+                    <p>${isGerman ? 
+                        'Lassen Sie uns über Ihr Projekt sprechen und wie ich Ihnen bei der Erreichung Ihrer Ziele helfen kann.' : 
+                        'Let\'s discuss your project and how I can help you achieve your goals.'
+                    }</p>
+                    <a href="#" class="cta-button" data-page="contact">${isGerman ? 'Kontakt aufnehmen' : 'Get In Touch'}</a>
+                </div>
+            </div>
+        `;
+        
+        // Add event listeners
+        const ctaButtons = container.querySelectorAll('.cta-button[data-page]');
+        ctaButtons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetPage = btn.getAttribute('data-page');
+                this.navigateToPage(targetPage);
+            });
+        });
+    }
+
+    async loadExperienceContent() {
+        // Similar implementation for experience
+        const container = document.getElementById('experienceContent');
+        if (container) {
+            container.innerHTML = '<div class="content-section"><p>Loading professional experience...</p></div>';
+        }
+    }
+    
+    async loadProjectsContent() {
+        // Similar implementation for projects
+        const container = document.getElementById('projectsContent');
+        if (container) {
+            container.innerHTML = '<div class="content-section"><p>Loading projects...</p></div>';
+        }
+    }
+    
+    async loadContactContent() {
+        // Similar implementation for contact
+        const container = document.getElementById('contactContent');
+        if (container) {
+            container.innerHTML = '<div class="content-section"><p>Loading contact information...</p></div>';
+        }
+    }
+    
+    /**
+     * Load blog list
+     */
+    async loadBlogList() {
+        if (window.BlogApp) {
+            window.blogApp = new BlogApp(this);
+            await window.blogApp.loadBlogList();
+        }
+    }
+    
+    /**
+     * Load specific blog post
+     */
+    async loadBlogPost(articleId) {
+        this.navigateToPage('reading');
+        if (window.blogApp) {
+            await window.blogApp.loadArticle(articleId);
+        }
+    }
+    
+    /**
+     * Show content loading error
+     */
+    showContentError(pageName) {
+        const pageElement = document.getElementById(pageName);
+        if (pageElement) {
+            const container = pageElement.querySelector('[id$="Content"]');
+            if (container) {
+                container.innerHTML = `
+                    <div class="content-section">
+                        <h3>Content Loading Error</h3>
+                        <p>Sorry, there was an error loading the content for this page. Please try refreshing the page.</p>
+                    </div>
+                `;
+            }
+        }
+    }
+    
+    /**
+     * Toggle theme with animation
+     */
+    toggleTheme() {
+        this.currentTheme = this.currentTheme === 'dark' ? 'light' : 'dark';
+        
+        document.body.setAttribute('data-theme', this.currentTheme);
+        this.elements.themeToggle.textContent = this.currentTheme === 'dark' ? '◐' : '◑';
+        
+        localStorage.setItem('portfolio-theme', this.currentTheme);
+        
+        // Update terminal if active
+        const terminal = window.terminalApp;
+        if (terminal && document.getElementById('home').classList.contains('active')) {
+            terminal.addToTerminal(`Theme switched to ${this.currentTheme}`);
+        }
+    }
+    
+    /**
+     * Toggle language with full update
      */
     toggleLanguage() {
         this.currentLang = this.currentLang === 'en' ? 'de' : 'en';
         
-        // Update the UI
         document.body.setAttribute('data-lang', this.currentLang);
         this.elements.langToggle.textContent = this.currentLang.toUpperCase();
         
-        // Update all translations
         this.updateAllTranslations();
+        this.updateResumeLinks();
         
-        // Save preference
         localStorage.setItem('portfolio-lang', this.currentLang);
         
-        // Update terminal if it exists and is visible
+        // Restart typing animation with new language
+        if (document.getElementById('home').classList.contains('active')) {
+            this.startTypingAnimation();
+        }
+        
+        // Update terminal
         const terminal = window.terminalApp;
         if (terminal && document.getElementById('home').classList.contains('active')) {
-            terminal.addToTerminal(`${this.getTranslation('terminal.lang_switched')} ${this.currentLang.toUpperCase()}`);
-            // Also refresh the terminal welcome messages
+            terminal.addToTerminal(`Language switched to ${this.currentLang.toUpperCase()}`);
             terminal.refreshWelcomeMessages();
         }
         
@@ -311,7 +694,6 @@ class PortfolioApp {
     
     /**
      * Update all elements with translations
-     * This finds all elements with data-i18n attributes and updates their content
      */
     updateAllTranslations() {
         const elements = document.querySelectorAll('[data-i18n]');
@@ -322,46 +704,34 @@ class PortfolioApp {
                 element.textContent = translation;
             }
         });
-        
-        // Update resume links with correct language version
-        this.updateResumeLinks();
     }
     
     /**
-     * Update resume links based on current language
-     * This ensures users get the resume in their preferred language
+     * Update resume links based on language
      */
     updateResumeLinks() {
         const resumeLinks = document.querySelectorAll('a[href*="resume"]');
         resumeLinks.forEach(link => {
-            const currentHref = link.getAttribute('href');
-            if (currentHref.includes('resume')) {
-                const newHref = `documents/resume-${this.currentLang}.pdf`;
-                link.setAttribute('href', newHref);
-            }
+            const newHref = `documents/resume-${this.currentLang}.pdf`;
+            link.setAttribute('href', newHref);
         });
     }
     
     /**
-     * Get a translation by key (supports nested keys like "terminal.welcome")
-     * This is the core function that retrieves translated text
+     * Get translation by key
      */
     getTranslation(key) {
         const keys = key.split('.');
-        let current = this.translations[this.currentLang];
+        let current = this.translations[this.currentLang] || {};
         
         for (const k of keys) {
-            if (current && current[k]) {
-                current = current[k];
-            } else {
-                // Fallback to English if translation not found
-                current = this.translations['en'];
+            current = current[k];
+            if (!current) {
+                // Fallback to English
+                current = this.translations['en'] || {};
                 for (const fallbackKey of keys) {
-                    if (current && current[fallbackKey]) {
-                        current = current[fallbackKey];
-                    } else {
-                        return null;
-                    }
+                    current = current[fallbackKey];
+                    if (!current) return key; // Return key as fallback
                 }
                 break;
             }
@@ -371,131 +741,110 @@ class PortfolioApp {
     }
     
     /**
-     * Start the boot sequence animation
-     * This creates the terminal-style startup animation
+     * Typing animation for homepage slogan
      */
-    startBootSequence() {
-        const bootMessages = [
-            'Initializing system...',
-            'Loading profile...',
-            'Abdullah Hemdan',
-            '> Biomedical Engineer',
-            '> Software Developer',
-            '> Graduate Student', 
-            '> Ready for innovation.'
+    startTypingAnimation() {
+        if (!this.elements.typedText || !this.elements.cursor) return;
+        
+        const messages = this.currentLang === 'de' ? [
+            'Willkommen zu meinem Portfolio',
+            'Biomedizin-Ingenieur',
+            'Software-Entwickler',
+            'Innovationen im Gesundheitswesen'
+        ] : [
+            'Welcome to my portfolio',
+            'Biomedical Engineer',
+            'Software Developer', 
+            'Healthcare Innovation'
         ];
         
         let messageIndex = 0;
-        const bootText = document.getElementById('bootText');
-        const bootSequence = this.elements.bootSequence;
+        let charIndex = 0;
+        let isDeleting = false;
         
-        // Function to simulate typing animation
-        const typeMessage = (message, callback) => {
-            bootText.textContent = '';
-            bootText.classList.add('typing');
-            let charIndex = 0;
+        const typeSpeed = 100;
+        const deleteSpeed = 50;
+        const pauseBetweenMessages = 2000;
+        
+        const type = () => {
+            const currentMessage = messages[messageIndex];
             
-            const typeInterval = setInterval(() => {
-                bootText.textContent += message[charIndex];
-                charIndex++;
-                if (charIndex === message.length) {
-                    clearInterval(typeInterval);
-                    bootText.classList.remove('typing');
-                    setTimeout(callback, 500);
-                }
-            }, 50);
-        };
-        
-        // Function to show next message
-        const nextMessage = () => {
-            if (messageIndex < bootMessages.length) {
-                typeMessage(bootMessages[messageIndex], () => {
-                    messageIndex++;
-                    setTimeout(nextMessage, 300);
-                });
+            if (isDeleting) {
+                this.elements.typedText.textContent = currentMessage.substring(0, charIndex - 1);
+                charIndex--;
             } else {
-                // Boot sequence complete, show main interface
-                setTimeout(() => {
-                    bootSequence.style.opacity = '0';
-                    setTimeout(() => {
-                        bootSequence.style.display = 'none';
-                        // Initialize terminal if we're on the home page
-                        if (document.getElementById('home').classList.contains('active')) {
-                            this.initializeTerminal();
-                        }
-                    }, 500);
-                }, 1000);
+                this.elements.typedText.textContent = currentMessage.substring(0, charIndex + 1);
+                charIndex++;
             }
+            
+            let speed = isDeleting ? deleteSpeed : typeSpeed;
+            
+            if (!isDeleting && charIndex === currentMessage.length) {
+                speed = pauseBetweenMessages;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                messageIndex = (messageIndex + 1) % messages.length;
+            }
+            
+            setTimeout(type, speed);
         };
         
-        // Start the boot sequence
-        setTimeout(nextMessage, 500);
+        // Clear existing text and start animation
+        this.elements.typedText.textContent = '';
+        charIndex = 0;
+        messageIndex = 0;
+        isDeleting = false;
+        
+        setTimeout(type, 500);
     }
     
     /**
-     * Initialize the terminal component
-     * This connects the main app with the terminal functionality
+     * Initialize terminal when home page is active
      */
     initializeTerminal() {
         if (window.TerminalApp) {
             window.terminalApp = new TerminalApp(this);
         }
     }
-    
-    /**
-     * Content loading functions
-     * These will load content from separate JSON files
-     */
-    async loadEngineeringContent() {
-        // Implementation will load from content/engineering.json
-        console.log('Loading engineering content...');
-    }
-    
-    async loadSoftwareContent() {
-        // Implementation will load from content/software.json
-        console.log('Loading software content...');
-    }
-    
-    async loadServicesContent() {
-        // Implementation will load from content/services.json
-        console.log('Loading services content...');
-    }
-    
-    async loadContactContent() {
-        // Implementation will load from content/contact.json
-        console.log('Loading contact content...');
-    }
-    
-    async loadBlogList() {
-        // Implementation will load blog posts list
-        if (window.BlogApp) {
-            window.blogApp = new BlogApp(this);
-            await window.blogApp.loadBlogList();
-        }
-    }
-    
-    async loadBlogPost(articleId) {
-        // Navigate to reading view and load specific post
-        this.navigateToPage('reading');
-        if (window.blogApp) {
-            await window.blogApp.loadArticle(articleId);
-        }
-    }
 }
 
 /**
- * Initialize the application when the DOM is fully loaded
- * This ensures all HTML elements exist before we try to use them
+ * Initialize the application when DOM is ready
  */
 document.addEventListener('DOMContentLoaded', () => {
-    // Create global app instance
     window.portfolioApp = new PortfolioApp();
 });
 
 /**
- * Export for use by other modules
- * This allows other JavaScript files to access the main app instance
+ * Initialize terminal when home page becomes active
  */
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = PortfolioApp;
-}
+document.addEventListener('DOMContentLoaded', () => {
+    const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+            const homeElement = document.getElementById('home');
+            if (homeElement && homeElement.classList.contains('active')) {
+                if (window.portfolioApp && !window.terminalApp) {
+                    setTimeout(() => {
+                        window.portfolioApp.initializeTerminal();
+                    }, 100);
+                }
+            }
+        });
+    });
+    
+    const homeElement = document.getElementById('home');
+    if (homeElement) {
+        observer.observe(homeElement, { 
+            attributes: true, 
+            attributeFilter: ['class'] 
+        });
+        
+        // Initialize terminal if home is active on load
+        if (homeElement.classList.contains('active')) {
+            setTimeout(() => {
+                window.portfolioApp.initializeTerminal();
+            }, 1500);
+        }
+    }
+});

@@ -1,0 +1,470 @@
+{
+    "en": {
+      "page_title": "Projects & Development",
+      "page_subtitle": "Code-driven solutions for healthcare innovation",
+      "featured_projects": [
+        {
+          "id": "python_device_monitor",
+          "title": "Medical Device Monitoring System",
+          "category": "Healthcare Software",
+          "status": "Deployed",
+          "timeline": "6 months",
+          "description": "Comprehensive Python-based monitoring software with real-time diagnostics for critical medical equipment. Features automated alert systems, performance analytics, and compliance reporting designed specifically for healthcare environments.",
+          "challenge": "Healthcare facilities needed real-time monitoring of critical medical devices to prevent unexpected failures and ensure continuous patient care.",
+          "solution": "Developed a centralized monitoring system using Python that tracks device performance, predicts maintenance needs, and provides instant alerts for any anomalies.",
+          "technologies": [
+            "Python",
+            "NumPy",
+            "Pandas", 
+            "PyQt5",
+            "SQLite",
+            "Real-time Monitoring",
+            "Data Analytics"
+          ],
+          "key_features": [
+            "Real-time device status monitoring across 25+ medical devices",
+            "Automated alert system with SMS and email notifications",
+            "Performance analytics dashboard with trend analysis",
+            "Compliance reporting for FDA and ISO 13485 standards",
+            "Predictive maintenance scheduling",
+            "Historical data analysis and reporting"
+          ],
+          "results": [
+            {
+              "metric": "40%",
+              "description": "Reduction in service response time"
+            },
+            {
+              "metric": "95%",
+              "description": "Technical issues resolved within 24 hours"
+            },
+            {
+              "metric": "99.9%",
+              "description": "Operational uptime achieved"
+            },
+            {
+              "metric": "60%",
+              "description": "Reduction in user-error malfunctions"
+            }
+          ],
+          "impact": "Transformed medical device management across multiple healthcare facilities, significantly improving patient safety and operational efficiency."
+        },
+        {
+          "id": "matlab_analytics_dashboard",
+          "title": "MATLAB Performance Analytics Dashboard",
+          "category": "Biomedical Engineering",
+          "status": "Active",
+          "timeline": "4 months",
+          "description": "Advanced MATLAB-based analytics platform for biomedical signal processing and medical device performance monitoring. Features custom algorithms for predictive maintenance and equipment optimization.",
+          "challenge": "Medical facilities lacked comprehensive analytics tools to understand equipment performance patterns and optimize maintenance schedules.",
+          "solution": "Created an integrated MATLAB dashboard that processes real-time equipment data, identifies performance trends, and generates actionable insights for maintenance teams.",
+          "technologies": [
+            "MATLAB",
+            "Signal Processing Toolbox",
+            "Statistics Toolbox",
+            "GUI Development",
+            "Data Visualization",
+            "Machine Learning"
+          ],
+          "key_features": [
+            "Real-time signal processing for biomedical data",
+            "Predictive maintenance algorithms",
+            "Custom GUI for intuitive data visualization", 
+            "Statistical analysis and reporting",
+            "Equipment performance benchmarking",
+            "Automated trend detection and alerting"
+          ],
+          "results": [
+            {
+              "metric": "25%",
+              "description": "Improvement in equipment lifespan"
+            },
+            {
+              "metric": "20+",
+              "description": "Parameters tracked in real-time"
+            },
+            {
+              "metric": "30%",
+              "description": "Improvement in diagnostic accuracy"
+            }
+          ],
+          "impact": "Enabled data-driven decision making for equipment maintenance, resulting in significant cost savings and improved device reliability."
+        },
+        {
+          "id": "unity_ar_medical_education",
+          "title": "AR Medical Education Platform",
+          "category": "Educational Technology",
+          "status": "Completed",
+          "timeline": "8 months",
+          "description": "Innovative Augmented Reality application for medical education using Unity 3D. Interactive 3D models of medical devices with step-by-step maintenance procedures and troubleshooting guides.",
+          "challenge": "Traditional medical device training methods were time-consuming, expensive, and often lacked hands-on experience opportunities for students.",
+          "solution": "Developed an immersive AR platform that allows students to interact with virtual medical devices, practice procedures, and learn through guided simulations.",
+          "technologies": [
+            "Unity 3D",
+            "C#",
+            "ARCore",
+            "3D Modeling",
+            "Android Development",
+            "Interactive Design"
+          ],
+          "key_features": [
+            "Interactive 3D models of medical equipment",
+            "Step-by-step maintenance procedure guides",
+            "Troubleshooting scenarios with virtual components",
+            "Progress tracking and competency assessment",
+            "Multi-language support for international users",
+            "Offline functionality for remote learning"
+          ],
+          "results": [
+            {
+              "metric": "90%",
+              "description": "Final project grade achieved"
+            },
+            {
+              "metric": "35%",
+              "description": "Improvement in learning retention"
+            },
+            {
+              "metric": "10+",
+              "description": "Medical device models created"
+            }
+          ],
+          "impact": "Revolutionized medical device training by providing accessible, interactive learning experiences that significantly improved student engagement and knowledge retention."
+        },
+        {
+          "id": "healthcare_database_system",
+          "title": "Healthcare Database Management System",
+          "category": "Data Management",
+          "status": "Deployed",
+          "timeline": "5 months", 
+          "description": "Comprehensive SQL-based database system for managing patient data, equipment maintenance records, and compliance documentation with full HIPAA and GDPR compliance.",
+          "challenge": "Healthcare facilities needed a secure, compliant system to manage diverse data types including patient information, equipment records, and regulatory documentation.",
+          "solution": "Designed and implemented a robust database architecture with advanced security features, automated compliance reporting, and intuitive user interfaces.",
+          "technologies": [
+            "PostgreSQL",
+            "Python",
+            "Django",
+            "SQL",
+            "Data Security",
+            "Compliance Management"
+          ],
+          "key_features": [
+            "Secure patient data management with encryption",
+            "Equipment maintenance scheduling and tracking",
+            "Automated compliance reporting for audits", 
+            "Role-based access control system",
+            "Data backup and recovery procedures",
+            "Integration with existing healthcare systems"
+          ],
+          "results": [
+            {
+              "metric": "100%",
+              "description": "HIPAA and GDPR compliance achieved"
+            },
+            {
+              "metric": "50%",
+              "description": "Reduction in data retrieval time"
+            },
+            {
+              "metric": "24/7",
+              "description": "Automated monitoring and alerts"
+            }
+          ],
+          "impact": "Streamlined healthcare data management while ensuring complete regulatory compliance, enabling better patient care and operational efficiency."
+        }
+      ],
+      "development_philosophy": {
+        "title": "Development Approach",
+        "principles": [
+          {
+            "title": "Patient Safety First",
+            "description": "Every line of code prioritizes patient safety, following medical device software standards and best practices."
+          },
+          {
+            "title": "Evidence-Based Solutions",
+            "description": "Solutions built on research, real-world testing, and measurable outcomes that improve healthcare delivery."
+          },
+          {
+            "title": "Regulatory Compliance",
+            "description": "All development follows FDA, CE, and international standards, ensuring global deployment capability."
+          },
+          {
+            "title": "Continuous Innovation",
+            "description": "Embracing AI, IoT, and AR/VR to solve complex healthcare challenges and improve patient outcomes."
+          }
+        ]
+      },
+      "technical_stack": {
+        "title": "Technical Expertise",
+        "categories": [
+          {
+            "name": "Programming Languages",
+            "technologies": [
+              "Python (Advanced)",
+              "MATLAB (Expert)",
+              "C/C++ (Intermediate)",
+              "SQL (Advanced)",
+              "JavaScript (Intermediate)",
+              "C# (Intermediate)"
+            ]
+          },
+          {
+            "name": "Medical Device Integration",
+            "technologies": [
+              "HL7 Standards",
+              "DICOM Protocol",
+              "Medical Device APIs",
+              "Real-time Data Processing",
+              "Calibration Systems",
+              "Compliance Reporting"
+            ]
+          },
+          {
+            "name": "Development Tools",
+            "technologies": [
+              "Unity 3D",
+              "Django/Flask",
+              "PyQt/tkinter",
+              "Git Version Control",
+              "Docker",
+              "CI/CD Pipelines"
+            ]
+          }
+        ]
+      }
+    },
+    "de": {
+      "page_title": "Projekte & Entwicklung",
+      "page_subtitle": "Code-getriebene Lösungen für Innovationen im Gesundheitswesen",
+      "featured_projects": [
+        {
+          "id": "python_device_monitor",
+          "title": "Medizingeräte-Überwachungssystem",
+          "category": "Gesundheitssoftware",
+          "status": "Eingesetzt",
+          "timeline": "6 Monate",
+          "description": "Umfassende Python-basierte Überwachungssoftware mit Echtzeit-Diagnose für kritische Medizingeräte. Bietet automatisierte Warnsysteme, Leistungsanalysen und Compliance-Berichterstattung speziell für Gesundheitsumgebungen.",
+          "challenge": "Gesundheitseinrichtungen benötigten Echtzeit-Überwachung kritischer Medizingeräte, um unerwartete Ausfälle zu verhindern und kontinuierliche Patientenversorgung zu gewährleisten.",
+          "solution": "Entwickelte ein zentralisiertes Überwachungssystem mit Python, das Geräteleistung verfolgt, Wartungsbedarf vorhersagt und sofortige Warnungen bei Anomalien bereitstellt.",
+          "technologies": [
+            "Python",
+            "NumPy", 
+            "Pandas",
+            "PyQt5",
+            "SQLite",
+            "Echtzeit-Überwachung",
+            "Datenanalytik"
+          ],
+          "key_features": [
+            "Echtzeit-Gerätestatus-Überwachung über 25+ Medizingeräte",
+            "Automatisiertes Warnsystem mit SMS- und E-Mail-Benachrichtigungen",
+            "Leistungsanalyse-Dashboard mit Trendanalyse",
+            "Compliance-Berichterstattung für FDA- und ISO 13485-Standards",
+            "Prädiktive Wartungsplanung",
+            "Historische Datenanalyse und Berichterstattung"
+          ],
+          "results": [
+            {
+              "metric": "40%",
+              "description": "Reduzierung der Servicereaktionszeit"
+            },
+            {
+              "metric": "95%",
+              "description": "Technische Probleme innerhalb von 24 Stunden gelöst"
+            },
+            {
+              "metric": "99,9%",
+              "description": "Erreichte Betriebszeit"
+            },
+            {
+              "metric": "60%",
+              "description": "Reduzierung benutzerbedingter Fehlfunktionen"
+            }
+          ],
+          "impact": "Transformierte das Medizingeräte-Management in mehreren Gesundheitseinrichtungen und verbesserte Patientensicherheit und Betriebseffizienz erheblich."
+        },
+        {
+          "id": "matlab_analytics_dashboard",
+          "title": "MATLAB-Leistungsanalyse-Dashboard",
+          "category": "Biomedizintechnik",
+          "status": "Aktiv",
+          "timeline": "4 Monate",
+          "description": "Erweiterte MATLAB-basierte Analyseplattform für biomedizinische Signalverarbeitung und Medizingeräte-Leistungsüberwachung. Bietet kundenspezifische Algorithmen für prädiktive Wartung und Geräteoptimierung.",
+          "challenge": "Medizinische Einrichtungen fehlten umfassende Analysetools zum Verständnis von Geräteleistungsmustern und zur Optimierung von Wartungsplänen.",
+          "solution": "Erstellte ein integriertes MATLAB-Dashboard, das Echtzeit-Gerätedaten verarbeitet, Leistungstrends identifiziert und umsetzbare Erkenntnisse für Wartungsteams generiert.",
+          "technologies": [
+            "MATLAB",
+            "Signal Processing Toolbox",
+            "Statistics Toolbox",
+            "GUI-Entwicklung",
+            "Datenvisualisierung",
+            "Maschinelles Lernen"
+          ],
+          "key_features": [
+            "Echtzeit-Signalverarbeitung für biomedizinische Daten",
+            "Prädiktive Wartungsalgorithmen",
+            "Kundenspezifische GUI für intuitive Datenvisualisierung",
+            "Statistische Analyse und Berichterstattung",
+            "Geräteleistungs-Benchmarking",
+            "Automatisierte Trenderkennung und Warnung"
+          ],
+          "results": [
+            {
+              "metric": "25%",
+              "description": "Verbesserung der Gerätelebensdauer"
+            },
+            {
+              "metric": "20+",
+              "description": "Parameter in Echtzeit verfolgt"
+            },
+            {
+              "metric": "30%",
+              "description": "Verbesserung der diagnostischen Genauigkeit"
+            }
+          ],
+          "impact": "Ermöglichte datengetriebene Entscheidungsfindung für Gerätewartung mit erheblichen Kosteneinsparungen und verbesserter Gerätezuverlässigkeit."
+        },
+        {
+          "id": "unity_ar_medical_education",
+          "title": "AR-Plattform für medizinische Ausbildung",
+          "category": "Bildungstechnologie",
+          "status": "Abgeschlossen",
+          "timeline": "8 Monate",
+          "description": "Innovative Augmented-Reality-Anwendung für medizinische Ausbildung mit Unity 3D. Interaktive 3D-Modelle von Medizingeräten mit schrittweisen Wartungsverfahren und Fehlerbehebungsleitfäden.",
+          "challenge": "Traditionelle Medizingeräte-Schulungsmethoden waren zeitaufwendig, teuer und boten oft fehlende praktische Erfahrungsmöglichkeiten für Studenten.",
+          "solution": "Entwickelte eine immersive AR-Plattform, die Studenten erlaubt, mit virtuellen Medizingeräten zu interagieren, Verfahren zu üben und durch geführte Simulationen zu lernen.",
+          "technologies": [
+            "Unity 3D",
+            "C#",
+            "ARCore",
+            "3D-Modellierung",
+            "Android-Entwicklung",
+            "Interaktives Design"
+          ],
+          "key_features": [
+            "Interaktive 3D-Modelle medizinischer Geräte",
+            "Schrittweise Wartungsverfahrensanleitungen",
+            "Fehlerbehebungsszenarien mit virtuellen Komponenten",
+            "Fortschrittsverfolgung und Kompetenzbewertung",
+            "Mehrsprachige Unterstützung für internationale Benutzer",
+            "Offline-Funktionalität für Fernlernen"
+          ],
+          "results": [
+            {
+              "metric": "90%",
+              "description": "Erreichte Abschlussprojekt-Note"
+            },
+            {
+              "metric": "35%",
+              "description": "Verbesserung der Lernbindung"
+            },
+            {
+              "metric": "10+",
+              "description": "Erstellte Medizingeräte-Modelle"
+            }
+          ],
+          "impact": "Revolutionierte die Medizingeräte-Schulung durch zugängliche, interaktive Lernerfahrungen, die Studentenengagement und Wissensbindung erheblich verbesserten."
+        },
+        {
+          "id": "healthcare_database_system",
+          "title": "Gesundheitsdatenbank-Managementsystem",
+          "category": "Datenmanagement",
+          "status": "Eingesetzt",
+          "timeline": "5 Monate",
+          "description": "Umfassendes SQL-basiertes Datenbanksystem für die Verwaltung von Patientendaten, Gerätewartungsaufzeichnungen und Compliance-Dokumentation mit vollständiger HIPAA- und DSGVO-Konformität.",
+          "challenge": "Gesundheitseinrichtungen benötigten ein sicheres, konformes System zur Verwaltung verschiedener Datentypen einschließlich Patienteninformationen, Geräteaufzeichnungen und regulatorischer Dokumentation.",
+          "solution": "Entwarf und implementierte eine robuste Datenbankarchitektur mit erweiterten Sicherheitsfeatures, automatisierter Compliance-Berichterstattung und intuitiven Benutzeroberflächen.",
+          "technologies": [
+            "PostgreSQL",
+            "Python",
+            "Django",
+            "SQL",
+            "Datensicherheit",
+            "Compliance-Management"
+          ],
+          "key_features": [
+            "Sichere Patientendatenverwaltung mit Verschlüsselung",
+            "Gerätewartungsplanung und -verfolgung",
+            "Automatisierte Compliance-Berichterstattung für Audits",
+            "Rollenbasiertes Zugriffskontrollsystem",
+            "Datensicherung und Wiederherstellungsverfahren",
+            "Integration in bestehende Gesundheitssysteme"
+          ],
+          "results": [
+            {
+              "metric": "100%",
+              "description": "HIPAA- und DSGVO-Konformität erreicht"
+            },
+            {
+              "metric": "50%",
+              "description": "Reduzierung der Datenabrufzeit"
+            },
+            {
+              "metric": "24/7",
+              "description": "Automatisierte Überwachung und Warnungen"
+            }
+          ],
+          "impact": "Rationalisierte das Gesundheitsdatenmanagement bei vollständiger regulatorischer Konformität und ermöglichte bessere Patientenversorgung und Betriebseffizienz."
+        }
+      ],
+      "development_philosophy": {
+        "title": "Entwicklungsansatz",
+        "principles": [
+          {
+            "title": "Patientensicherheit zuerst",
+            "description": "Jede Codezeile priorisiert Patientensicherheit und folgt Standards und bewährten Praktiken für Medizingeräte-Software."
+          },
+          {
+            "title": "Evidenzbasierte Lösungen",
+            "description": "Lösungen basieren auf Forschung, realen Tests und messbaren Ergebnissen, die die Gesundheitsversorgung verbessern."
+          },
+          {
+            "title": "Regulatorische Konformität",
+            "description": "Alle Entwicklung folgt FDA-, CE- und internationalen Standards und gewährleistet globale Einsatzfähigkeit."
+          },
+          {
+            "title": "Kontinuierliche Innovation",
+            "description": "Umarmung von KI, IoT und AR/VR zur Lösung komplexer Gesundheitsherausforderungen und Verbesserung der Patientenergebnisse."
+          }
+        ]
+      },
+      "technical_stack": {
+        "title": "Technische Expertise",
+        "categories": [
+          {
+            "name": "Programmiersprachen",
+            "technologies": [
+              "Python (Fortgeschritten)",
+              "MATLAB (Experte)",
+              "C/C++ (Mittelstufe)",
+              "SQL (Fortgeschritten)",
+              "JavaScript (Mittelstufe)",
+              "C# (Mittelstufe)"
+            ]
+          },
+          {
+            "name": "Medizingeräte-Integration",
+            "technologies": [
+              "HL7-Standards",
+              "DICOM-Protokoll",
+              "Medizingeräte-APIs",
+              "Echtzeit-Datenverarbeitung",
+              "Kalibrierungssysteme",
+              "Compliance-Berichterstattung"
+            ]
+          },
+          {
+            "name": "Entwicklungstools",
+            "technologies": [
+              "Unity 3D",
+              "Django/Flask",
+              "PyQt/tkinter",
+              "Git Versionskontrolle",
+              "Docker",
+              "CI/CD-Pipelines"
+            ]
+          }
+        ]
+      }
+    }
+  }

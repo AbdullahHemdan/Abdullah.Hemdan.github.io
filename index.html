@@ -3,27 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abdullah Hemdan - Interactive Portfolio</title>
+    <title>Abdullah Hemdan - Biomedical Engineer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="preload" href="assets/js/app.js" as="script">
+    <link rel="preload" href="translations/en.json" as="fetch" crossorigin>
+    <link rel="preload" href="translations/de.json" as="fetch" crossorigin>
 </head>
 <body data-theme="dark" data-lang="en">
-    <!-- Boot Sequence -->
-    <div class="boot-sequence" id="bootSequence">
-        <div class="boot-text" id="bootText"></div>
+    <!-- Loading Spinner -->
+    <div class="loading-spinner" id="loadingSpinner">
+        <div class="spinner"></div>
+        <div class="loading-text">Loading Portfolio...</div>
     </div>
 
-    <!-- Navigation -->
+    <!-- Enhanced Navigation -->
     <div class="nav-container">
         <nav>
             <div class="logo">abdullah.hemdan $</div>
             <ul class="nav-links">
                 <li><a href="#" class="nav-command active" data-page="home" data-i18n="nav.home">[ home ]</a></li>
                 <li><a href="#" class="nav-command" data-page="about" data-i18n="nav.about">[ about ]</a></li>
-                <li><a href="#" class="nav-command" data-page="engineering" data-i18n="nav.engineering">[ engineering ]</a></li>
-                <li><a href="#" class="nav-command" data-page="software" data-i18n="nav.software">[ software ]</a></li>
-                <li><a href="#" class="nav-command" data-page="writing" data-i18n="nav.blog">[ blog ]</a></li>
+                <li><a href="#" class="nav-command" data-page="experience" data-i18n="nav.experience">[ experience ]</a></li>
+                <li><a href="#" class="nav-command" data-page="projects" data-i18n="nav.projects">[ projects ]</a></li>
                 <li><a href="#" class="nav-command" data-page="services" data-i18n="nav.services">[ services ]</a></li>
+                <li><a href="#" class="nav-command" data-page="blog" data-i18n="nav.blog">[ blog ]</a></li>
                 <li><a href="#" class="nav-command" data-page="contact" data-i18n="nav.contact">[ contact ]</a></li>
             </ul>
             <div class="nav-controls">
@@ -38,19 +42,35 @@
         <!-- Interactive Terminal Home Page -->
         <div class="page active" id="home">
             <div class="container">
-                <div class="hero">
-                    <div class="profile-section">
-                        <img src="assets/images/profile.jpg" alt="Abdullah Hemdan" class="profile-img">
-                        <h1 data-i18n="home.name">Abdullah Hemdan</h1>
-                        <div class="titles">
-                            <span data-i18n="home.title1">> Biomedical Engineer</span>
-                            <span data-i18n="home.title2">> Software Developer</span>
-                            <span data-i18n="home.title3">> Graduate Student</span>
-                        </div>
-                        <div class="location" data-i18n="home.location">Köthen, Sachsen-Anhalt, Germany</div>
+                <!-- ASCII Art with Theme Support -->
+                <div class="ascii-art" id="asciiArt">
+                    <pre class="ascii-content">
+    ╭─────────────────────────────────────────────────╮
+    │                                                 │
+    │     █████╗ ██████╗ ██████╗ ██╗   ██╗██╗     ██╗ │
+    │    ██╔══██╗██╔══██╗██╔══██╗██║   ██║██║     ██║ │
+    │    ███████║██████╔╝██║  ██║██║   ██║██║     ██║ │
+    │    ██╔══██║██╔══██╗██║  ██║██║   ██║██║     ██║ │
+    │    ██║  ██║██████╔╝██████╔╝╚██████╔╝███████╗██║ │
+    │    ╚═╝  ╚═╝╚═════╝ ╚═════╝  ╚═════╝ ╚══════╝╚═╝ │
+    │                                                 │
+    ╰─────────────────────────────────────────────────╯
+                    </pre>
+                </div>
+
+                <!-- Animated Slogan -->
+                <div class="slogan-container">
+                    <div class="slogan-line">
+                        <span class="terminal-prompt">$</span>
+                        <span class="typed-text" id="typedText"></span>
+                        <span class="cursor" id="cursor">|</span>
+                    </div>
+                    <div class="slogan-subtitle" data-i18n="home.subtitle">
+                        Köthen, Sachsen-Anhalt, Germany
                     </div>
                 </div>
 
+                <!-- Interactive Terminal -->
                 <div class="terminal-container">
                     <div class="terminal-header">
                         <div class="terminal-dot red"></div>
@@ -71,30 +91,21 @@
                         </div>
                         <div class="terminal-input-container">
                             <span class="terminal-prompt">$</span>
-                            <div class="terminal-input-wrapper">
-                                <input type="text" class="terminal-input" id="terminalInput" autocomplete="off" autofocus>
-                            </div>
+                            <input type="text" class="terminal-input" id="terminalInput" autocomplete="off" autofocus>
                         </div>
                     </div>
-                </div>
-
-                <div class="mission">
-                    <p data-i18n="home.mission">I bridge the gap between healthcare and technology, developing innovative medical software solutions and optimizing critical medical device performance. With 2+ years of hands-on experience in biomedical engineering and a passion for coding, I create tools that advance healthcare innovation and improve patient care outcomes.</p>
                 </div>
 
                 <!-- Quick Actions -->
                 <div class="quick-actions">
                     <a href="documents/resume-en.pdf" class="quick-btn" target="_blank">
-                        <i class="fas fa-file-pdf"></i>
                         <span data-i18n="home.view_resume">View Resume</span>
                     </a>
                     <a href="mailto:Abdullah.Hemdan@outlook.com" class="quick-btn">
-                        <i class="fas fa-envelope"></i>
                         <span data-i18n="home.contact_email">Contact Me</span>
                     </a>
-                    <a href="#" class="quick-btn" data-page="services">
-                        <i class="fas fa-briefcase"></i>
-                        <span data-i18n="home.services">My Services</span>
+                    <a href="#" class="quick-btn" data-page="projects">
+                        <span data-i18n="home.view_projects">View Projects</span>
                     </a>
                 </div>
             </div>
@@ -108,138 +119,68 @@
                     <p data-i18n="about.subtitle">Advancing healthcare through technology and innovation</p>
                 </div>
                 
-                <div class="content-grid">
-                    <div class="content-main">
-                        <div class="bio-section">
-                            <h2 data-i18n="about.bio_title">Professional Summary</h2>
-                            <p data-i18n="about.bio1">As a dedicated Biomedical Engineer currently pursuing my Master's degree at Hochschule Anhalt, I specialize in medical software development, healthcare IoT, and advanced biomedical instrumentation. My journey in healthcare technology began with hands-on experience managing critical medical devices across 15+ healthcare facilities.</p>
-                            
-                            <p data-i18n="about.bio2">During my tenure at AM Medical Co. in Cairo, I successfully managed maintenance and calibration for 25+ critical medical devices, achieving 99.9% operational uptime while ensuring full FDA/ISO 13485 compliance. My implementation of Python-based monitoring software reduced service response time by 40% and resolved 95% of technical issues within 24 hours.</p>
-                            
-                            <p data-i18n="about.bio3">My technical expertise spans multiple programming languages including Python (3+ years), MATLAB (4+ years), C/C++, and SQL, with specialized knowledge in embedded systems for medical applications. I'm particularly passionate about developing diagnostic algorithms and predictive maintenance solutions that improve device accuracy by up to 30%.</p>
-                            
-                            <p data-i18n="about.bio4">Currently based in Germany, I'm actively seeking internship and working student positions in medical software development and clinical engineering, where I can contribute to cutting-edge healthcare technology solutions while expanding my expertise in the European medical device landscape.</p>
-                        </div>
-
-                        <div class="education-section">
-                            <h2 data-i18n="about.education_title">Education</h2>
-                            <div class="timeline">
-                                <div class="timeline-item">
-                                    <div class="timeline-date">2024 - Present</div>
-                                    <div class="timeline-content">
-                                        <h3 data-i18n="about.msc_title">Master of Science in Biomedical Engineering</h3>
-                                        <p data-i18n="about.msc_institution">Hochschule Anhalt, Köthen, Germany</p>
-                                        <p data-i18n="about.msc_description">Specialized in Medical Software Development, Healthcare IoT, and Advanced Biomedical Instrumentation. Core coursework includes Medical Device Software Validation, Clinical Engineering Management, and Healthcare Data Analytics.</p>
-                                    </div>
-                                </div>
-                                <div class="timeline-item">
-                                    <div class="timeline-date">2016 - 2021</div>
-                                    <div class="timeline-content">
-                                        <h3 data-i18n="about.beng_title">Bachelor of Engineering in Biomedical Engineering</h3>
-                                        <p data-i18n="about.beng_institution">Higher Institute of Engineering, El-Shorouk, Cairo</p>
-                                        <p data-i18n="about.beng_description">Graduated with 70% overall average and 90% in final project focused on Augmented Reality in Medical Education developed using Unity. Key coursework included Biomedical Signal Processing, Medical Electronics, and Embedded Systems for Medical Applications.</p>
-                                    </div>
-                                </div>
+                <div class="about-content">
+                    <div class="profile-section">
+                        <img src="assets/images/profile.jpg" alt="Abdullah Hemdan" class="profile-img">
+                        <div class="profile-info">
+                            <h2 data-i18n="about.name">Abdullah Hemdan</h2>
+                            <div class="titles">
+                                <span data-i18n="about.title1">Biomedical Engineer</span>
+                                <span data-i18n="about.title2">Software Developer</span>
+                                <span data-i18n="about.title3">Graduate Student</span>
                             </div>
+                            <div class="location" data-i18n="about.location">Köthen, Sachsen-Anhalt, Germany</div>
                         </div>
                     </div>
-
-                    <div class="content-sidebar">
-                        <div class="skills-section">
-                            <h3 data-i18n="about.skills_title">Technical Skills</h3>
-                            
-                            <div class="skill-category">
-                                <h4 data-i18n="about.programming_title">Programming Languages</h4>
-                                <div class="skills-list">
-                                    <span class="skill-tag">Python (3+ years)</span>
-                                    <span class="skill-tag">MATLAB (4+ years)</span>
-                                    <span class="skill-tag">C/C++ (2+ years)</span>
-                                    <span class="skill-tag">SQL</span>
-                                    <span class="skill-tag">JavaScript</span>
-                                </div>
-                            </div>
-
-                            <div class="skill-category">
-                                <h4 data-i18n="about.frameworks_title">Frameworks & Tools</h4>
-                                <div class="skills-list">
-                                    <span class="skill-tag">React</span>
-                                    <span class="skill-tag">Django</span>
-                                    <span class="skill-tag">Unity 3D</span>
-                                    <span class="skill-tag">PyQt</span>
-                                    <span class="skill-tag">NumPy/Pandas</span>
-                                </div>
-                            </div>
-
-                            <div class="skill-category">
-                                <h4 data-i18n="about.standards_title">Medical Standards</h4>
-                                <div class="skills-list">
-                                    <span class="skill-tag">ISO 13485</span>
-                                    <span class="skill-tag">IEC 62304</span>
-                                    <span class="skill-tag">FDA QSR</span>
-                                    <span class="skill-tag">HIPAA/GDPR</span>
-                                </div>
-                            </div>
-
-                            <div class="skill-category">
-                                <h4 data-i18n="about.languages_title">Languages</h4>
-                                <div class="language-skills">
-                                    <div class="language-item">
-                                        <span class="flag-icon">🇸🇦</span>
-                                        <span data-i18n="about.arabic">Arabic (Native)</span>
-                                    </div>
-                                    <div class="language-item">
-                                        <span class="flag-icon">🇬🇧</span>
-                                        <span data-i18n="about.english">English (C1)</span>
-                                    </div>
-                                    <div class="language-item">
-                                        <span class="flag-icon">🇩🇪</span>
-                                        <span data-i18n="about.german">German (B1)</span>
-                                    </div>
-                                    <div class="language-item">
-                                        <span class="flag-icon">🇫🇷</span>
-                                        <span data-i18n="about.french">French (A1)</span>
-                                    </div>
-                                    <div class="language-item">
-                                        <span class="flag-icon">🇹🇷</span>
-                                        <span data-i18n="about.turkish">Turkish (A1)</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="contact-card">
-                            <h3 data-i18n="about.contact_title">Quick Contact</h3>
-                            <div class="contact-item">
-                                <i class="fas fa-envelope"></i>
-                                <span>Abdullah.Hemdan@outlook.com</span>
-                            </div>
-                            <div class="contact-item">
-                                <i class="fas fa-phone"></i>
-                                <span>+49 152 07547899</span>
-                            </div>
-                            <div class="contact-item">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span data-i18n="about.location">Köthen, Germany</span>
-                            </div>
-                            <div class="social-links">
-                                <a href="https://linkedin.com/in/abdullah-hemdan" target="_blank" class="social-link">
-                                    <i class="fab fa-linkedin"></i>
-                                </a>
-                                <a href="https://xing.com/profile/Abdullah_Hemdan" target="_blank" class="social-link">
-                                    <i class="fab fa-xing"></i>
-                                </a>
-                                <a href="https://github.com/AbdullahHemdan" target="_blank" class="social-link">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                            </div>
-                        </div>
+                    
+                    <div class="about-details" id="aboutContent">
+                        <!-- Content will be loaded from about.json -->
                     </div>
                 </div>
             </div>
         </div>
 
+        <!-- Experience Page -->
+        <div class="page" id="experience">
+            <div class="container">
+                <div class="page-header">
+                    <h1 data-i18n="experience.title">Professional Experience</h1>
+                    <p data-i18n="experience.subtitle">Hands-on biomedical engineering with measurable impact</p>
+                </div>
+                <div id="experienceContent">
+                    <!-- Content will be loaded from experience.json -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Projects Page -->
+        <div class="page" id="projects">
+            <div class="container">
+                <div class="page-header">
+                    <h1 data-i18n="projects.title">Projects & Development</h1>
+                    <p data-i18n="projects.subtitle">Code-driven solutions for healthcare innovation</p>
+                </div>
+                <div id="projectsContent">
+                    <!-- Content will be loaded from projects.json -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Services Page -->
+        <div class="page" id="services">
+            <div class="container">
+                <div class="page-header">
+                    <h1 data-i18n="services.title">Services</h1>
+                    <p data-i18n="services.subtitle">Professional biomedical engineering and software development solutions</p>
+                </div>
+                <div id="servicesContent">
+                    <!-- Content will be loaded from services.json -->
+                </div>
+            </div>
+        </div>
+
         <!-- Blog/Writing Page -->
-        <div class="page" id="writing">
+        <div class="page" id="blog">
             <div class="container">
                 <div class="page-header">
                     <h1 data-i18n="blog.title">Blog</h1>
@@ -256,51 +197,11 @@
             <div class="container">
                 <div class="reading-view">
                     <button class="back-to-blog" id="backToBlog">
-                        <i class="fas fa-arrow-left"></i>
                         <span data-i18n="reading.back">Back to Blog</span>
                     </button>
                     <div id="articleContent">
                         <!-- Article content will be loaded here -->
                     </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Engineering Page -->
-        <div class="page" id="engineering">
-            <div class="container">
-                <div class="page-header">
-                    <h1 data-i18n="engineering.title">Engineering Experience</h1>
-                    <p data-i18n="engineering.subtitle">Hands-on biomedical engineering with measurable impact</p>
-                </div>
-                <div id="engineeringContent">
-                    <!-- Content will be loaded from JSON -->
-                </div>
-            </div>
-        </div>
-
-        <!-- Software Page -->
-        <div class="page" id="software">
-            <div class="container">
-                <div class="page-header">
-                    <h1 data-i18n="software.title">Software Development</h1>
-                    <p data-i18n="software.subtitle">Code-driven solutions for healthcare innovation</p>
-                </div>
-                <div id="softwareContent">
-                    <!-- Content will be loaded from JSON -->
-                </div>
-            </div>
-        </div>
-
-        <!-- Services Page -->
-        <div class="page" id="services">
-            <div class="container">
-                <div class="page-header">
-                    <h1 data-i18n="services.title">Services</h1>
-                    <p data-i18n="services.subtitle">Professional biomedical engineering and software development solutions</p>
-                </div>
-                <div id="servicesContent">
-                    <!-- Content will be loaded from JSON -->
                 </div>
             </div>
         </div>
@@ -313,11 +214,46 @@
                     <p data-i18n="contact.subtitle">Let's collaborate on innovative healthcare solutions</p>
                 </div>
                 <div id="contactContent">
-                    <!-- Content will be loaded from JSON -->
+                    <!-- Content will be loaded from contact.json -->
                 </div>
             </div>
         </div>
     </main>
+
+    <!-- Professional Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <div class="footer-logo">abdullah.hemdan $</div>
+                    <p data-i18n="footer.tagline">Biomedical Engineer & Software Developer</p>
+                </div>
+                <div class="footer-center">
+                    <div class="social-links">
+                        <a href="https://linkedin.com/in/abdullah-hemdan" target="_blank" class="social-link">
+                            LinkedIn
+                        </a>
+                        <a href="https://xing.com/profile/Abdullah_Hemdan" target="_blank" class="social-link">
+                            XING
+                        </a>
+                        <a href="https://github.com/AbdullahHemdan" target="_blank" class="social-link">
+                            GitHub
+                        </a>
+                        <a href="mailto:Abdullah.Hemdan@outlook.com" class="social-link">
+                            Email
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-right">
+                    <p data-i18n="footer.location">Köthen, Germany</p>
+                    <p data-i18n="footer.available">Available for opportunities</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Abdullah Hemdan. <span data-i18n="footer.rights">All rights reserved.</span></p>
+            </div>
+        </div>
+    </footer>
 
     <!-- Scripts -->
     <script src="assets/js/app.js"></script>

@@ -1,0 +1,146 @@
+{
+    "en": {
+      "bio_title": "Professional Summary",
+      "bio_paragraphs": [
+        "As a dedicated Biomedical Engineer currently pursuing my Master's degree at Hochschule Anhalt, I specialize in medical software development, healthcare IoT, and advanced biomedical instrumentation. My journey in healthcare technology began with hands-on experience managing critical medical devices across 15+ healthcare facilities.",
+        "During my tenure at AM Medical Co. in Cairo, I successfully managed maintenance and calibration for 25+ critical medical devices, achieving 99.9% operational uptime while ensuring full FDA/ISO 13485 compliance. My implementation of Python-based monitoring software reduced service response time by 40% and resolved 95% of technical issues within 24 hours.",
+        "My technical expertise spans multiple programming languages including Python (3+ years), MATLAB (4+ years), C/C++, and SQL, with specialized knowledge in embedded systems for medical applications. I'm particularly passionate about developing diagnostic algorithms and predictive maintenance solutions that improve device accuracy by up to 30%.",
+        "Currently based in Germany, I'm actively seeking internship and working student positions in medical software development and clinical engineering, where I can contribute to cutting-edge healthcare technology solutions while expanding my expertise in the European medical device landscape."
+      ],
+      "education_title": "Education & Qualifications",
+      "education": [
+        {
+          "period": "2024 - Present",
+          "degree": "Master of Science in Biomedical Engineering",
+          "institution": "Hochschule Anhalt, Köthen, Germany",
+          "description": "Specialized in Medical Software Development, Healthcare IoT, and Advanced Biomedical Instrumentation. Core coursework includes Medical Device Software Validation, Clinical Engineering Management, and Healthcare Data Analytics."
+        },
+        {
+          "period": "2016 - 2021",
+          "degree": "Bachelor of Engineering in Biomedical Engineering",
+          "institution": "Higher Institute of Engineering, El-Shorouk, Cairo",
+          "description": "Graduated with 70% overall average and 90% in final project focused on Augmented Reality in Medical Education developed using Unity. Key coursework included Biomedical Signal Processing, Medical Electronics, and Embedded Systems for Medical Applications."
+        }
+      ],
+      "skills_title": "Technical Skills & Expertise",
+      "skills": {
+        "Programming Languages": [
+          "Python (3+ years)",
+          "MATLAB (4+ years)", 
+          "C/C++ (2+ years)",
+          "SQL",
+          "JavaScript",
+          "C#"
+        ],
+        "Medical Device Technologies": [
+          "Bennett Ventilators",
+          "Mindray Anesthesia Machines", 
+          "Philips Catheter Devices",
+          "Valley Lab Diathermy Systems",
+          "Fresenius Hemodialysis",
+          "STERIS/Getinge Autoclaves"
+        ],
+        "Frameworks & Tools": [
+          "Unity 3D",
+          "Django/Flask",
+          "React",
+          "PyQt/tkinter",
+          "NumPy/Pandas",
+          "OpenCV"
+        ],
+        "Standards & Compliance": [
+          "FDA QSR Compliance",
+          "ISO 13485 Quality Management", 
+          "IEC 62304 Medical Device Software",
+          "HIPAA Privacy Standards",
+          "GDPR Data Protection",
+          "CE Marking Requirements"
+        ],
+        "Languages": [
+          "Arabic (Native)",
+          "English (C1)",
+          "German (B1)",
+          "French (A1)",
+          "Turkish (A1)"
+        ]
+      },
+      "contact_info": {
+        "email": "Abdullah.Hemdan@outlook.com",
+        "phone": "+49 152 07547899",
+        "location": "Köthen, Sachsen-Anhalt, Germany",
+        "availability": "Available for internships and working student positions"
+      }
+    },
+    "de": {
+      "bio_title": "Berufsprofil",
+      "bio_paragraphs": [
+        "Als engagierter Biomedizin-Ingenieur, der derzeit seinen Master an der Hochschule Anhalt absolviert, spezialisiere ich mich auf medizinische Softwareentwicklung, Gesundheits-IoT und fortgeschrittene biomedizinische Instrumentierung. Meine Reise in der Gesundheitstechnologie begann mit praktischer Erfahrung bei der Verwaltung kritischer Medizingeräte in über 15 Gesundheitseinrichtungen.",
+        "Während meiner Zeit bei AM Medical Co. in Kairo verwaltete ich erfolgreich Wartung und Kalibrierung von über 25 kritischen Medizingeräten und erreichte eine Betriebszeit von 99,9% bei vollständiger FDA/ISO 13485-Konformität. Meine Implementierung Python-basierter Überwachungssoftware reduzierte die Servicereaktionszeit um 40% und löste 95% der technischen Probleme innerhalb von 24 Stunden.",
+        "Meine technische Expertise umfasst mehrere Programmiersprachen einschließlich Python (3+ Jahre), MATLAB (4+ Jahre), C/C++ und SQL, mit spezialisiertem Wissen in eingebetteten Systemen für medizinische Anwendungen. Ich bin besonders leidenschaftlich bei der Entwicklung von Diagnosealgorithmen und Predictive-Maintenance-Lösungen, die die Gerätegenauigkeit um bis zu 30% verbessern.",
+        "Derzeit in Deutschland ansässig, suche ich aktiv nach Praktikums- und Werkstudentenpositionen in der medizinischen Softwareentwicklung und klinischen Technik, wo ich zu innovativen Gesundheitstechnologielösungen beitragen und gleichzeitig mein Fachwissen in der europäischen Medizingerätelandschaft erweitern kann."
+      ],
+      "education_title": "Ausbildung & Qualifikationen",
+      "education": [
+        {
+          "period": "2024 - Heute",
+          "degree": "Master of Science in Medizintechnik",
+          "institution": "Hochschule Anhalt, Köthen, Deutschland",
+          "description": "Spezialisiert auf medizinische Softwareentwicklung, Healthcare IoT und fortschrittliche biomedizinische Instrumentierung. Kernkurse umfassen Validierung von Medizingerätesoftware, Management klinischer Technik und Gesundheitsdatenanalytik."
+        },
+        {
+          "period": "2016 - 2021",
+          "degree": "Bachelor of Engineering in Medizintechnik",
+          "institution": "Higher Institute of Engineering, El-Shorouk, Kairo",
+          "description": "Abschluss mit 70% Gesamtdurchschnitt und 90% im Abschlussprojekt mit Schwerpunkt auf Augmented Reality in der medizinischen Ausbildung mit Unity. Wichtige Kurse umfassten biomedizinische Signalverarbeitung, medizinische Elektronik und eingebettete Systeme für medizinische Anwendungen."
+        }
+      ],
+      "skills_title": "Technische Fähigkeiten & Expertise",
+      "skills": {
+        "Programmiersprachen": [
+          "Python (3+ Jahre)",
+          "MATLAB (4+ Jahre)",
+          "C/C++ (2+ Jahre)",
+          "SQL",
+          "JavaScript",
+          "C#"
+        ],
+        "Medizingeräte-Technologien": [
+          "Bennett-Beatmungsgeräte",
+          "Mindray-Anästhesiegeräte",
+          "Philips-Kathetergeräte",
+          "Valley Lab-Diathermiegeräte",
+          "Fresenius-Hämodialysegeräte",
+          "STERIS/Getinge-Autoklaven"
+        ],
+        "Frameworks & Tools": [
+          "Unity 3D",
+          "Django/Flask",
+          "React",
+          "PyQt/tkinter",
+          "NumPy/Pandas",
+          "OpenCV"
+        ],
+        "Standards & Compliance": [
+          "FDA QSR Konformität",
+          "ISO 13485 Qualitätsmanagement",
+          "IEC 62304 Medizingeräte-Software",
+          "HIPAA Datenschutzstandards",
+          "DSGVO Datenschutz",
+          "CE-Kennzeichnung"
+        ],
+        "Sprachen": [
+          "Arabisch (Muttersprache)",
+          "Englisch (C1)",
+          "Deutsch (B1)",
+          "Französisch (A1)",
+          "Türkisch (A1)"
+        ]
+      },
+      "contact_info": {
+        "email": "Abdullah.Hemdan@outlook.com",
+        "phone": "+49 152 07547899",
+        "location": "Köthen, Sachsen-Anhalt, Deutschland",
+        "availability": "Verfügbar für Praktika und Werkstudentenstellen"
+      }
+    }
+  }
