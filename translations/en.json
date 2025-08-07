@@ -58,6 +58,11 @@
       "contact_title": "Quick Contact",
       "location": "Köthen, Germany"
     },
+    "footer": {
+    "bio": "Biomedical Engineer & Software Developer based in Germany, passionate about building technology for healthcare.",
+    "nav_title": "Quick Nav",
+    "connect_title": "Connect"
+  },
     "blog": {
       "title": "Blog",
       "subtitle": "Insights from the intersection of medicine and technology"
@@ -82,3 +87,4 @@
       "subtitle": "Let's collaborate on innovative healthcare solutions"
     }
   }
+  

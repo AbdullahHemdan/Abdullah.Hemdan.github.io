@@ -58,6 +58,11 @@
       "contact_title": "Schnellkontakt",
       "location": "Köthen, Deutschland"
     },
+    "footer": {
+    "bio": "Biomedizin-Ingenieur & Software-Entwickler mit Sitz in Deutschland, leidenschaftlich bei der Entwicklung von Technologien für das Gesundheitswesen.",
+    "nav_title": "Schnellnavigation",
+    "connect_title": "Verbinden"
+  },
     "blog": {
       "title": "Blog",
       "subtitle": "Einblicke aus der Schnittstelle von Medizin und Technologie"

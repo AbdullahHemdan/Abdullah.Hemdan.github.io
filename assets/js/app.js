@@ -26,7 +26,34 @@ class PortfolioApp {
         // Initialize the application
         this.init();
     }
-    
+    // Add this new function inside the PortfolioApp class
+/**
+ * Dynamically populates the footer with social links
+ * This makes it easy to add/remove social links from one place
+ */
+populateFooter() {
+    const socialLinksContainer = document.getElementById('footerSocialLinks');
+    if (!socialLinksContainer) return;
+
+    // In a real app, this data would come from a config file or API
+    const socialLinks = [
+        { "platform": "linkedin", "url": "https://www.linkedin.com/in/abdullah-hemdan", "icon": "fab fa-linkedin" },
+        { "platform": "xing", "url": "https://www.xing.com/profile/Abdullah_Hemdan", "icon": "fab fa-xing" },
+        { "platform": "github", "url": "https://github.com/AbdullahHemdan", "icon": "fab fa-github" },
+        { "platform": "email", "url": "mailto:Abdullah.Hemdan@outlook.com", "icon": "fas fa-envelope" }
+    ];
+
+    let linksHTML = '';
+    socialLinks.forEach(link => {
+        linksHTML += `
+            <a href="${link.url}" target="_blank" class="social-link" aria-label="${link.platform}">
+                <i class="${link.icon}"></i>
+            </a>
+        `;
+    });
+    socialLinksContainer.innerHTML = linksHTML;
+}
+
     /**
      * Initialize the application by setting up all components
      * This follows a specific order to ensure everything loads correctly
@@ -42,7 +69,8 @@ class PortfolioApp {
             
             // Step 3: Set up event handlers
             this.initializeEventHandlers();
-            
+            this.populateFooter(); // <-- ADD THIS LINE
+
             // Step 4: Handle routing (if user came with a specific URL)
             this.initializeRouting();
             
@@ -121,6 +149,15 @@ class PortfolioApp {
             command.addEventListener('click', (e) => {
                 e.preventDefault();
                 const targetPage = command.getAttribute('data-page');
+                this.navigateToPage(targetPage);
+            });
+        });
+        // NEW: Footer navigation handlers
+        const footerLinks = document.querySelectorAll('.footer-link');
+        footerLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetPage = link.getAttribute('data-page');
                 this.navigateToPage(targetPage);
             });
         });

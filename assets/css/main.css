@@ -806,3 +806,86 @@ main {
         font-size: 1.1rem;
     }
 }
+/* ======================= FOOTER STYLES ======================= */
+.site-footer {
+    background: var(--bg-darker);
+    border-top: 1px solid var(--border);
+    padding: 4rem 0 2rem 0;
+    margin-top: 4rem; /* Adds space above the footer */
+    font-family: var(--font-mono);
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+.site-footer h3 {
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+}
+
+.footer-about p {
+    color: var(--text-dim);
+    line-height: 1.7;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.3s ease, padding-left 0.3s ease;
+    padding: 0.25rem 0;
+    display: inline-block;
+}
+
+.footer-links a:hover {
+    color: var(--accent);
+    padding-left: 5px; /* Adds a nice hover effect */
+}
+
+.social-links-footer {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+/* Re-using the social-link style from your About page */
+.social-links-footer .social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--border);
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+
+.social-links-footer .social-link:hover {
+    background: var(--accent);
+    color: var(--bg-dark);
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+    color: var(--text-dim);
+    font-size: 0.9rem;
+}
