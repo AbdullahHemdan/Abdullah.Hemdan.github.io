@@ -217,7 +217,7 @@ main {
     padding: 2rem;
 }
 
-/* Multiple Logo Versions CSS - Fixed Layout */
+/* Multiple Logo Versions CSS - Perfectly Centered */
 .logo-art {
     text-align: center;
     margin: 0;
@@ -225,17 +225,19 @@ main {
     position: relative;
     width: 100%;
     order: 1; /* Logo appears first */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 150px; /* Consistent height */
 }
 
 .logo-img {
     max-width: 100%;
     height: auto;
-    width: clamp(250px, 40vw, 500px);
+    width: clamp(250px, 35vw, 450px); /* Slightly smaller for better centering */
     transition: all 0.5s ease;
-    position: relative;
-    top: auto;
-    left: auto;
-    transform: none;
+    display: block;
+    margin: 0 auto;
 }
 
 /* Dark theme logo - visible by default */
@@ -253,9 +255,9 @@ main {
     filter: drop-shadow(0 0 20px rgba(9, 105, 218, 0.4));
     display: none;
     position: absolute;
-    top: 0;
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%);
 }
 
 /* Light theme active */
@@ -269,13 +271,12 @@ main {
     opacity: 1;
     visibility: visible;
     display: block;
-    position: relative;
-    top: auto;
-    left: auto;
+    position: static;
     transform: none;
+    margin: 0 auto;
 }
 
-/* Hover effects */
+/* Hover effects - centered scaling */
 .logo-img:hover {
     transform: scale(1.05);
 }
@@ -286,6 +287,7 @@ main {
 
 [data-theme="light"] .logo-light:hover {
     filter: drop-shadow(0 0 30px rgba(9, 105, 218, 0.6));
+    transform: scale(1.05);
 }
 
 /* Loading state for logos */
@@ -294,6 +296,42 @@ main {
     filter: grayscale(100%);
 }
 
+/* Responsive sizing for centered logo */
+@media (max-width: 1024px) {
+    .logo-img {
+        width: clamp(200px, 40vw, 400px);
+    }
+    .logo-art {
+        min-height: 120px;
+    }
+}
+
+@media (max-width: 768px) {
+    .logo-img {
+        width: clamp(180px, 45vw, 350px);
+    }
+    .logo-art {
+        min-height: 100px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-img {
+        width: clamp(150px, 50vw, 280px);
+    }
+    .logo-art {
+        min-height: 80px;
+    }
+}
+
+@media (max-width: 320px) {
+    .logo-img {
+        width: clamp(120px, 55vw, 220px);
+    }
+    .logo-art {
+        min-height: 70px;
+    }
+}
 /* Animated Slogan - Positioned after logo */
 .slogan-container {
     text-align: center;
