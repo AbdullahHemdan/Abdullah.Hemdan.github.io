@@ -230,14 +230,18 @@ updateLogoVisibility() {
         // Show dark logo, hide light logo
         this.elements.logoDark.style.opacity = '1';
         this.elements.logoDark.style.visibility = 'visible';
+        this.elements.logoDark.style.display = 'block';
         this.elements.logoLight.style.opacity = '0';
         this.elements.logoLight.style.visibility = 'hidden';
+        this.elements.logoLight.style.display = 'none';
     } else {
         // Show light logo, hide dark logo
         this.elements.logoLight.style.opacity = '1';
         this.elements.logoLight.style.visibility = 'visible';
+        this.elements.logoLight.style.display = 'block';
         this.elements.logoDark.style.opacity = '0';
         this.elements.logoDark.style.visibility = 'hidden';
+        this.elements.logoDark.style.display = 'none';
     }
     
     // Update fallback logos if they exist
@@ -246,9 +250,11 @@ updateLogoVisibility() {
         if (fallback.classList.contains(`logo-${this.currentTheme}`)) {
             fallback.style.opacity = '1';
             fallback.style.visibility = 'visible';
+            fallback.style.display = 'block';
         } else {
             fallback.style.opacity = '0';
             fallback.style.visibility = 'hidden';
+            fallback.style.display = 'none';
         }
     });
 }
