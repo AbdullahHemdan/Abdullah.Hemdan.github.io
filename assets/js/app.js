@@ -4,31 +4,7 @@
  */
 
 class PortfolioApp {
-    /**
- * Enhanced theme toggle with smooth logo transition
- */
-toggleTheme() {
-    // Add transition class for smooth logo color change
-    document.body.classList.add('theme-transition');
     
-    this.currentTheme = this.currentTheme === 'dark' ? 'light' : 'dark';
-    
-    document.body.setAttribute('data-theme', this.currentTheme);
-    this.elements.themeToggle.textContent = this.currentTheme === 'dark' ? '◐' : '◑';
-    
-    localStorage.setItem('portfolio-theme', this.currentTheme);
-    
-    // Remove transition class after animation
-    setTimeout(() => {
-        document.body.classList.remove('theme-transition');
-    }, 500);
-    
-    // Update terminal if active
-    const terminal = window.terminalApp;
-    if (terminal && document.getElementById('home').classList.contains('active')) {
-        terminal.addToTerminal(`Theme switched to ${this.currentTheme}`);
-    }
-}
     constructor() {
         // Initialize application state
         this.currentLang = localStorage.getItem('portfolio-lang') || 'en';

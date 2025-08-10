@@ -201,111 +201,28 @@ main {
     display: block;
 }
 
-/* Logo Image - Theme Responsive */
-.logo-art {
-    text-align: center;
-    margin: 2rem 0;
-    padding: 1rem 0;
-}
-
+/* Alternative CSS for separate images */
 .logo-img {
     max-width: 100%;
     height: auto;
-    transition: all 0.3s ease;
-    
-    /* Default size */
     width: clamp(300px, 50vw, 600px);
-    
-    /* Dark theme - Green filter */
-    filter: 
-        brightness(0) 
-        saturate(100%) 
-        invert(84%) 
-        sepia(78%) 
-        saturate(2476%) 
-        hue-rotate(86deg) 
-        brightness(118%) 
-        contrast(119%)
-        drop-shadow(0 0 20px rgba(0, 255, 65, 0.4));
+    transition: opacity 0.3s ease;
 }
 
-/* Light theme - Blue filter */
-[data-theme="light"] .logo-img {
-    filter: 
-        brightness(0) 
-        saturate(100%) 
-        invert(27%) 
-        sepia(96%) 
-        saturate(1018%) 
-        hue-rotate(198deg) 
-        brightness(101%) 
-        contrast(102%)
-        drop-shadow(0 0 20px rgba(9, 105, 218, 0.4));
+.logo-dark {
+    display: block;
 }
 
-/* Hover effects */
-.logo-img:hover {
-    transform: scale(1.05);
+.logo-light {
+    display: none;
 }
 
-[data-theme="dark"] .logo-img:hover {
-    filter: 
-        brightness(0) 
-        saturate(100%) 
-        invert(84%) 
-        sepia(78%) 
-        saturate(2476%) 
-        hue-rotate(86deg) 
-        brightness(118%) 
-        contrast(119%)
-        drop-shadow(0 0 30px rgba(0, 255, 65, 0.6));
+[data-theme="light"] .logo-dark {
+    display: none;
 }
 
-[data-theme="light"] .logo-img:hover {
-    filter: 
-        brightness(0) 
-        saturate(100%) 
-        invert(27%) 
-        sepia(96%) 
-        saturate(1018%) 
-        hue-rotate(198deg) 
-        brightness(101%) 
-        contrast(102%)
-        drop-shadow(0 0 30px rgba(9, 105, 218, 0.6));
-}
-
-/* Responsive sizing */
-@media (max-width: 1024px) {
-    .logo-img {
-        width: clamp(250px, 45vw, 500px);
-    }
-}
-
-@media (max-width: 768px) {
-    .logo-img {
-        width: clamp(200px, 40vw, 400px);
-    }
-}
-
-@media (max-width: 480px) {
-    .logo-img {
-        width: clamp(150px, 35vw, 300px);
-    }
-    
-    .logo-art {
-        margin: 1rem 0;
-    }
-}
-
-@media (max-width: 320px) {
-    .logo-img {
-        width: clamp(120px, 30vw, 250px);
-    }
-}
-
-/* Animation for theme switching */
-.theme-transition .logo-img {
-    transition: filter 0.5s ease;
+[data-theme="light"] .logo-light {
+    display: block;
 }
 
 /* Animated Slogan */
