@@ -22,6 +22,283 @@
     --font-sans: 'Helvetica Neue', Arial, sans-serif;
 }
 
+/* Minimalistic Pixel-Style Icons */
+.contact-icon,
+.social-icon,
+.availability-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    flex-shrink: 0;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.contact-method:hover .contact-icon,
+.social-connect-link:hover .social-icon {
+    border-color: var(--accent);
+    background: rgba(0, 255, 65, 0.1);
+}
+
+[data-theme="light"] .contact-method:hover .contact-icon,
+[data-theme="light"] .social-connect-link:hover .social-icon {
+    background: rgba(9, 105, 218, 0.1);
+}
+
+/* Email Icon */
+.icon-email::before {
+    content: '';
+    width: 16px;
+    height: 12px;
+    background: var(--accent);
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 12'%3E%3Cpath d='M0 2v8c0 1 1 2 2 2h12c1 0 2-1 2-2V2c0-1-1-2-2-2H2C1 0 0 1 0 2zm14 0L8 6 2 2h12z'/%3E%3C/svg%3E") no-repeat center;
+    mask-size: contain;
+}
+
+/* Phone Icon */
+.icon-phone::before {
+    content: '';
+    width: 14px;
+    height: 14px;
+    background: var(--accent);
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath d='M3 1C2 1 1 2 1 3v8c0 1 1 2 2 2h8c1 0 2-1 2-2V3c0-1-1-2-2-2H3zm2 2h4v1H5V3zm0 2h4v1H5V5zm0 2h3v1H5V7z'/%3E%3C/svg%3E") no-repeat center;
+    mask-size: contain;
+}
+
+/* Location Icon */
+.icon-location::before {
+    content: '';
+    width: 12px;
+    height: 16px;
+    background: var(--accent);
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 16'%3E%3Cpath d='M6 0C3 0 0 3 0 6c0 4 6 10 6 10s6-6 6-10c0-3-3-6-6-6zm0 8C5 8 4 7 4 6s1-2 2-2 2 1 2 2-1 2-2 2z'/%3E%3C/svg%3E") no-repeat center;
+    mask-size: contain;
+}
+
+/* Clock Icon */
+.icon-clock::before {
+    content: '';
+    width: 14px;
+    height: 14px;
+    background: var(--accent);
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath d='M7 0C3 0 0 3 0 7s3 7 7 7 7-3 7-7-3-7-7-7zm0 12c-3 0-5-2-5-5s2-5 5-5 5 2 5 5-2 5-5 5z'/%3E%3Cpath d='M7 3v4l3 2-1 1-3-2V3h1z'/%3E%3C/svg%3E") no-repeat center;
+    mask-size: contain;
+}
+
+/* LinkedIn Icon */
+.icon-linkedin::before {
+    content: '';
+    width: 14px;
+    height: 14px;
+    background: var(--accent);
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath d='M0 0v14h14V0H0zm3 12H1V5h2v7zm-1-8C1 4 1 3 2 3s1 1 1 2-1 1-1 1zm10 8h-2V8c0-1 0-2-1-2s-1 1-1 2v4H6V5h2v1c0-1 1-1 2-1 2 0 3 1 3 3v4z'/%3E%3C/svg%3E") no-repeat center;
+    mask-size: contain;
+}
+
+/* XING Icon */
+.icon-xing::before {
+    content: '';
+    width: 14px;
+    height: 14px;
+    background: var(--accent);
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath d='M9 0l-3 5 2 3h2l-2-3 3-5H9zM4 6L3 8h2l1-2H4zM1 4l1 2h2L3 4H1z'/%3E%3C/svg%3E") no-repeat center;
+    mask-size: contain;
+}
+
+/* GitHub Icon */
+.icon-github::before {
+    content: '';
+    width: 14px;
+    height: 14px;
+    background: var(--accent);
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath d='M7 0C3 0 0 3 0 7c0 3 2 6 5 7v-2c-1 0-2 0-2-1 0 0 0-1-1-1h3c1 0 1 1 1 1v2c3-1 5-4 5-7 0-4-3-7-7-7z'/%3E%3C/svg%3E") no-repeat center;
+    mask-size: contain;
+}
+
+/* Education Icon */
+.icon-education::before {
+    content: '';
+    width: 16px;
+    height: 12px;
+    background: var(--accent);
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 12'%3E%3Cpath d='M8 0L0 4l8 4 6-3v5h2V4L8 0zM2 6v4c0 2 3 2 6 2s6 0 6-2V6l-6 3L2 6z'/%3E%3C/svg%3E") no-repeat center;
+    mask-size: contain;
+}
+
+/* Work Icon */
+.icon-work::before {
+    content: '';
+    width: 14px;
+    height: 12px;
+    background: var(--accent);
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 12'%3E%3Cpath d='M4 0v2H1C0 2 0 3 0 3v8c0 1 1 1 1 1h12s1 0 1-1V3s0-1-1-1h-3V0H4zm2 2h2v1H6V2zm-4 3h10v5H2V5z'/%3E%3C/svg%3E") no-repeat center;
+    mask-size: contain;
+}
+
+/* Research Icon */
+.icon-research::before {
+    content: '';
+    width: 14px;
+    height: 14px;
+    background: var(--accent);
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath d='M6 0C3 0 0 3 0 6s3 6 6 6c1 0 2 0 3-1l4 4 1-1-4-4c1-1 1-2 1-3 0-3-3-6-6-6zm0 10c-2 0-4-2-4-4s2-4 4-4 4 2 4 4-2 4-4 4z'/%3E%3C/svg%3E") no-repeat center;
+    mask-size: contain;
+}
+
+/* Availability Items Styling */
+.availability-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 0.8rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.availability-item:hover {
+    background: rgba(0, 255, 65, 0.05);
+}
+
+[data-theme="light"] .availability-item:hover {
+    background: rgba(9, 105, 218, 0.05);
+}
+
+.availability-icon {
+    width: 2rem;
+    height: 2rem;
+    margin-top: 0.2rem;
+}
+
+.availability-content h4 {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: 0.3rem;
+}
+
+.availability-content p {
+    color: var(--text-dim);
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+/* Social Icons Sizing */
+.social-icon {
+    width: 2rem;
+    height: 2rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .contact-icon,
+    .social-icon {
+        width: 2rem;
+        height: 2rem;
+    }
+    
+    .availability-icon {
+        width: 1.8rem;
+        height: 1.8rem;
+    }
+    
+    .icon-email::before,
+    .icon-phone::before,
+    .icon-location::before,
+    .icon-clock::before,
+    .icon-linkedin::before,
+    .icon-xing::before,
+    .icon-github::before,
+    .icon-education::before,
+    .icon-work::before,
+    .icon-research::before {
+        transform: scale(0.9);
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-method {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.8rem;
+        align-items: center;
+    }
+    
+    .availability-item {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        gap: 0.8rem;
+    }
+    
+    .social-connect-link {
+        justify-content: center;
+    }
+}
+
+/* Alternative: Pure CSS Pixel Art Icons (if you prefer) */
+.pixel-style .icon-email::before {
+    content: '';
+    width: 16px;
+    height: 12px;
+    background: 
+        linear-gradient(var(--accent) 0 0) 0 0/16px 2px,
+        linear-gradient(var(--accent) 0 0) 0 10px/16px 2px,
+        linear-gradient(var(--accent) 0 0) 0 0/2px 12px,
+        linear-gradient(var(--accent) 0 0) 14px 0/2px 12px,
+        linear-gradient(45deg, var(--accent) 0 0) 2px 2px/6px 2px,
+        linear-gradient(-45deg, var(--accent) 0 0) 8px 2px/6px 2px;
+    background-repeat: no-repeat;
+}
+
+/* Status indicator with theme support */
+.status-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    position: relative;
+}
+
+.status-indicator.available::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: pulse-status 2s infinite;
+}
+
+.status-indicator.available::after {
+    content: '';
+    width: 12px;
+    height: 12px;
+    border: 2px solid var(--accent);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.3;
+}
+
+@keyframes pulse-status {
+    0%, 100% { 
+        opacity: 1; 
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% { 
+        opacity: 0.6; 
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+}
+
 /* Light Theme Overrides */
 [data-theme="light"] {
     --bg-dark: var(--bg-light);
