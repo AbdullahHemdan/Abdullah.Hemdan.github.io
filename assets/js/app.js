@@ -20,7 +20,11 @@ class PortfolioApp {
             pages: document.querySelectorAll('.page'),
             loadingSpinner: document.getElementById('loadingSpinner'),
             typedText: document.getElementById('typedText'),
-            cursor: document.getElementById('cursor')
+            cursor: document.getElementById('cursor'),
+            // Logo elements
+            logoArt: document.getElementById('logoArt'),
+            logoDark: document.getElementById('logoDark'),
+            logoLight: document.getElementById('logoLight')
         };
         
         // Initialize the application
@@ -35,27 +39,31 @@ class PortfolioApp {
             // Show loading spinner
             this.showLoadingSpinner();
             
-            // Step 1: Load all resources in parallel for faster loading
+            // Step 1: Initialize logo system
+            this.initializeLogos();
+
+            // Step 2: Load all resources in parallel for faster loading
             await Promise.all([
                 this.loadTranslations(),
                 this.preloadContent(),
+                this.preloadLogos(), // Preload logo images
                 this.simulateMinimumLoadTime() // Ensure smooth UX
             ]);
             
-            // Step 2: Set up initial UI state
+            // Step 3: Set up initial UI state
             this.initializeTheme();
             this.initializeLanguage();
             
-            // Step 3: Set up event handlers
+            // Step 4: Set up event handlers
             this.initializeEventHandlers();
             
-            // Step 4: Handle routing
+            // Step 5: Handle routing
             this.initializeRouting();
             
-            // Step 5: Start typing animation
+            // Step 6: Start typing animation
             this.startTypingAnimation();
             
-            // Step 6: Hide loading spinner
+            // Step 7: Hide loading spinner
             this.hideLoadingSpinner();
             
             console.log('Portfolio application initialized successfully');
@@ -97,6 +105,191 @@ class PortfolioApp {
         return new Promise(resolve => setTimeout(resolve, 1000));
     }
     
+
+    /**
+ * Initialize logo system
+ */
+initializeLogos() {
+    if (!this.elements.logoDark || !this.elements.logoLight) {
+        console.warn('Logo elements not found, skipping logo initialization');
+        return;
+    }
+    
+    // Set up logo error handling
+    this.elements.logoDark.addEventListener('error', () => {
+        console.error('Failed to load dark theme logo');
+        this.handleLogoError('dark');
+    });
+    
+    this.elements.logoLight.addEventListener('error', () => {
+        console.error('Failed to load light theme logo');
+        this.handleLogoError('light');
+    });
+    
+    // Set up logo load events
+    this.elements.logoDark.addEventListener('load', () => {
+        this.elements.logoDark.classList.remove('loading');
+    });
+    
+    this.elements.logoLight.addEventListener('load', () => {
+        this.elements.logoLight.classList.remove('loading');
+    });
+    
+    // Add loading class initially
+    this.elements.logoDark.classList.add('loading');
+    this.elements.logoLight.classList.add('loading');
+}
+
+/**
+ * Preload logo images for better performance
+ */
+async preloadLogos() {
+    const logoPromises = [];
+    
+    // Preload dark logo
+    if (this.elements.logoDark && this.elements.logoDark.src) {
+        logoPromises.push(this.preloadImage(this.elements.logoDark.src));
+    }
+    
+    // Preload light logo
+    if (this.elements.logoLight && this.elements.logoLight.src) {
+        logoPromises.push(this.preloadImage(this.elements.logoLight.src));
+    }
+    
+    try {
+        await Promise.all(logoPromises);
+        console.log('All logo images preloaded successfully');
+    } catch (error) {
+        console.warn('Some logo images failed to preload:', error);
+    }
+}
+
+/**
+ * Preload a single image
+ */
+preloadImage(src) {
+    return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.onload = resolve;
+        img.onerror = reject;
+        img.src = src;
+    });
+}
+
+/**
+ * Handle logo loading errors
+ */
+handleLogoError(theme) {
+    console.warn(`${theme} theme logo failed to load, using fallback`);
+    
+    // Create fallback text logo
+    const fallbackLogo = this.createFallbackLogo(theme);
+    
+    if (theme === 'dark' && this.elements.logoDark) {
+        this.elements.logoDark.style.display = 'none';
+        this.elements.logoDark.parentNode.appendChild(fallbackLogo);
+    } else if (theme === 'light' && this.elements.logoLight) {
+        this.elements.logoLight.style.display = 'none';
+        this.elements.logoLight.parentNode.appendChild(fallbackLogo);
+    }
+}
+
+/**
+ * Create fallback text logo
+ */
+createFallbackLogo(theme) {
+    const fallback = document.createElement('div');
+    fallback.className = `logo-fallback logo-${theme}`;
+    fallback.textContent = 'ABDULLAH';
+    
+    // Apply fallback styles
+    fallback.style.cssText = `
+        font-family: var(--font-mono);
+        font-size: clamp(2rem, 5vw, 4rem);
+        font-weight: bold;
+        color: ${theme === 'dark' ? '#00ff41' : '#0969da'};
+        text-align: center;
+        padding: 1rem;
+        letter-spacing: 0.2em;
+        text-shadow: 0 0 20px ${theme === 'dark' ? 'rgba(0, 255, 65, 0.4)' : 'rgba(9, 105, 218, 0.4)'};
+        transition: all 0.5s ease;
+        opacity: ${theme === 'dark' && this.currentTheme === 'dark' ? '1' : theme === 'light' && this.currentTheme === 'light' ? '1' : '0'};
+        visibility: ${theme === 'dark' && this.currentTheme === 'dark' ? 'visible' : theme === 'light' && this.currentTheme === 'light' ? 'visible' : 'hidden'};
+    `;
+    
+    return fallback;
+}
+
+/**
+ * Update logo visibility based on current theme
+ */
+updateLogoVisibility() {
+    if (!this.elements.logoDark || !this.elements.logoLight) return;
+    
+    if (this.currentTheme === 'dark') {
+        // Show dark logo, hide light logo
+        this.elements.logoDark.style.opacity = '1';
+        this.elements.logoDark.style.visibility = 'visible';
+        this.elements.logoLight.style.opacity = '0';
+        this.elements.logoLight.style.visibility = 'hidden';
+    } else {
+        // Show light logo, hide dark logo
+        this.elements.logoLight.style.opacity = '1';
+        this.elements.logoLight.style.visibility = 'visible';
+        this.elements.logoDark.style.opacity = '0';
+        this.elements.logoDark.style.visibility = 'hidden';
+    }
+    
+    // Update fallback logos if they exist
+    const fallbackLogos = document.querySelectorAll('.logo-fallback');
+    fallbackLogos.forEach(fallback => {
+        if (fallback.classList.contains(`logo-${this.currentTheme}`)) {
+            fallback.style.opacity = '1';
+            fallback.style.visibility = 'visible';
+        } else {
+            fallback.style.opacity = '0';
+            fallback.style.visibility = 'hidden';
+        }
+    });
+}
+
+/**
+ * Add logo interaction effects
+ */
+addLogoInteractions() {
+    if (this.elements.logoDark) {
+        this.elements.logoDark.addEventListener('click', () => {
+            this.animateLogoClick('dark');
+        });
+    }
+    
+    if (this.elements.logoLight) {
+        this.elements.logoLight.addEventListener('click', () => {
+            this.animateLogoClick('light');
+        });
+    }
+}
+
+/**
+ * Animate logo click effect
+ */
+animateLogoClick(theme) {
+    const logo = theme === 'dark' ? this.elements.logoDark : this.elements.logoLight;
+    if (!logo) return;
+    
+    // Add click animation
+    logo.style.transform = 'translateX(-50%) scale(0.95)';
+    logo.style.filter = theme === 'dark' 
+        ? 'drop-shadow(0 0 40px rgba(0, 255, 65, 0.8))'
+        : 'drop-shadow(0 0 40px rgba(9, 105, 218, 0.8))';
+    
+    setTimeout(() => {
+        logo.style.transform = 'translateX(-50%) scale(1)';
+        logo.style.filter = theme === 'dark'
+            ? 'drop-shadow(0 0 20px rgba(0, 255, 65, 0.4))'
+            : 'drop-shadow(0 0 20px rgba(9, 105, 218, 0.4))';
+    }, 150);
+}
     /**
      * Load translation files with error handling
      */
@@ -167,6 +360,9 @@ class PortfolioApp {
         if (this.elements.themeToggle) {
             this.elements.themeToggle.textContent = this.currentTheme === 'dark' ? '◐' : '◑';
         }
+        
+        // Set initial logo visibility
+        this.updateLogoVisibility();
     }
     
     /**
@@ -180,45 +376,48 @@ class PortfolioApp {
         this.updateAllTranslations();
     }
     
-    /**
-     * Set up all event handlers
-     */
-    initializeEventHandlers() {
-        // Theme toggle
-        this.elements.themeToggle?.addEventListener('click', () => {
-            this.toggleTheme();
+   /**
+ * Set up all event handlers
+ */
+initializeEventHandlers() {
+    // Theme toggle
+    this.elements.themeToggle?.addEventListener('click', () => {
+        this.toggleTheme();
+    });
+    
+    // Language toggle
+    this.elements.langToggle?.addEventListener('click', () => {
+        this.toggleLanguage();
+    });
+    
+    // Navigation handlers
+    this.elements.navCommands.forEach(command => {
+        command.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetPage = command.getAttribute('data-page');
+            this.navigateToPage(targetPage);
         });
-        
-        // Language toggle  
-        this.elements.langToggle?.addEventListener('click', () => {
-            this.toggleLanguage();
+    });
+    
+    // Quick action handlers
+    const quickBtns = document.querySelectorAll('.quick-btn[data-page]');
+    quickBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetPage = btn.getAttribute('data-page');
+            this.navigateToPage(targetPage);
         });
-        
-        // Navigation handlers
-        this.elements.navCommands.forEach(command => {
-            command.addEventListener('click', (e) => {
-                e.preventDefault();
-                const targetPage = command.getAttribute('data-page');
-                this.navigateToPage(targetPage);
-            });
-        });
-        
-        // Quick action handlers
-        const quickBtns = document.querySelectorAll('.quick-btn[data-page]');
-        quickBtns.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                const targetPage = btn.getAttribute('data-page');
-                this.navigateToPage(targetPage);
-            });
-        });
-        
-        // Handle hash changes
-        window.addEventListener('hashchange', () => {
-            const hash = window.location.hash.substring(1);
-            this.handleRouteChange(hash);
-        });
-    }
+    });
+    
+    // Handle hash changes
+    window.addEventListener('hashchange', () => {
+        const hash = window.location.hash.substring(1);
+        this.handleRouteChange(hash);
+    });
+    
+    // Add logo interactions
+    this.addLogoInteractions();
+}
     
     /**
      * Handle routing initialization
@@ -651,6 +850,9 @@ class PortfolioApp {
         this.elements.themeToggle.textContent = this.currentTheme === 'dark' ? '◐' : '◑';
         
         localStorage.setItem('portfolio-theme', this.currentTheme);
+        
+        // Update logo visibility
+        this.updateLogoVisibility();
         
         // Update terminal if active
         const terminal = window.terminalApp;
