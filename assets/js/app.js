@@ -804,19 +804,24 @@ initializeEventHandlers() {
      * Load Contact page content
      */
     async loadContactContent() {
-        try {
-            const response = await fetch('content/contact.json');
-            if (response.ok) {
-                const data = await response.json();
-                this.renderContactContent(data);
-            } else {
-                this.renderDefaultContactContent();
-            }
-        } catch (error) {
-            console.error('Error loading contact content:', error);
+    try {
+        console.log('Loading contact content...'); // Debug line
+        const response = await fetch('content/contact.json');
+        console.log('Response:', response); // Debug line
+        
+        if (response.ok) {
+            const data = await response.json();
+            console.log('Contact data loaded:', data); // Debug line
+            this.renderContactContent(data);
+        } else {
+            console.log('Failed to load contact.json, using default content');
             this.renderDefaultContactContent();
         }
+    } catch (error) {
+        console.error('Error loading contact content:', error);
+        this.renderDefaultContactContent();
     }
+}
 
     /**
      * Render Contact content
