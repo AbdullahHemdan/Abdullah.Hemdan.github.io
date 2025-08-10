@@ -800,11 +800,379 @@ initializeEventHandlers() {
         }
     }
     
+    /**
+     * Load Contact page content
+     */
     async loadContactContent() {
-        // Similar implementation for contact
+        try {
+            const response = await fetch('content/contact.json');
+            if (response.ok) {
+                const data = await response.json();
+                this.renderContactContent(data);
+            } else {
+                this.renderDefaultContactContent();
+            }
+        } catch (error) {
+            console.error('Error loading contact content:', error);
+            this.renderDefaultContactContent();
+        }
+    }
+
+    /**
+     * Render Contact content
+     */
+    renderContactContent(data) {
         const container = document.getElementById('contactContent');
-        if (container) {
-            container.innerHTML = '<div class="content-section"><p>Loading contact information...</p></div>';
+        if (!container || !data) return;
+        
+        const currentLang = this.currentLang;
+        const content = data[currentLang] || data.en || {};
+        
+        const html = `
+            <div class="contact-layout">
+                <!-- Contact Information -->
+                <div class="contact-info-section">
+                    <div class="contact-card">
+                        <h3>Get In Touch</h3>
+                        <div class="contact-methods">
+                            <div class="contact-method">
+                                <div class="contact-icon icon-email"></div>
+                                <div class="contact-details">
+                                    <h4>Email</h4>
+                                    <a href="mailto:${content.contact_info?.email || 'Abdullah.Hemdan@outlook.com'}">${content.contact_info?.email || 'Abdullah.Hemdan@outlook.com'}</a>
+                                    <p>Best for detailed project discussions</p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-method">
+                                <div class="contact-icon icon-phone"></div>
+                                <div class="contact-details">
+                                    <h4>Phone</h4>
+                                    <a href="tel:${content.contact_info?.phone || '+4915207547899'}">${content.contact_info?.phone || '+49 152 07547899'}</a>
+                                    <p>Available for urgent matters</p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-method">
+                                <div class="contact-icon icon-location"></div>
+                                <div class="contact-details">
+                                    <h4>Location</h4>
+                                    <span>${content.contact_info?.location || 'Köthen, Sachsen-Anhalt, Germany'}</span>
+                                    <p>Open to remote collaboration</p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-method">
+                                <div class="contact-icon icon-clock"></div>
+                                <div class="contact-details">
+                                    <h4>Response Time</h4>
+                                    <span>Within 24 hours</span>
+                                    <p>Monday-Friday, 9:00-17:00 CET</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Social Links -->
+                    <div class="contact-card">
+                        <h3>Connect With Me</h3>
+                        <div class="social-connect">
+                            <a href="${content.contact_info?.linkedin || 'https://linkedin.com/in/abdullah-hemdan'}" class="social-connect-link" target="_blank">
+                                <div class="social-icon icon-linkedin"></div>
+                                <div class="social-details">
+                                    <h4>LinkedIn</h4>
+                                    <p>Professional networking</p>
+                                </div>
+                            </a>
+                            
+                            <a href="${content.contact_info?.xing || 'https://xing.com/profile/Abdullah_Hemdan'}" class="social-connect-link" target="_blank">
+                                <div class="social-icon icon-xing"></div>
+                                <div class="social-details">
+                                    <h4>XING</h4>
+                                    <p>German professional network</p>
+                                </div>
+                            </a>
+                            
+                            <a href="${content.contact_info?.github || 'https://github.com/AbdullahHemdan'}" class="social-connect-link" target="_blank">
+                                <div class="social-icon icon-github"></div>
+                                <div class="social-details">
+                                    <h4>GitHub</h4>
+                                    <p>View my code repositories</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Specializations -->
+                    ${content.specializations ? `
+                    <div class="contact-card">
+                        <h3>Specializations</h3>
+                        <div class="specializations-list">
+                            ${content.specializations.map(spec => `
+                                <div class="specialization-item">
+                                    <h4>${spec.title}</h4>
+                                    <p>${spec.description}</p>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                    ` : ''}
+                    
+                    <!-- Availability -->
+                    <div class="contact-card availability-card">
+                        <h3>Current Availability</h3>
+                        <div class="availability-status">
+                            <div class="status-indicator available"></div>
+                            <span>${content.contact_info?.availability || 'Available for opportunities'}</span>
+                        </div>
+                        ${content.opportunities ? `
+                        <div class="availability-details">
+                            ${content.opportunities.types.map(type => `
+                                <div class="availability-item">
+                                    <div class="availability-icon ${type.type.includes('Internship') || type.type.includes('Praktikum') ? 'icon-education' : type.type.includes('Working') || type.type.includes('Werkstudent') ? 'icon-work' : 'icon-research'}"></div>
+                                    <div class="availability-content">
+                                        <h4>${type.type}</h4>
+                                        <p>${type.description}</p>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                        ` : ''}
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="contact-form-section">
+                    <div class="contact-form-card">
+                        <h3>Send Me a Message</h3>
+                        <p class="form-description">Have a project in mind? Let's discuss how we can work together to bring your ideas to life.</p>
+                        
+                        <form id="contactForm" class="contact-form" novalidate>
+                            <div class="form-group">
+                                <label for="fullName">Full Name *</label>
+                                <input type="text" id="fullName" name="fullName" required>
+                                <span class="error-message" id="fullNameError"></span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required>
+                                <span class="error-message" id="emailError"></span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="company">Company/Organization</label>
+                                <input type="text" id="company" name="company">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="projectType">Project Type *</label>
+                                <select id="projectType" name="projectType" required>
+                                    <option value="">Select project type</option>
+                                    <option value="internship">Internship Opportunity</option>
+                                    <option value="working-student">Working Student Position</option>
+                                    <option value="consulting">Medical Device Consulting</option>
+                                    <option value="software-development">Software Development</option>
+                                    <option value="training">Training & Education</option>
+                                    <option value="research">Research Collaboration</option>
+                                    <option value="other">Other</option>
+                                </select>
+                                <span class="error-message" id="projectTypeError"></span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="budget">Budget Range</label>
+                                <select id="budget" name="budget">
+                                    <option value="">Select budget range</option>
+                                    <option value="under-5k">Under €5,000</option>
+                                    <option value="5k-15k">€5,000 - €15,000</option>
+                                    <option value="15k-30k">€15,000 - €30,000</option>
+                                    <option value="30k-plus">€30,000+</option>
+                                    <option value="negotiable">Negotiable</option>
+                                    <option value="na">Not Applicable</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="timeline">Project Timeline</label>
+                                <select id="timeline" name="timeline">
+                                    <option value="">Select timeline</option>
+                                    <option value="asap">As soon as possible</option>
+                                    <option value="1-month">Within 1 month</option>
+                                    <option value="2-3-months">2-3 months</option>
+                                    <option value="3-6-months">3-6 months</option>
+                                    <option value="6-plus-months">6+ months</option>
+                                    <option value="flexible">Flexible</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Project Description *</label>
+                                <textarea id="message" name="message" rows="6" required placeholder="Please describe your project, requirements, and any specific goals you'd like to achieve..."></textarea>
+                                <span class="error-message" id="messageError"></span>
+                            </div>
+                            
+                            <div class="form-group checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="newsletter" name="newsletter">
+                                    <span class="checkmark"></span>
+                                    I'd like to receive occasional updates about your work and insights
+                                </label>
+                            </div>
+                            
+                            <div class="form-group checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="privacy" name="privacy" required>
+                                    <span class="checkmark"></span>
+                                    I agree to the processing of my personal data for communication purposes *
+                                </label>
+                                <span class="error-message" id="privacyError"></span>
+                            </div>
+                            
+                            <button type="submit" class="submit-btn" id="submitBtn">
+                                <span class="btn-text">Send Message</span>
+                                <span class="btn-loading" style="display: none;">
+                                    <span class="loading-spinner"></span>
+                                    Sending...
+                                </span>
+                            </button>
+                            
+                            <div class="form-status" id="formStatus" style="display: none;"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        container.innerHTML = html;
+        
+        // Initialize contact form after content is loaded
+        this.initializeContactForm();
+    }
+
+    /**
+     * Render default Contact content when JSON fails to load
+     */
+    renderDefaultContactContent() {
+        const container = document.getElementById('contactContent');
+        if (!container) return;
+        
+        const isGerman = this.currentLang === 'de';
+        
+        container.innerHTML = `
+            <div class="contact-layout">
+                <div class="contact-info-section">
+                    <div class="contact-card">
+                        <h3>${isGerman ? 'Kontakt aufnehmen' : 'Get In Touch'}</h3>
+                        <div class="contact-methods">
+                            <div class="contact-method">
+                                <div class="contact-icon icon-email"></div>
+                                <div class="contact-details">
+                                    <h4>Email</h4>
+                                    <a href="mailto:Abdullah.Hemdan@outlook.com">Abdullah.Hemdan@outlook.com</a>
+                                    <p>${isGerman ? 'Am besten für detaillierte Projektdiskussionen' : 'Best for detailed project discussions'}</p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-method">
+                                <div class="contact-icon icon-phone"></div>
+                                <div class="contact-details">
+                                    <h4>${isGerman ? 'Telefon' : 'Phone'}</h4>
+                                    <a href="tel:+4915207547899">+49 152 07547899</a>
+                                    <p>${isGerman ? 'Verfügbar für dringende Angelegenheiten' : 'Available for urgent matters'}</p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-method">
+                                <div class="contact-icon icon-location"></div>
+                                <div class="contact-details">
+                                    <h4>${isGerman ? 'Standort' : 'Location'}</h4>
+                                    <span>${isGerman ? 'Köthen, Sachsen-Anhalt, Deutschland' : 'Köthen, Sachsen-Anhalt, Germany'}</span>
+                                    <p>${isGerman ? 'Offen für Remote-Zusammenarbeit' : 'Open to remote collaboration'}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-card availability-card">
+                        <h3>${isGerman ? 'Aktuelle Verfügbarkeit' : 'Current Availability'}</h3>
+                        <div class="availability-status">
+                            <div class="status-indicator available"></div>
+                            <span>${isGerman ? 'Verfügbar für Gelegenheiten' : 'Available for opportunities'}</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form-section">
+                    <div class="contact-form-card">
+                        <h3>${isGerman ? 'Nachricht senden' : 'Send Me a Message'}</h3>
+                        <p class="form-description">${isGerman ? 'Haben Sie ein Projekt im Kopf? Lassen Sie uns besprechen, wie wir zusammenarbeiten können.' : 'Have a project in mind? Let\'s discuss how we can work together.'}</p>
+                        
+                        <form id="contactForm" class="contact-form">
+                            <div class="form-group">
+                                <label for="fullName">${isGerman ? 'Vollständiger Name' : 'Full Name'} *</label>
+                                <input type="text" id="fullName" name="fullName" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">${isGerman ? 'E-Mail-Adresse' : 'Email Address'} *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">${isGerman ? 'Nachricht' : 'Message'} *</label>
+                                <textarea id="message" name="message" rows="6" required placeholder="${isGerman ? 'Beschreiben Sie Ihr Projekt...' : 'Describe your project...'}"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="submit-btn">
+                                ${isGerman ? 'Nachricht senden' : 'Send Message'}
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        // Initialize contact form after content is loaded
+        this.initializeContactForm();
+    }
+
+    /**
+     * Initialize contact form functionality
+     */
+    initializeContactForm() {
+        const contactForm = document.getElementById('contactForm');
+        
+        if (contactForm) {
+            // Remove existing event listeners to prevent duplicates
+            const newForm = contactForm.cloneNode(true);
+            contactForm.parentNode.replaceChild(newForm, contactForm);
+            
+            // Add new event listener
+            newForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Basic form handling
+                const formStatus = document.getElementById('formStatus');
+                if (formStatus) {
+                    formStatus.textContent = 'Thank you for your message! I\'ll get back to you within 24 hours.';
+                    formStatus.className = 'form-status success';
+                    formStatus.style.display = 'block';
+                    
+                    // Reset form
+                    newForm.reset();
+                    
+                    // Hide message after 5 seconds
+                    setTimeout(() => {
+                        formStatus.style.display = 'none';
+                    }, 5000);
+                }
+            });
         }
     }
     
