@@ -135,7 +135,7 @@ nav {
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 1.5rem;
+    gap: 1rem; /* يمكنك تعديل المسافة بين الروابط هنا */
 }
 
 .nav-command {
@@ -233,12 +233,14 @@ main {
 }
 
 .logo-img {
-    max-width: 100%;
+    width: 100%; /* اجعل الصورة تملأ الحاوية الخاصة بها */
+    max-width: 750px; /* حد أقصى للعرض ليتناسب مع المحتوى السفلي */
     height: auto;
-    width: clamp(250px, 35vw, 450px); /* Slightly smaller for better centering */
     transition: all 0.5s ease;
     display: block;
     margin: 0 auto;
+    user-select: none;
+    -webkit-user-drag: none;
 }
 
 /* Dark theme logo - visible by default */
@@ -283,11 +285,14 @@ main {
 }
 
 [data-theme="dark"] .logo-dark:hover {
-    filter: drop-shadow(0 0 30px rgba(0, 255, 65, 0.6));
+    /* تحويل اللون الأخضر إلى أبيض */
+    filter: brightness(0) invert(1) drop-shadow(0 0 15px rgba(255, 255, 255, 0.7));
+    transform: scale(1.05);
 }
 
 [data-theme="light"] .logo-light:hover {
-    filter: drop-shadow(0 0 30px rgba(9, 105, 218, 0.6));
+    /* تحويل اللون الأزرق إلى أسود */
+    filter: grayscale(1) brightness(0) drop-shadow(0 0 15px rgba(0, 0, 0, 0.5));
     transform: scale(1.05);
 }
 
@@ -1771,11 +1776,17 @@ main {
 }
 
 .nav-logo-img {
-    height: 35px; /* يمكنك تعديل الحجم هنا */
+    height: 45px; /* تم تكبير الحجم */
     width: auto;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, filter 0.3s ease; /* تحديد الخصائص للإصلاح */
+    user-select: none; /* لمنع التحديد */
+    -webkit-user-drag: none; /* لمنع السحب */
 }
-
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem; /* المسافة بين اللوجو والروابط */
+}
 .nav-logo-light {
     display: none;
 }
@@ -1787,7 +1798,10 @@ main {
 [data-theme="light"] .nav-logo-light {
     display: block;
 }
-
+.logo-img {
+    user-select: none;
+    -webkit-user-drag: none;
+}
 /* Hover and Active effect for the logo */
 .logo-link:hover .nav-logo-img,
 .logo-link.active .nav-logo-img {

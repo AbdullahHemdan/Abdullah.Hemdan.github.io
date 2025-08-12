@@ -7,6 +7,7 @@ class PortfolioApp {
     
     constructor() {
         // Initialize application state
+        this.typingTimeoutId = null; // أضف هذا السطر
         this.currentLang = localStorage.getItem('portfolio-lang') || 'en';
         this.currentTheme = localStorage.getItem('portfolio-theme') || 'dark';
         this.translations = {};
@@ -282,15 +283,15 @@ addLogoInteractions() {
 animateLogoClick(theme) {
     const logo = theme === 'dark' ? this.elements.logoDark : this.elements.logoLight;
     if (!logo) return;
-    
+
     // Add click animation
-    logo.style.transform = 'translateX(-50%) scale(0.95)';
-    logo.style.filter = theme === 'dark' 
+    logo.style.transform = 'scale(0.95)'; // تم حذف حركة اليسار
+    logo.style.filter = theme === 'dark'
         ? 'drop-shadow(0 0 40px rgba(0, 255, 65, 0.8))'
         : 'drop-shadow(0 0 40px rgba(9, 105, 218, 0.8))';
-    
+
     setTimeout(() => {
-        logo.style.transform = 'translateX(-50%) scale(1)';
+        logo.style.transform = 'scale(1)'; // العودة للحجم الطبيعي
         logo.style.filter = theme === 'dark'
             ? 'drop-shadow(0 0 20px rgba(0, 255, 65, 0.4))'
             : 'drop-shadow(0 0 20px rgba(9, 105, 218, 0.4))';
@@ -1386,7 +1387,12 @@ initializeEventHandlers() {
      */
     startTypingAnimation() {
         if (!this.elements.typedText || !this.elements.cursor) return;
-        
+    
+        // إيقاف الأنيميشن السابق إذا كان يعمل
+        if (this.typingTimeoutId) {
+            clearTimeout(this.typingTimeoutId);
+        }
+    
         const messages = this.currentLang === 'de' ? [
             'Willkommen zu meinem Portfolio',
             'Biomedizin-Ingenieur',
@@ -1395,21 +1401,21 @@ initializeEventHandlers() {
         ] : [
             'Welcome to my portfolio',
             'Biomedical Engineer',
-            'Software Developer', 
+            'Software Developer',
             'Healthcare Innovation'
         ];
-        
+    
         let messageIndex = 0;
         let charIndex = 0;
         let isDeleting = false;
-        
+    
         const typeSpeed = 100;
         const deleteSpeed = 50;
         const pauseBetweenMessages = 2000;
-        
+    
         const type = () => {
             const currentMessage = messages[messageIndex];
-            
+    
             if (isDeleting) {
                 this.elements.typedText.textContent = currentMessage.substring(0, charIndex - 1);
                 charIndex--;
@@ -1417,9 +1423,9 @@ initializeEventHandlers() {
                 this.elements.typedText.textContent = currentMessage.substring(0, charIndex + 1);
                 charIndex++;
             }
-            
+    
             let speed = isDeleting ? deleteSpeed : typeSpeed;
-            
+    
             if (!isDeleting && charIndex === currentMessage.length) {
                 speed = pauseBetweenMessages;
                 isDeleting = true;
@@ -1427,17 +1433,18 @@ initializeEventHandlers() {
                 isDeleting = false;
                 messageIndex = (messageIndex + 1) % messages.length;
             }
-            
-            setTimeout(type, speed);
+    
+            // تخزين معرّف المؤقت لإلغائه لاحقاً
+            this.typingTimeoutId = setTimeout(type, speed);
         };
-        
-        // Clear existing text and start animation
+    
+        // مسح النص القديم وبدء الأنيميشن
         this.elements.typedText.textContent = '';
         charIndex = 0;
         messageIndex = 0;
         isDeleting = false;
-        
-        setTimeout(type, 500);
+    
+        this.typingTimeoutId = setTimeout(type, 500);
     }
     
     /**
