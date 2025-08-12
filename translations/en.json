@@ -2,7 +2,6 @@
   "nav": {
     "home": "[ home ]",
     "about": "[ about ]",
-    "experience": "[ experience ]",
     "projects": "[ projects ]",
     "services": "[ services ]",
     "blog": "[ blog ]",
@@ -34,10 +33,7 @@
     "title3": "Graduate Student",
     "location": "Köthen, Sachsen-Anhalt, Germany"
   },
-  "experience": {
-    "title": "Professional Experience",
-    "subtitle": "Hands-on biomedical engineering with measurable impact"
-  },
+  
   "projects": {
     "title": "Projects & Development",
     "subtitle": "Code-driven solutions for healthcare innovation"

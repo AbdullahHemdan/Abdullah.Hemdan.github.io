@@ -505,7 +505,6 @@ initializeEventHandlers() {
     async loadPageContent(pageName) {
         const contentLoaders = {
             'about': () => this.loadAboutContent(),
-            'experience': () => this.loadExperienceContent(),
             'projects': () => this.loadProjectsContent(),
             'services': () => this.loadServicesContent(),
             'contact': () => this.loadContactContent(),
@@ -528,50 +527,48 @@ initializeEventHandlers() {
      */
     async loadAboutContent() {
         try {
-            const response = await fetch('content/about.json');
-            if (response.ok) {
-                const data = await response.json();
-                this.renderAboutContent(data);
+            const [aboutResponse, experienceResponse] = await Promise.all([
+                fetch('content/about.json'),
+                fetch('content/experience.json')
+            ]);
+    
+            const aboutData = aboutResponse.ok ? await aboutResponse.json() : null;
+            const experienceData = experienceResponse.ok ? await experienceResponse.json() : null;
+    
+            if (aboutData) {
+                this.renderAboutContent(aboutData, experienceData);
             } else {
                 this.renderDefaultAboutContent();
             }
+    
         } catch (error) {
-            console.error('Error loading about content:', error);
+            console.error('Error loading about/experience content:', error);
             this.renderDefaultAboutContent();
+            this.showContentError('about');
         }
     }
     
     /**
      * Render About content
      */
-    renderAboutContent(data) {
-        const container = document.getElementById('aboutContent');
-        if (!container || !data) return;
-        
+    renderAboutContent(aboutData, experienceData) {
+        const aboutContainer = document.getElementById('aboutContent');
+        const experienceContainer = document.getElementById('experienceContent');
+        if (!aboutContainer || !experienceContainer || !aboutData) return;
+    
         const currentLang = this.currentLang;
-        const content = data[currentLang] || data.en || {};
-        
-        container.innerHTML = `
+        const aboutContent = aboutData[currentLang] || aboutData.en || {};
+        const experienceContent = experienceData ? (experienceData[currentLang] || experienceData.en || {}) : {};
+    
+        // Render About Section
+        aboutContainer.innerHTML = `
             <div class="content-section">
-                <h3>${content.bio_title || 'Professional Summary'}</h3>
-                ${content.bio_paragraphs ? content.bio_paragraphs.map(p => `<p>${p}</p>`).join('') : '<p>Loading content...</p>'}
+                <h3>${aboutContent.bio_title || 'Professional Summary'}</h3>
+                ${aboutContent.bio_paragraphs ? aboutContent.bio_paragraphs.map(p => `<p>${p}</p>`).join('') : '<p>Loading content...</p>'}
             </div>
-            
             <div class="content-section">
-                <h3>${content.education_title || 'Education'}</h3>
-                ${content.education ? content.education.map(edu => `
-                    <div class="timeline-item">
-                        <div class="timeline-date">${edu.period}</div>
-                        <div class="timeline-title">${edu.degree}</div>
-                        <div class="timeline-company">${edu.institution}</div>
-                        <div class="timeline-description">${edu.description}</div>
-                    </div>
-                `).join('') : '<p>Loading content...</p>'}
-            </div>
-            
-            <div class="content-section">
-                <h3>${content.skills_title || 'Technical Skills'}</h3>
-                ${content.skills ? Object.entries(content.skills).map(([category, skills]) => `
+                <h3>${aboutContent.skills_title || 'Technical Skills'}</h3>
+                ${aboutContent.skills ? Object.entries(aboutContent.skills).map(([category, skills]) => `
                     <div class="skill-category">
                         <h4>${category}</h4>
                         <div class="skills-list">
@@ -581,6 +578,29 @@ initializeEventHandlers() {
                 `).join('') : '<p>Loading content...</p>'}
             </div>
         `;
+    
+        // Render Experience Section
+        let experienceHtml = '';
+        if (experienceContent.experience && experienceContent.experience.length > 0) {
+            const educationTitle = aboutContent.education_title || 'Education & Qualifications';
+            experienceHtml += `<div class="content-section"><h3>${educationTitle}</h3>`;
+            experienceContent.experience.forEach(job => {
+                experienceHtml += `
+                    <div class="timeline-item">
+                        <div class="timeline-date">${job.period}</div>
+                        <div class="timeline-title">${job.position}</div>
+                        <div class="timeline-company">${job.company} - ${job.location}</div>
+                        <div class="timeline-description">
+                            <ul>
+                                ${job.key_achievements.map(ach => `<li>${ach}</li>`).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                `;
+            });
+            experienceHtml += '</div>';
+        }
+        experienceContainer.innerHTML = experienceHtml;
     }
     
     /**
@@ -784,53 +804,7 @@ initializeEventHandlers() {
         });
     }
 
-    async loadExperienceContent() {
-        try {
-            const response = await fetch('content/experience.json');
-            if (response.ok) {
-                const data = await response.json();
-                this.renderExperienceContent(data);
-            } else {
-                this.showContentError('experience');
-            }
-        } catch (error) {
-            console.error('Error loading experience content:', error);
-            this.showContentError('experience');
-        }
-    }
-    renderExperienceContent(data) {
-        const container = document.getElementById('experienceContent');
-        if (!container || !data) return;
     
-        const currentLang = this.currentLang;
-        const content = data[currentLang] || data.en || {};
-    
-        let html = '';
-        if (content.experience && content.experience.length > 0) {
-            content.experience.forEach(job => {
-                html += `
-                    <div class="content-section">
-                        <div class="timeline-item">
-                            <div class="timeline-date">${job.period}</div>
-                            <h3 class="timeline-title">${job.position}</h3>
-                            <div class="timeline-company">${job.company} - ${job.location}</div>
-                            <p class="timeline-description">${job.description}</p>
-                            <h4>Key Achievements:</h4>
-                            <ul>
-                                ${job.key_achievements.map(ach => `<li>${ach}</li>`).join('')}
-                            </ul>
-                            <div class="skills-list" style="margin-top: 1rem;">
-                                ${job.technologies.map(tech => `<span class="skill-tag">${tech}</span>`).join('')}
-                            </div>
-                        </div>
-                    </div>
-                `;
-            });
-        } else {
-            html = '<p>Experience content is not available.</p>';
-        }
-        container.innerHTML = html;
-    }
     
     async loadProjectsContent() {
         try {

@@ -2,7 +2,6 @@
   "nav": {
     "home": "[ startseite ]",
     "about": "[ über mich ]",
-    "experience": "[ erfahrung ]",
     "projects": "[ projekte ]",
     "services": "[ dienstleistungen ]",
     "blog": "[ blog ]",
@@ -34,10 +33,7 @@
     "title3": "Masterstudent",
     "location": "Köthen, Sachsen-Anhalt, Deutschland"
   },
-  "experience": {
-    "title": "Berufserfahrung",
-    "subtitle": "Praktische Biomedizintechnik mit messbaren Auswirkungen"
-  },
+  
   "projects": {
     "title": "Projekte & Entwicklung",
     "subtitle": "Code-getriebene Lösungen für Innovationen im Gesundheitswesen"
