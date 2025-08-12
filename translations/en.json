@@ -1,11 +1,10 @@
 {
   "nav": {
-    "home": "[ home ]",
-    "about": "[ about ]",
-    "projects": "[ projects ]",
-    "services": "[ services ]",
-    "blog": "[ blog ]",
-    "contact": "[ contact ]"
+    "about": "about",
+    "projects": "projects",
+    "services": "services",
+    "blog": "blog",
+    "contact": "contact"
   },
   "home": {
     "subtitle": "Köthen, Sachsen-Anhalt, Germany",

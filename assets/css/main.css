@@ -140,10 +140,9 @@ nav {
 
 .nav-command {
     background: transparent;
-    border: 1px solid var(--border);
+    border: none; /* تمت إزالة الإطار */
     color: var(--text-secondary);
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
+    padding: 0.5rem 0.75rem; /* تم تعديل الحشوة */
     cursor: pointer;
     font-family: inherit;
     font-size: 0.9rem;
@@ -159,9 +158,11 @@ nav {
     box-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
 }
 
-[data-theme="light"] .nav-command:hover,
-[data-theme="light"] .nav-command.active {
-    box-shadow: 0 0 10px rgba(9, 105, 218, 0.3);
+.nav-command:hover,
+.nav-command.active {
+    color: var(--accent);
+    transform: translateY(-2px); /* تأثير بسيط عند المرور */
+    box-shadow: none; /* تمت إزالة الظل */
 }
 
 .nav-controls {
@@ -1760,4 +1761,36 @@ main {
 .ascii-art,
 .ascii-content {
     display: none !important;
+}
+/* New Nav Logo Styles */
+.logo-link {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    border: none;
+}
+
+.nav-logo-img {
+    height: 35px; /* يمكنك تعديل الحجم هنا */
+    width: auto;
+    transition: all 0.3s ease;
+}
+
+.nav-logo-light {
+    display: none;
+}
+
+[data-theme="light"] .nav-logo-dark {
+    display: none;
+}
+
+[data-theme="light"] .nav-logo-light {
+    display: block;
+}
+
+/* Hover and Active effect for the logo */
+.logo-link:hover .nav-logo-img,
+.logo-link.active .nav-logo-img {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 8px var(--accent));
 }
