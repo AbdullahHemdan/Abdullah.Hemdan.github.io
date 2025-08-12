@@ -785,21 +785,106 @@ initializeEventHandlers() {
     }
 
     async loadExperienceContent() {
-        // Similar implementation for experience
-        const container = document.getElementById('experienceContent');
-        if (container) {
-            container.innerHTML = '<div class="content-section"><p>Loading professional experience...</p></div>';
+        try {
+            const response = await fetch('content/experience.json');
+            if (response.ok) {
+                const data = await response.json();
+                this.renderExperienceContent(data);
+            } else {
+                this.showContentError('experience');
+            }
+        } catch (error) {
+            console.error('Error loading experience content:', error);
+            this.showContentError('experience');
         }
+    }
+    renderExperienceContent(data) {
+        const container = document.getElementById('experienceContent');
+        if (!container || !data) return;
+    
+        const currentLang = this.currentLang;
+        const content = data[currentLang] || data.en || {};
+    
+        let html = '';
+        if (content.experience && content.experience.length > 0) {
+            content.experience.forEach(job => {
+                html += `
+                    <div class="content-section">
+                        <div class="timeline-item">
+                            <div class="timeline-date">${job.period}</div>
+                            <h3 class="timeline-title">${job.position}</h3>
+                            <div class="timeline-company">${job.company} - ${job.location}</div>
+                            <p class="timeline-description">${job.description}</p>
+                            <h4>Key Achievements:</h4>
+                            <ul>
+                                ${job.key_achievements.map(ach => `<li>${ach}</li>`).join('')}
+                            </ul>
+                            <div class="skills-list" style="margin-top: 1rem;">
+                                ${job.technologies.map(tech => `<span class="skill-tag">${tech}</span>`).join('')}
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+        } else {
+            html = '<p>Experience content is not available.</p>';
+        }
+        container.innerHTML = html;
     }
     
     async loadProjectsContent() {
-        // Similar implementation for projects
-        const container = document.getElementById('projectsContent');
-        if (container) {
-            container.innerHTML = '<div class="content-section"><p>Loading projects...</p></div>';
+        try {
+            const response = await fetch('content/projects.json');
+            if (response.ok) {
+                const data = await response.json();
+                this.renderProjectsContent(data);
+            } else {
+                this.showContentError('projects');
+            }
+        } catch (error) {
+            console.error('Error loading projects content:', error);
+            this.showContentError('projects');
         }
     }
+    renderProjectsContent(data) {
+        const container = document.getElementById('projectsContent');
+        if (!container || !data) return;
     
+        const currentLang = this.currentLang;
+        const content = data[currentLang] || data.en || {};
+    
+        let html = '';
+        if (content.featured_projects && content.featured_projects.length > 0) {
+            html += '<div class="services-grid">'; // Reusing services grid style for cards
+            content.featured_projects.forEach(project => {
+                html += `
+                    <div class="service-card">
+                        <h4>${project.title}</h4>
+                        <p class="service-description">${project.description}</p>
+                        <h5>Key Features:</h5>
+                        <ul>
+                            ${project.key_features.map(feature => `<li>${feature}</li>`).join('')}
+                        </ul>
+                        <div class="skills-list" style="margin-top: 1rem;">
+                            ${project.technologies.map(tech => `<span class="skill-tag">${tech}</span>`).join('')}
+                        </div>
+                        <div class="service-pricing" style="border-top: 1px solid var(--border); margin-top: 1rem; padding-top: 1rem;">
+                            ${project.results.map(result => `
+                                <div>
+                                    <strong class="price">${result.metric}</strong>
+                                    <span class="duration">${result.description}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            });
+            html += '</div>';
+        } else {
+            html = '<p>Projects content is not available.</p>';
+        }
+        container.innerHTML = html;
+    }
     /**
      * Load Contact page content
      */
