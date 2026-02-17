@@ -38,7 +38,7 @@ class PortfolioApp {
     async init() {
         try {
             // Show loading spinner
-            this.showLoadingSpinner();
+            //this.showLoadingSpinner();
             
             // Step 1: Initialize logo system
             this.initializeLogos();
@@ -48,7 +48,7 @@ class PortfolioApp {
                 this.loadTranslations(),
                 this.preloadContent(),
                 this.preloadLogos(), // Preload logo images
-                this.simulateMinimumLoadTime() // Ensure smooth UX
+                //this.simulateMinimumLoadTime() // Ensure smooth UX
             ]);
             
             // Step 3: Set up initial UI state
@@ -65,13 +65,13 @@ class PortfolioApp {
             this.startTypingAnimation();
             
             // Step 7: Hide loading spinner
-            this.hideLoadingSpinner();
+            //this.hideLoadingSpinner();
             
             console.log('Portfolio application initialized successfully');
             
         } catch (error) {
             console.error('Error initializing application:', error);
-            this.hideLoadingSpinner();
+            //this.hideLoadingSpinner();
         }
     }
     
